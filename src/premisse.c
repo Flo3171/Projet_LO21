@@ -9,10 +9,7 @@
  * 
  */
 
-#include "stdio.h"
-#include "stdlib.h"
-#include "premisse.h"
-#include "proposition.h"
+#include "main.h"
 
 Premisse* newPremisse()
 {

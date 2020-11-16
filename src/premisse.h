@@ -1,5 +1,5 @@
-#ifndef _PREMISSE_H_
-#define _PREMISSE_H_
+#ifndef PREMISSE_H_
+#define PREMISSE_H_
 
 /**
  * @file premisse.h

@@ -1,5 +1,5 @@
-#ifndef _PROPOSITION_H_
-#define _PROPOSITION_H_
+#ifndef PROPOSITION_H_
+#define PROPOSITION_H_
 
 
 

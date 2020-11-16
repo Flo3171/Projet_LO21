@@ -1,5 +1,5 @@
-#ifndef _REGLE_H_
-#define _REGLE_H_
+#ifndef REGLE_H_
+#define REGLE_H_
 
 /**
  * @file regle.h
@@ -25,7 +25,7 @@
 typedef struct Regle
 {
     Premisse*        premisse;   /*! pointeur sur la liste chainé contenant les Proposition qui forment la prémisse de la règle*/
-    Proposition*    conclusion; /*! Proposition qui est conclue grâce à la règle*/
+    Proposition    conclusion; /*! Proposition qui est conclue grâce à la règle*/
 }Regle;
 
 

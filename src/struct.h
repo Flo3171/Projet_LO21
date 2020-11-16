@@ -1,5 +1,5 @@
-#ifndef _STRUCT_H_
-#define _STRUCT_H_
+#ifndef STRUCT_H_
+#define STRUCT_H_
 
 /**
  * @file struct.h

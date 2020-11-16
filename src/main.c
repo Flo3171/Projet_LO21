@@ -6,13 +6,8 @@
  * @date 2020-11-14
  *  
 */
-#include "stdlib.h"
-#include "stdio.h"
-#include "proposition.h"
-#include "premisse.h"
-#include "regle.h"
-#include <malloc.h>
 
+#include "main.h"
 
 /**
  * @brief fonction main qui appelle toutes les autres fonction du programme
