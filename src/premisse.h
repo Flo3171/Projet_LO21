@@ -22,7 +22,7 @@
  */
 typedef struct PremisseElem
 {
-    Proposition         *valeur;        /*! valeur de l'élément de la liste chainé */
+    Proposition         valeur;        /*! valeur de l'élément de la liste chainé */
     struct PremisseElem *elemSuivant;   /*! Pointeur sur l'élément suivant dans la liste chainée */
 }PremisseElem;
 
@@ -65,6 +65,25 @@ void deletePremisse(Premisse* premisseToDelete);
  * @author Florian CLOAREC
  */
 void deleteHeadPremisse(Premisse* premisseToDelete);
+
+
+/**
+ * @brief ajoute une proposition en queue à la liste chianée de proposition qu'est la prémisse
+ * 
+ * @param premisse : prémisse à qui on veut ajouter une proposition
+ * @param proposition : proposotion à ajouter
+ * @author Florian CLOAREC
+ */
+void addTailPremisse(Premisse *premisse, Proposition proposition);
+
+
+/**
+ * @brief affiche une Prémisse de manière récursive
+ * 
+ * @param elem : pointeur sur le premier élément de la prémisse à afficher
+ * @author Florian CLOAREC
+ */
+void affichePremisse(PremisseElem *elem);
 
 
 #endif

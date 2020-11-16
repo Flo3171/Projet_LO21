@@ -27,6 +27,7 @@ void deletePremisse(Premisse* premisseToDelete)
     {
         deleteHeadPremisse(premisseToDelete);
     }
+    free(premisseToDelete);
     
 }
 
@@ -40,6 +41,49 @@ void deleteHeadPremisse(Premisse* premisseToDelete)
         {
             premisseToDelete->dernierElem == NULL;
         }
+        deleteProposition(aSuppr->valeur);
         free(aSuppr);
+        premisseToDelete->nbElem --;
     }
+}
+
+void addTailPremisse(Premisse *premisse, Proposition proposition)
+{
+    PremisseElem* newElem = (PremisseElem*)malloc(sizeof(PremisseElem));
+    newElem->valeur = proposition;
+    newElem->elemSuivant = NULL; //on ajoute en queue donc il n'y à pas d'élément suivant
+
+    if (premisse->nbElem == 0)
+    {
+        premisse->premierElem = newElem;
+    }
+    else
+    {
+        premisse->dernierElem->elemSuivant = newElem;
+    }
+    premisse->dernierElem = newElem;
+    premisse->nbElem ++;
+}
+
+void affichePremisse(PremisseElem *elem)
+{
+    if (elem == NULL)
+    {
+        printf("premisse vide\n");
+    }
+    else if (elem->elemSuivant == NULL)
+    {
+        printf("\"");
+        affichePropositon(elem->valeur);
+        printf("\"\n");
+    }
+    else
+    {
+        printf("\"");
+        affichePropositon(elem->valeur);
+        printf("\" & ");
+        affichePremisse(elem->elemSuivant); 
+    }
+    
+        
 }

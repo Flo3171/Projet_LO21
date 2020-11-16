@@ -19,10 +19,22 @@
 int main(int argc, char *argv[])
 {
     /* démo */
+
     /* Proposion */
-    Proposition prop = newProposition("La voiture est bleue");
+    /*Proposition prop = newProposition("La voiture est bleue");
     affichePropositon(prop);
-    deleteProposition(prop);
+    deleteProposition(prop);*/
+
+    /* Premisse */
+    Premisse* prem = newPremisse();
+    affichePremisse(prem->premierElem);
+    Proposition prop = newProposition("La voiture est jaune");
+    addTailPremisse(prem, prop);
+    affichePremisse(prem->premierElem);
+    prop = newProposition("La voiture est rouge");
+    addTailPremisse(prem, prop);
+    affichePremisse(prem->premierElem);
+    deletePremisse(prem); 
     
     return EXIT_SUCCESS;
 }

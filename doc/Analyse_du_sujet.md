@@ -92,6 +92,18 @@ trivial
 
 
 * Ajouter une Proposition à la prémisse d'une règle en queue
+    * donnée : la proposition à ajouter et la Prémisse à laquelle l'ajouter
+    * résutat : ajoute la proposion à la liste chainé en queue en faisant le lien entre les élément
+```algo
+procédure : addTailPremisse(Prémisse* premisse, Proposition proposition)
+    Soit newElemPremisse un PremisseElem;
+    newElemPremisse.valeur <-- propositon
+    newElemPremisse.suivant <-- NULL;
+    premisse.dernierElem.suivant <-- newElemPremisse
+    premisse.derinerElem <-- newElemPremisse
+    premisse.nbElem <-- premisse.nbElem + 1
+fin procédure
+```
 
 * Créer la conclusion d'une règle
 
