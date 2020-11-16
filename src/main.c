@@ -8,6 +8,11 @@
 */
 #include "stdlib.h"
 #include "stdio.h"
+#include "proposition.h"
+#include "premisse.h"
+#include "regle.h"
+#include <malloc.h>
+
 
 /**
  * @brief fonction main qui appelle toutes les autres fonction du programme
@@ -18,7 +23,11 @@
  */
 int main(int argc, char *argv[])
 {
-    printf("Hello world !");
+    /* démo */
+    /* Proposion */
+    Proposition prop = newProposition("La voiture est bleue");
+    affichePropositon(prop);
+    deleteProposition(prop);
     
     return EXIT_SUCCESS;
 }

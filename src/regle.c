@@ -8,3 +8,24 @@
  * @copyright GNU GENERAL PUBLIC LICENSE
  * 
  */
+
+#include "regle.h"
+#include "proposition.h"
+#include "premisse.h"
+#include "stdio.h"
+#include "stdlib.h"
+
+Regle* newRegle()
+{
+    Regle* nouvelRegle = (Regle*)malloc(sizeof(Regle));
+    nouvelRegle->premisse = newPremisse();
+    nouvelRegle->conclusion = NULL;
+    return nouvelRegle;
+}
+
+void deleteRegle(Regle *regleToDelete)
+{
+    deletePremisse(regleToDelete->premisse);
+    deleteProposition(regleToDelete->conclusion);
+    free(regleToDelete);
+}

@@ -1,3 +1,6 @@
+#ifndef _STRUCT_H_
+#define _STRUCT_H_
+
 /**
  * @file struct.h
  * @author Florian Cloarec
@@ -9,16 +12,6 @@
  * 
  */
 
-/**
- * @brief structure de donnée permetant de stocker une Assetion ou une propositon 
- * @struct Assertion
- * 
- */
-typedef struct Assertion
-{
-    long inode; /*! numéro unique à cet assertion qui permet de l'indentifier */
-    char description[]; /*! chaine de caracère qui contient la description en laguage naturel de l'Assertion*/ 
-};
-
+#endif
 
 

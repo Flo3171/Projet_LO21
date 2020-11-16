@@ -1,3 +1,6 @@
+#ifndef _REGLE_H_
+#define _REGLE_H_
+
 /**
  * @file regle.h
  * @author Florian Cloarec
@@ -9,7 +12,10 @@
  * 
 */
 
-#include "struct.h"
+#include "proposition.h"
+#include "premisse.h"
+/*! Définition des structure liée à une Règle*/
+
 
 /**
  *  @struct Regle
@@ -18,32 +24,30 @@
  */
 typedef struct Regle
 {
-    Premisse    premisse;   /*! liste chainé contenant les Assertion qui forment la prémisse de la règle*/
-    Assertion   conclusion; /*! assertion qui est conclue grâce à la règle*/
+    Premisse*        premisse;   /*! pointeur sur la liste chainé contenant les Proposition qui forment la prémisse de la règle*/
+    Proposition*    conclusion; /*! Proposition qui est conclue grâce à la règle*/
 }Regle;
 
-/**
- * @brief liste chainé d'Assertion 
- * @struct Premisse
- * 
- */
-typedef struct Premisse
-{
-    PremisseElem*   premierElem;    /*! pointeur sur le premier element de la liste chainée */
-    PremisseElem*   dernierElem;    /*! pointeur sur le dernier élément de la liste chainée */
-    long            nbElem;         /*! nombre d'élément contenue dans la liste chainée */
-}Premisse;
+
+
+/*! Définition des prototypes des fonctions lié à une Règle */
 
 /**
- * @brief un élément de la liste chainée de type Premisse
- * @struct PremisseElem
+ * @brief crée une règle vide
  * 
+ * @return Regle* 
+ * @author Florian CLOAREC
  */
-typedef struct PremisseElem
-{
-    Assertion valeur; /*! valeur de cet élément de la liste chainée de type Assertion */
-    struct PremisseElem* elemSuivant; /*! pointeur sur l'élément suivant de la liste chainé */
-}PremisseElem;
+Regle* newRegle();
+
+/**
+ * @brief suprime une règle ainsi que tout ces composant
+ * 
+ * @param regleToDelete : regle que l'on veut suprimer
+ * @author Florian CLOAREC
+ */
+void deleteRegle(Regle *regleToDelete);
 
 
 
+#endif
