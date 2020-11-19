@@ -24,6 +24,7 @@
 #include <stdio.h>
 #include <malloc.h>
 #include <string.h>
+#include <stdbool.h>
 
 
 //inclutions des bibliothèques crées pour le projet
