@@ -87,3 +87,19 @@ void affichePremisse(PremisseElem *elem)
     
         
 }
+
+bool propositionDansPremisse(PremisseElem* elem, Proposition proposition)
+{
+    if (elem = NULL)
+    {
+        return false;
+    }
+    else if(strcmp(proposition, elem->valeur))
+    {
+        return 1;
+    }
+    else
+    {
+        return propositionDansPremisse(elem->elemSuivant, proposition);
+    }
+}

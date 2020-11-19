@@ -107,7 +107,12 @@ fin procédure
 
 * Créer la conclusion d'une règle
 
-* Tester si une Proposition appartient à la prémisse d'une règle recursivement
+* propositionDansPremisse: Tester si une Proposition appartient à la prémisse d'une règle recursivement
+    * donnée : un pointeur sur le premier élément de la prémisse dans laquel on veut rechercher, la propositon à rechercher
+    * résulat : renvoie 1 si la proposion à été trouvée dans la prémisse et 0 sinon
+
+
+
 
 * Supprimer une Proposition de la prémisse d'une règle
 

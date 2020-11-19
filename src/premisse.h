@@ -86,4 +86,16 @@ void addTailPremisse(Premisse *premisse, Proposition proposition);
 void affichePremisse(PremisseElem *elem);
 
 
+/**
+ * @brief teste si une Poposition appartient à une prémisse
+ * 
+ * @param elem : pointeur sur le premier élément de la prémisse à tester
+ * @param proposition : propostion à rechercher
+ * @return true : si la propostion à été trouvée dans la premisse
+ * @return false : si la propostion n'à pas été trouvée dans la premisse
+ * @author Florian CLOAREC
+ */
+bool propositionDansPremisse(PremisseElem* elem, Proposition proposition);
+
+
 #endif
