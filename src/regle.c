@@ -25,3 +25,22 @@ void deleteRegle(Regle *regleToDelete)
     deleteProposition(regleToDelete->conclusion);
     free(regleToDelete);
 }
+
+void addConclusion(Proposition conclusionToAdd,Regle *regle){
+    regle->conclusion = conclusionToAdd;
+}
+
+void afficheRegle(Regle *regle)
+{
+    Premisse *prem = regle->premisse;
+    Proposition conclu = regle->conclusion; 
+    affichePremisse(prem->premierElem);
+    
+    if (conclu==NULL || conclu[0]=='\0'){
+        printf("pas de conclusion");
+    }else{
+        printf("donc : \"");
+        affichePropositon(conclu);
+        printf("\"\n");
+    }
+}

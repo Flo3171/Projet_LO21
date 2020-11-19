@@ -34,7 +34,21 @@ int main(int argc, char *argv[])
     prop = newProposition("La voiture est rouge");
     addTailPremisse(prem, prop);
     affichePremisse(prem->premierElem);
-    deletePremisse(prem); 
+    deletePremisse(prem);
     
+    /* Regle */
+    Regle *regle = newRegle();
+    Premisse* prem = regle->premisse;
+    affichePremisse(prem->premierElem);
+    Proposition prop = newProposition("La voiture est verte");
+    addTailPremisse(prem, prop);
+    affichePremisse(prem->premierElem);
+    prop = newProposition("La voiture est rouge");
+    addTailPremisse(prem, prop);
+    Proposition conclusion = newProposition("t'es sur l'autoroute bg");
+    addConclusion(conclusion,regle);
+    afficheRegle(regle);
+    deleteRegle(regle);
+
     return EXIT_SUCCESS;
 }

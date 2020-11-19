@@ -48,6 +48,20 @@ Regle* newRegle();
  */
 void deleteRegle(Regle *regleToDelete);
 
+/**
+ * @brief ajoute la conclusion d'une règle
+ * 
+ * @param conclusionToAdd : conclusion à ajouter dans la règle 
+ * @param regle : pointeur vers la règle ou doit être ajoutée la conclusion 
+ * @author Carlo AZANCOTH
+ */
+void addConclusion(Proposition conclusionToAdd,Regle *regle);
 
-
+/**
+ * @brief affiche une règle
+ * 
+ * @param regle : pointeur vers la régle à afficher 
+ * @author Carlo AZANCOTH
+ */
+void afficheRegle(Regle *regle);
 #endif
