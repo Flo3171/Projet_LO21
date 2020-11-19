@@ -64,4 +64,15 @@ void addConclusion(Proposition conclusionToAdd,Regle *regle);
  * @author Carlo AZANCOTH
  */
 void afficheRegle(Regle *regle);
+
+/**
+ * @brief vérifie si la premisse d'une règle est vide ou ne l'est pas 
+ * 
+ * @param regleAVerif : regle ou se trouve la premisse à vérifier
+ * @return 1 : si la premisse est vide
+ * @return 0 : si la premisse n'est pas vide
+ * @author Carlo AZANCOTH
+ */
+bool ReglePremisseIsEmpty(Regle* regleAVerif);
+
 #endif

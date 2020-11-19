@@ -44,3 +44,7 @@ void afficheRegle(Regle *regle)
         printf("\"\n");
     }
 }
+
+bool ReglePremisseIsEmpty(Regle* regleAVerif){
+    return premisseIsEmpty(regleAVerif->premisse);
+}

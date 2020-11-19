@@ -103,3 +103,11 @@ bool propositionDansPremisse(PremisseElem* elem, Proposition proposition)
         return propositionDansPremisse(elem->elemSuivant, proposition);
     }
 }
+
+bool premisseIsEmpty(Premisse *PremisseAVerif){
+    if (PremisseAVerif->premierElem == NULL){
+        return true;
+    }else{
+        return false;
+    }
+}

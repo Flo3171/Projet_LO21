@@ -98,4 +98,14 @@ void affichePremisse(PremisseElem *elem);
 bool propositionDansPremisse(PremisseElem* elem, Proposition proposition);
 
 
+/**
+ * @brief vérifie si une premisse est vide ou ne l'est pas 
+ * 
+ * @param PremisseAVerif : premisse à vérifier
+ * @return 1 : si la premisse est vide
+ * @return 0 : si la premisse n'est pas vide
+ * @author Carlo AZANCOTH
+ */
+bool premisseIsEmpty(Premisse *PremisseAVerif);
+
 #endif

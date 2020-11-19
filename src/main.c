@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     affichePropositon(prop);
     deleteProposition(prop);*/
 
-    /* Premisse */
+    /* Premisse 
     Premisse* prem = newPremisse();
     affichePremisse(prem->premierElem);
     Proposition prop = newProposition("La voiture est jaune");
@@ -35,7 +35,8 @@ int main(int argc, char *argv[])
     addTailPremisse(prem, prop);
     affichePremisse(prem->premierElem);
     deletePremisse(prem);
-    
+    */
+
     /* Regle */
     Regle *regle = newRegle();
     Premisse* prem = regle->premisse;
