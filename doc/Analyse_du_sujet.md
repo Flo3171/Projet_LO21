@@ -123,6 +123,40 @@ fin procédure
 ### Fonctions associées
 
 ## Moteur d'inférence
+
+### Fonctionement général
+
+on crée une liste chainée de proposition de type Premisse qui contiendra toute les propostion considéréer comme vrai, pou chaque proposition de cette liste, on cherche si elle font partie de la prémisse de chaque règle, si c'est le cas, on supprime la proposition de la prémisse et si la prémisse ne contient plus aucun élément alors on ajoute la conclusion de cette règle dans la liste des proposition vraie. Pour finir on affiche toute les propositions que on à réussi à conclure. 
+
 ### Definition des structures
 
 ### Fonctions associées
+
+* moteurDInference : recherche à partir de la base de conaissannce et de la liste de règles les proposition qui sont vraie
+
+    * donnée : base de connaissance (une liste chainée de proposition), liste de règles (liste chainée de règle)
+    * résultat : renvoie une liste chainée de proposition qui ont été déduite grace à l'éxécution de cette fonction
+
+```algo
+fonction : moteurDInference(Premisse baseConnaissance, ListeRegle) : Premisse
+
+    Soit conclusion une Premisse
+    Pour chaque proposition dans baseConnaissance
+        Pour chaque regle dans ListeRegle
+
+            si (propositionDansPremisse(regle, proposition))
+                supprimeUneProposition(regle, proposition)
+
+                si (premisseVide(regle))
+                    addTailPremisse(conclusion, regle.conclusion)
+                fin si
+            fin si
+        fin pour
+    fin pour            
+
+    affiche(conclusion)
+
+fin fonction
+
+
+```
