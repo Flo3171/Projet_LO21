@@ -32,15 +32,13 @@ void addConclusion(Proposition conclusionToAdd,Regle *regle){
 
 void afficheRegle(Regle *regle)
 {
-    Premisse *prem = regle->premisse;
-    Proposition conclu = regle->conclusion; 
-    affichePremisse(prem->premierElem);
+    affichePremisse(regle->premisse->premierElem);
     
-    if (conclu==NULL || conclu[0]=='\0'){
+    if (regle->conclusion==NULL || regle->conclusion[0]=='\0'){
         printf("pas de conclusion");
     }else{
         printf("donc : \"");
-        affichePropositon(conclu);
+        affichePropositon(regle->conclusion);
         printf("\"");
     }
 }
