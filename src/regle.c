@@ -41,10 +41,52 @@ void afficheRegle(Regle *regle)
     }else{
         printf("donc : \"");
         affichePropositon(conclu);
-        printf("\"\n");
+        printf("\"");
     }
 }
 
 bool ReglePremisseIsEmpty(Regle* regleAVerif){
     return premisseIsEmpty(regleAVerif->premisse);
+}
+
+bool supprimePropositionPremisseRegle(Regle *regle, Proposition prop)
+{
+    PremisseElem *actuel = regle->premisse->premierElem;
+    bool trouve = false;
+
+    if(strcmp(prop, actuel->valeur) == 0)
+    {
+        regle->premisse->premierElem = actuel->elemSuivant;
+        if (regle->premisse->nbElem == 1)
+        {
+            regle->premisse->dernierElem == NULL;
+        }
+
+        deleteProposition(actuel->valeur);
+        free(actuel);
+
+        regle->premisse->nbElem --;
+        trouve = true;    
+    }
+    while (actuel->elemSuivant != NULL && trouve == false)
+    {
+        if(strcmp(prop, actuel->elemSuivant->valeur) == 0)
+        {
+            if (actuel->elemSuivant->elemSuivant == NULL)
+            {
+                regle->premisse->dernierElem = actuel;
+            }
+            actuel->elemSuivant = actuel->elemSuivant->elemSuivant;
+            deleteProposition(actuel->elemSuivant->valeur);
+            free(actuel->elemSuivant);
+
+            regle->premisse->nbElem --;
+            trouve = true;  
+        }
+        actuel = actuel->elemSuivant;
+    }
+
+    return trouve;
+    
+
 }

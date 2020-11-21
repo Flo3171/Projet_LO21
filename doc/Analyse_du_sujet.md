@@ -112,9 +112,9 @@ fin procédure
     * résulat : renvoie 1 si la proposion à été trouvée dans la prémisse et 0 sinon
 
 
-
-
-* Supprimer une Proposition de la prémisse d'une règle
+* rechercheSupprimePremisse :Supprimer une Proposition de la prémisse d'une règle
+    * donnée : un pointeur sur le premier élément de laprémisse dans laquel on veut suprimmer, la proposition à suprimmer
+    * résultat : suprime la proposion si elle à été trouvée et renvoie 1 si la proposion à été trouvée dans la prémisse et 0 sinon
 
 * Tester si la prémisse d'une règle est vide
 

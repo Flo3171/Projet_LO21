@@ -75,4 +75,16 @@ void afficheRegle(Regle *regle);
  */
 bool ReglePremisseIsEmpty(Regle* regleAVerif);
 
+
+/**
+ * @brief supprime la proposition de la prémisse d'une règle 
+ * 
+ * @param regle : règle dans laquele on veut supprimer
+ * @param prop : propostion à rechercher et supprimer
+ * @return true : si la proposition à été trouvée et supprimer
+ * @return false : si la proposition n'as pas été trouvé
+ * @author Florian CLOAREC
+ */
+bool supprimePropositionPremisseRegle(Regle *regle, Proposition prop);
+
 #endif

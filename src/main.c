@@ -18,6 +18,7 @@
  */
 int main(int argc, char *argv[])
 {
+    printf("************START***************\n");
     /* démo */
 
     /* Proposion */
@@ -39,17 +40,40 @@ int main(int argc, char *argv[])
 
     /* Regle */
     Regle *regle = newRegle();
-    Premisse* prem = regle->premisse;
-    affichePremisse(prem->premierElem);
-    Proposition prop = newProposition("La voiture est verte");
-    addTailPremisse(prem, prop);
-    affichePremisse(prem->premierElem);
-    prop = newProposition("La voiture est rouge");
-    addTailPremisse(prem, prop);
+    printf("\nPremisse : ");
+    affichePremisse(regle->premisse->premierElem);
+
+    Proposition propV = newProposition("La voiture est verte"), propR = newProposition("La voiture est rouge"),propB = newProposition("La voiture est bleu"), propV1 = newProposition("La voiture est verte"), propR1 = newProposition("La voiture est rouge"), propB1 = newProposition("La voiture est bleu");
+
+    addTailPremisse(regle->premisse, propV);
+    printf("\nPremisse : ");
+    affichePremisse(regle->premisse->premierElem);
+
+    addTailPremisse(regle->premisse, propR);
+    addTailPremisse(regle->premisse, propB);
+
     Proposition conclusion = newProposition("t'es sur l'autoroute bg");
-    addConclusion(conclusion,regle);
+    addConclusion(conclusion, regle);
+    printf("\nRegle : ");
     afficheRegle(regle);
+
+    supprimePropositionPremisseRegle(regle, propV1);
+    printf("\nRegle : ");
+    afficheRegle(regle);
+
+    supprimePropositionPremisseRegle(regle, propR1);
+    printf("\nRegle : ");
+    afficheRegle(regle);
+
+    supprimePropositionPremisseRegle(regle, propB1);
+    printf("\nRegle : ");
+    afficheRegle(regle);
+
+
+
+
     deleteRegle(regle);
 
+    printf("\n************FINISH***************\n");
     return EXIT_SUCCESS;
 }

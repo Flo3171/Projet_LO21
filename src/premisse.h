@@ -57,14 +57,13 @@ Premisse* newPremisse();
  */
 void deletePremisse(Premisse* premisseToDelete);
 
-
 /**
- * @brief supprime l'élément en tête de la prémisse
+ * @brief suprime tout les élément d'une prémisse récursivement
  * 
- * @param premisseToDelete 
+ * @param elem : pointeur sur le premier élément de la prémisse à suprimer 
  * @author Florian CLOAREC
  */
-void deleteHeadPremisse(Premisse* premisseToDelete);
+void supprimeElemPremisse(PremisseElem *elem);
 
 
 /**
@@ -96,6 +95,18 @@ void affichePremisse(PremisseElem *elem);
  * @author Florian CLOAREC
  */
 bool propositionDansPremisse(PremisseElem* elem, Proposition proposition);
+
+/**
+ * @brief supprime une proposition dans la prémisse d'une règle
+ * 
+ * @param elem : pointeur sur le premier élément de la prémisse dont on veut suprimer
+ * @param proposition : proposition à supprimer
+ * @param prem : pointeur sur la prémisse 
+ * @return true : si la proposition à été supprimée dans la prémisse
+ * @return false : si la proposition n'a pas été trouvée
+ * @author Florian CLOAREC
+ */
+bool rechercheSupprimePremisse(PremisseElem* elem, Proposition proposition, Premisse* prem);
 
 
 /**

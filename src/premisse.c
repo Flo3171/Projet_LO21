@@ -23,27 +23,17 @@ Premisse* newPremisse()
 
 void deletePremisse(Premisse* premisseToDelete)
 {
-    while (premisseToDelete->nbElem != 0)
-    {
-        deleteHeadPremisse(premisseToDelete);
-    }
+    supprimeElemPremisse(premisseToDelete->premierElem);
     free(premisseToDelete);
     
 }
 
-void deleteHeadPremisse(Premisse* premisseToDelete)
+void supprimeElemPremisse(PremisseElem *elem)
 {
-    if (premisseToDelete != NULL && premisseToDelete->nbElem != 0)
-    {
-        PremisseElem* aSuppr = premisseToDelete->premierElem;
-        premisseToDelete->premierElem = premisseToDelete->premierElem->elemSuivant;
-        if (premisseToDelete->nbElem == 1)
-        {
-            premisseToDelete->dernierElem == NULL;
-        }
-        deleteProposition(aSuppr->valeur);
-        free(aSuppr);
-        premisseToDelete->nbElem --;
+    if (elem != NULL){
+        supprimeElemPremisse(elem->elemSuivant);
+        deleteProposition(elem->valeur);
+        free(elem); 
     }
 }
 
@@ -69,13 +59,13 @@ void affichePremisse(PremisseElem *elem)
 {
     if (elem == NULL)
     {
-        printf("premisse vide\n");
+        printf("premisse vide ");
     }
     else if (elem->elemSuivant == NULL)
     {
         printf("\"");
         affichePropositon(elem->valeur);
-        printf("\"\n");
+        printf("\" ");
     }
     else
     {
@@ -90,7 +80,7 @@ void affichePremisse(PremisseElem *elem)
 
 bool propositionDansPremisse(PremisseElem* elem, Proposition proposition)
 {
-    if (elem = NULL)
+    if (elem == NULL)
     {
         return false;
     }
@@ -102,6 +92,68 @@ bool propositionDansPremisse(PremisseElem* elem, Proposition proposition)
     {
         return propositionDansPremisse(elem->elemSuivant, proposition);
     }
+}
+
+bool rechercheSupprimePremisse(PremisseElem* elem, Proposition proposition, Premisse* prem)
+{
+    if (elem == NULL)
+    {
+        /* Cas d'une prémisse vide */
+        return false;
+    }
+    else if(prem->nbElem == 1)
+    {
+        /* Cas d'une prémisse avec un seul élément */
+        if (strcmp(proposition, prem->premierElem->valeur))
+        {
+            deleteProposition(prem->premierElem->valeur);
+            free(prem->premierElem);
+
+            prem->premierElem = NULL;
+            prem->dernierElem = NULL;
+            prem->nbElem = 0;
+        }
+    }
+    else if (elem->elemSuivant->elemSuivant == NULL)
+    {
+        /*Cas ou on évalue le dernier élément de la liste*/
+        if (strcmp(proposition, elem->elemSuivant->valeur))
+        {
+            prem->dernierElem = elem;
+            elem->elemSuivant = NULL;
+            prem->nbElem --;
+
+            deleteProposition(elem->elemSuivant->valeur);
+            free(elem->elemSuivant);
+
+            return true;
+
+
+        }
+        else
+        {
+            return false;
+        }    
+    }
+    
+    else if(strcmp(proposition, elem->elemSuivant->valeur))
+    {
+        elem->elemSuivant = elem->elemSuivant->elemSuivant;
+        if (elem == prem->premierElem)
+        {
+            prem->premierElem = elem->elemSuivant;
+        }
+        deleteProposition(elem->elemSuivant->valeur);
+        free(elem);
+        prem->nbElem --;
+
+        return true;
+    }
+    else
+    {
+        return rechercheSupprimePremisse(elem->elemSuivant, proposition, prem);
+    }
+    
 }
 
 bool premisseIsEmpty(Premisse *PremisseAVerif){
