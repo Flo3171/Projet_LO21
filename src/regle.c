@@ -88,3 +88,8 @@ bool supprimePropositionPremisseRegle(Regle *regle, Proposition prop)
     
 
 }
+
+Proposition	conlusionRegle(Regle *regle)
+{
+    return regle->conclusion;
+}

@@ -121,11 +121,42 @@ fin procédure
 * Accéder à la proposition ce trouvante en tête d'une prémisse
 
 * Accéder à la conclusion d'une règle
+    * donnée : un pointeur sur la règle dont on veut connaitre la conclusion
+    * résltat : renvoie la une variable de type proposition qui est la conclusion de la règle
 
 ## Basse de connaissances
 ### Definition des structures
 
+La base de connaissances est une liste chainée de Règle, nous avons déjà définit la structure de donnée règle ainsi que toutes les fonction qui lui sont associer, il faut maintenant rajouter une structure permetant de stocker un élément de cette liste chainée et la structure qui fera office de tête de liste
+
+* La structure de donnée abstraite BDConnaissancesElem permet de représenter un élément de la liste chainée de règles. Elle est composée de deux sous-variables, un pointeur sur Règle ainsi que un pointeur sur l'élément suivant dans la liste chainée
+
+```c
+struct BDConnaissancesElem{
+    Regle valeur;
+    struct BDConnaissancesElem* suivant;
+};
+```
+
+* La structure de donnée abstraite BDConnaissances permet de représenter la base de connaissance, c'est un pointeur sur le premier élément de la liste chainé de règle.
+
+```c
+typedef BDConnaissancesElem* BDConnaissances;
+```
+
 ### Fonctions associées
+
+* tester si la base de connaissances est vide
+
+* insérer en tête une nouvelle règle
+
+* supprimer en tête une règle
+
+*  supprimer récurivement toute la base de connaissance
+
+* afficher la base de connaissances
+
+* construire la base de connaissances et tout ces composantes à partir d'un fichier
 
 ## Moteur d'inférence
 

@@ -87,4 +87,16 @@ bool ReglePremisseIsEmpty(Regle* regleAVerif);
  */
 bool supprimePropositionPremisseRegle(Regle *regle, Proposition prop);
 
+
+/**
+ * @brief revoie la conclution d'une règle
+ * 
+ * @param regle : règle dont on veut obtenir la conclusion
+ * @return Proposition 
+ * @author Florian CLOAREC
+ */
+
+Proposition	conlusionRegle(Regle *regle);
+
+
 #endif

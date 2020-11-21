@@ -28,9 +28,11 @@
 
 
 //inclutions des bibliothèques crées pour le projet
+
 #include "proposition.h"
 #include "premisse.h"
 #include "regle.h"
+#include "BDConnaissances.h"
 
 
 #endif

@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
     */
 
     /* Regle */
+    /*
     Regle *regle = newRegle();
     printf("\nPremisse : ");
     affichePremisse(regle->premisse->premierElem);
@@ -69,10 +70,34 @@ int main(int argc, char *argv[])
     printf("\nRegle : ");
     afficheRegle(regle);
 
+    deleteRegle(regle);*/
+
+    /* Bases de connaissaces */
+
+    Regle *regle = newRegle();
+    Proposition propV = newProposition("La voiture est verte"), propR = newProposition("La voiture est rouge"),
+     propB = newProposition("La voiture est bleu");
+    addTailPremisse(regle->premisse, propV);
+    addTailPremisse(regle->premisse, propR);
+    addTailPremisse(regle->premisse, propB);
+
+    Proposition conclusion = newProposition("t'es sur l'autoroute bg");
+    addConclusion(conclusion, regle);
+
+    BDConnaissances bdc = NULL; /* TOUJOURS METTRE A NULL */
+    bdc = addHeadBDC(bdc, regle);
+    printf("\nLa base de connaissances contient les regles suivantes : \n");
+    afficheBDC(bdc);
+
+    deleteAllBDC(bdc);
 
 
 
-    deleteRegle(regle);
+
+
+
+
+    
 
     printf("\n************FINISH***************\n");
     return EXIT_SUCCESS;
