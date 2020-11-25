@@ -19,6 +19,7 @@ bool isEmptyBDC(BDConnaissances bdc)
 BDConnaissances addHeadBDC(BDConnaissances bdc, Regle *aAjouter)
 {
     BDConnaissancesElem* newElem = (BDConnaissancesElem*)malloc(sizeof(BDConnaissancesElem));
+
     newElem->valeur = aAjouter;
     newElem->suivant = bdc;
 
@@ -28,7 +29,7 @@ BDConnaissances addHeadBDC(BDConnaissances bdc, Regle *aAjouter)
 
 BDConnaissances deleteHeadBDC(BDConnaissances bdc)
 {
-    if (isEmptyBDC(bdc))
+    if (!isEmptyBDC(bdc))
     {
         BDConnaissancesElem *toDeleteNext = bdc->suivant;
         deleteRegle(bdc->valeur);
@@ -56,4 +57,30 @@ void afficheBDC(BDConnaissances bdc)
         afficheRegle(bdc->valeur);
         afficheBDC(bdc->suivant);
     }
+}
+
+Premisse moteurDInference(Premisse baseVerite, BDConnaissances bdc)
+{
+    Premisse conclusion = NULL;
+    PremisseElem *propositionActuel = baseVerite;
+    BDConnaissancesElem *regleActuel = bdc;
+
+    while (propositionActuel != NULL)
+    {
+        while (regleActuel != NULL)
+        {
+            if(supprimePropositionPremisseRegle(regleActuel->valeur, propositionActuel->valeur))
+            {
+                if (ReglePremisseIsEmpty(regleActuel->valeur))
+                {
+                    Proposition* newConclusion = newProposition(regleActuel->valeur->conclusion->description, true);
+                    addTailPremisse(conclusion, newConclusion);
+                }
+                
+            }
+            regleActuel = regleActuel->suivant;
+        }
+        propositionActuel = propositionActuel->elemSuivant;    
+    }
+    return conclusion;    
 }

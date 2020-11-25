@@ -22,38 +22,43 @@ int main(int argc, char *argv[])
     /* démo */
 
     /* Proposion */
-    /*Proposition prop = newProposition("La voiture est bleue");
+    /*Proposition* prop = newProposition("La voiture est bleue", false);
     affichePropositon(prop);
     deleteProposition(prop);*/
 
-    /* Premisse 
-    Premisse* prem = newPremisse();
-    affichePremisse(prem->premierElem);
-    Proposition prop = newProposition("La voiture est jaune");
-    addTailPremisse(prem, prop);
-    affichePremisse(prem->premierElem);
-    prop = newProposition("La voiture est rouge");
-    addTailPremisse(prem, prop);
-    affichePremisse(prem->premierElem);
-    deletePremisse(prem);
-    */
+    /* Premisse */
+    /*Premisse prem = NULL;
+    affichePremisse(prem);
+    Proposition* prop = newProposition("La voiture est jaune", false);
+    prem = addTailPremisse(prem, prop);
+    affichePremisse(prem);
+    prop = newProposition("La voiture est rouge", false);
+    prem = addTailPremisse(prem, prop);
+    affichePremisse(prem);
+    deletePremisse(prem);*/
+    
 
     /* Regle */
-    /*
-    Regle *regle = newRegle();
+
+    /*Regle *regle = newRegle();
     printf("\nPremisse : ");
-    affichePremisse(regle->premisse->premierElem);
+    affichePremisse(regle->premisse);
 
-    Proposition propV = newProposition("La voiture est verte"), propR = newProposition("La voiture est rouge"),propB = newProposition("La voiture est bleu"), propV1 = newProposition("La voiture est verte"), propR1 = newProposition("La voiture est rouge"), propB1 = newProposition("La voiture est bleu");
+    Proposition     *propV = newProposition("La voiture est verte", false), 
+                    *propR = newProposition("La voiture est rouge", false),
+                    *propB = newProposition("La voiture est bleu", false), 
+                    *propV1 = newProposition("La voiture est verte", false), 
+                    *propR1 = newProposition("La voiture est rouge", false), 
+                    *propB1 = newProposition("La voiture est bleu", false);
 
-    addTailPremisse(regle->premisse, propV);
+    instertHeadPremisseRegle(regle, propV);
     printf("\nPremisse : ");
-    affichePremisse(regle->premisse->premierElem);
+    affichePremisse(regle->premisse);
 
-    addTailPremisse(regle->premisse, propR);
-    addTailPremisse(regle->premisse, propB);
+    instertHeadPremisseRegle(regle, propR);
+    instertHeadPremisseRegle(regle, propB);
 
-    Proposition conclusion = newProposition("t'es sur l'autoroute bg");
+    Proposition* conclusion = newProposition("t'es sur l'autoroute bg", false);
     addConclusion(conclusion, regle);
     printf("\nRegle : ");
     afficheRegle(regle);
@@ -75,13 +80,17 @@ int main(int argc, char *argv[])
     /* Bases de connaissaces */
 
     Regle *regle = newRegle();
-    Proposition propV = newProposition("La voiture est verte"), propR = newProposition("La voiture est rouge"),
-     propB = newProposition("La voiture est bleu");
-    addTailPremisse(regle->premisse, propV);
-    addTailPremisse(regle->premisse, propR);
-    addTailPremisse(regle->premisse, propB);
+    Proposition     *propV = newProposition("La voiture est verte", false), 
+                    *propR = newProposition("La voiture est rouge", false),
+    
+    
+                    *propB = newProposition("La voiture est bleu", false);
 
-    Proposition conclusion = newProposition("t'es sur l'autoroute bg");
+    instertHeadPremisseRegle(regle, propV);
+    instertHeadPremisseRegle(regle, propR);
+    instertHeadPremisseRegle(regle, propB);
+
+    Proposition *conclusion = newProposition("t'es sur l'autoroute bg", false);
     addConclusion(conclusion, regle);
 
     BDConnaissances bdc = NULL; /* TOUJOURS METTRE A NULL */
@@ -89,7 +98,31 @@ int main(int argc, char *argv[])
     printf("\nLa base de connaissances contient les regles suivantes : \n");
     afficheBDC(bdc);
 
+    /* Base de Véritée */
+
+    Premisse baseVerite = NULL;
+    
+    Proposition     *propV1 = newProposition("La voiture est verte", true),
+                    *propR1 = newProposition("La voiture est rouge", true),
+                    *propB1 = newProposition("La voiture est bleu", true);
+    baseVerite = addTailPremisse(baseVerite, propV1);
+    baseVerite = addTailPremisse(baseVerite, propR1);
+    baseVerite = addTailPremisse(baseVerite, propB1);
+
+    printf("\nLa base de verite contient les proposition suivantes : \n");
+    affichePremisse(baseVerite);
+
+    /* Moteur d'inférence */
+
+    Premisse conclusionM = moteurDInference(baseVerite, bdc);
+    printf("\nLe moteur d'inference a prouve les propiete suivantes : \n");
+    affichePremisse(conclusionM);
+
+
+    /* On libère bien la mémoire */
     deleteAllBDC(bdc);
+    deletePremisse(baseVerite);
+    deletePremisse(conclusionM);
 
 
 

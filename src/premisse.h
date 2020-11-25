@@ -22,7 +22,7 @@
  */
 typedef struct PremisseElem
 {
-    Proposition         valeur;        /*! valeur de l'élément de la liste chainé */
+    Proposition         *valeur;        /*! valeur de l'élément de la liste chainé */
     struct PremisseElem *elemSuivant;   /*! Pointeur sur l'élément suivant dans la liste chainée */
 }PremisseElem;
 
@@ -32,91 +32,79 @@ typedef struct PremisseElem
  * 
  * @author Florian CLOAREC
  */
-typedef struct Premisse
-{
-    PremisseElem*   premierElem; /*! pointeur sur le premier élément de la liste chainée */
-    PremisseElem*   dernierElem; /*! pointeur sur le dernier élément de la liste chainée */
-    long            nbElem;      /*! nombre d'élément contenue dans la liste chainé, ici le nombre de propostion que contient la prémisse */
-}Premisse;
 
+typedef PremisseElem* Premisse;
 
-/**
- * @brief crée une nouvelle prémisse vide
- * 
- * @return Premisse* 
- * @author Florian CLOAREC
- */
-Premisse* newPremisse();
 
 
 /**
  * @brief supprime de la mémoire une prémisse
  * 
- * @param premisseToDelete 
+ * @param prem : premisse que l'on veut supprimer
  * @author Florian CLOAREC
  */
-void deletePremisse(Premisse* premisseToDelete);
+void deletePremisse(Premisse prem);
 
 /**
- * @brief suprime tout les élément d'une prémisse récursivement
+ * @brief ajouter une proposition en tête d'une prémisse
  * 
- * @param elem : pointeur sur le premier élément de la prémisse à suprimer 
+ * @param prem : prémisse dans laquel on veut ajouter
+ * @param prop : pointeur sur la proposition à ajouter
+ * @return Premisse : renvoit la pemisse
  * @author Florian CLOAREC
  */
-void supprimeElemPremisse(PremisseElem *elem);
-
+Premisse addHeadPremisse(Premisse prem, Proposition *prop);
 
 /**
  * @brief ajoute une proposition en queue à la liste chianée de proposition qu'est la prémisse
  * 
- * @param premisse : prémisse à qui on veut ajouter une proposition
- * @param proposition : proposotion à ajouter
+ * @param prem : prémisse à qui on veut ajouter une proposition
+ * @param prop : proposotion à ajouter
+ * @return Premisse : renvoit la pemisse
  * @author Florian CLOAREC
  */
-void addTailPremisse(Premisse *premisse, Proposition proposition);
+Premisse addTailPremisse(Premisse prem, Proposition *prop);
 
 
 /**
  * @brief affiche une Prémisse de manière récursive
  * 
- * @param elem : pointeur sur le premier élément de la prémisse à afficher
+ * @param prem : prémisse que l'on veut afficher
  * @author Florian CLOAREC
  */
-void affichePremisse(PremisseElem *elem);
+void affichePremisse(Premisse prem);
 
 
 /**
  * @brief teste si une Poposition appartient à une prémisse
  * 
- * @param elem : pointeur sur le premier élément de la prémisse à tester
- * @param proposition : propostion à rechercher
+ * @param prem : prémisse à tester
+ * @param prop : propostion à rechercher
  * @return true : si la propostion à été trouvée dans la premisse
  * @return false : si la propostion n'à pas été trouvée dans la premisse
  * @author Florian CLOAREC
  */
-bool propositionDansPremisse(PremisseElem* elem, Proposition proposition);
+bool propositionDansPremisse(Premisse prem, Proposition* prop);
 
 /**
  * @brief supprime une proposition dans la prémisse d'une règle
  * 
- * @param elem : pointeur sur le premier élément de la prémisse dont on veut suprimer
- * @param proposition : proposition à supprimer
- * @param prem : pointeur sur la prémisse 
- * @return true : si la proposition à été supprimée dans la prémisse
- * @return false : si la proposition n'a pas été trouvée
+ * @param prem : prémisse dont on veut suprimer une proposition
+ * @param prop : proposition à supprimer
+ * @return renvoie la prémisse
  * @author Florian CLOAREC
  */
-bool rechercheSupprimePremisse(PremisseElem* elem, Proposition proposition, Premisse* prem);
+Premisse rechercheSupprimePremisse(Premisse prem, Proposition *prop);
 
 
 /**
  * @brief vérifie si une premisse est vide ou ne l'est pas 
  * 
- * @param PremisseAVerif : premisse à vérifier
+ * @param Prem : premisse à vérifier
  * @return 1 : si la premisse est vide
  * @return 0 : si la premisse n'est pas vide
  * @author Carlo AZANCOTH
  */
-bool premisseIsEmpty(Premisse *PremisseAVerif);
+bool premisseIsEmpty(Premisse prem);
 
 #endif

@@ -11,19 +11,26 @@
 
 #include "main.h"
 
-Proposition newProposition(char valueProposition[])
+Proposition* newProposition(char valueProposition[], bool validite)
 {
-    Proposition nouvelleProposition = (Proposition)malloc(sizeof(char) * strlen(valueProposition));
-    strcpy(nouvelleProposition, valueProposition);
+    Proposition* nouvelleProposition = (Proposition*)malloc(sizeof(Proposition));
+
+    char *value = (char*)malloc(sizeof(char)*strlen(valueProposition));
+    strcpy(value, valueProposition);
+    nouvelleProposition->description = value;
+
+    nouvelleProposition->validite = validite;
+
     return nouvelleProposition;
 }
 
-void deleteProposition(Proposition propositionToDelete)
+void deleteProposition(Proposition *propositionToDelete)
 {
+    free(propositionToDelete->description);
     free(propositionToDelete);
 }
 
-void affichePropositon(Proposition proposition)
+void affichePropositon(Proposition *proposition)
 {
-    printf("%s", proposition);
+    printf("%s", proposition->description);
 }

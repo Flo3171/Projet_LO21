@@ -14,7 +14,7 @@
 Regle* newRegle()
 {
     Regle* nouvelRegle = (Regle*)malloc(sizeof(Regle));
-    nouvelRegle->premisse = newPremisse();
+    nouvelRegle->premisse = NULL;
     nouvelRegle->conclusion = NULL;
     return nouvelRegle;
 }
@@ -26,15 +26,15 @@ void deleteRegle(Regle *regleToDelete)
     free(regleToDelete);
 }
 
-void addConclusion(Proposition conclusionToAdd,Regle *regle){
+void addConclusion(Proposition *conclusionToAdd,Regle *regle){
     regle->conclusion = conclusionToAdd;
 }
 
 void afficheRegle(Regle *regle)
 {
-    affichePremisse(regle->premisse->premierElem);
+    affichePremisse(regle->premisse);
     
-    if (regle->conclusion==NULL || regle->conclusion[0]=='\0'){
+    if (regle->conclusion==NULL || regle->conclusion->description == NULL){
         printf("pas de conclusion");
     }else{
         printf("donc : \"");
@@ -47,49 +47,19 @@ bool ReglePremisseIsEmpty(Regle* regleAVerif){
     return premisseIsEmpty(regleAVerif->premisse);
 }
 
-bool supprimePropositionPremisseRegle(Regle *regle, Proposition prop)
+Regle* supprimePropositionPremisseRegle(Regle *regle, Proposition *prop)
 {
-    PremisseElem *actuel = regle->premisse->premierElem;
-    bool trouve = false;
+    regle->premisse = rechercheSupprimePremisse(regle->premisse, prop);
 
-    if(strcmp(prop, actuel->valeur) == 0)
-    {
-        regle->premisse->premierElem = actuel->elemSuivant;
-        if (regle->premisse->nbElem == 1)
-        {
-            regle->premisse->dernierElem == NULL;
-        }
-
-        deleteProposition(actuel->valeur);
-        free(actuel);
-
-        regle->premisse->nbElem --;
-        trouve = true;    
-    }
-    while (actuel->elemSuivant != NULL && trouve == false)
-    {
-        if(strcmp(prop, actuel->elemSuivant->valeur) == 0)
-        {
-            if (actuel->elemSuivant->elemSuivant == NULL)
-            {
-                regle->premisse->dernierElem = actuel;
-            }
-            actuel->elemSuivant = actuel->elemSuivant->elemSuivant;
-            deleteProposition(actuel->elemSuivant->valeur);
-            free(actuel->elemSuivant);
-
-            regle->premisse->nbElem --;
-            trouve = true;  
-        }
-        actuel = actuel->elemSuivant;
-    }
-
-    return trouve;
-    
-
+    return regle;
 }
 
-Proposition	conlusionRegle(Regle *regle)
+Proposition* conlusionRegle(Regle *regle)
 {
     return regle->conclusion;
+}
+
+void instertHeadPremisseRegle(Regle* regle, Proposition *prop)
+{
+    regle->premisse = addHeadPremisse(regle->premisse, prop);
 }

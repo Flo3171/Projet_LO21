@@ -24,8 +24,8 @@
  */
 typedef struct Regle
 {
-    Premisse*        premisse;   /*! pointeur sur la liste chainé contenant les Proposition qui forment la prémisse de la règle*/
-    Proposition    conclusion; /*! Proposition qui est conclue grâce à la règle*/
+    Premisse       premisse;   /*!  la liste chainé contenant les Proposition qui forment la prémisse de la règle*/
+    Proposition    *conclusion; /*!  pointeur sur Proposition qui est conclue grâce à la règle*/
 }Regle;
 
 
@@ -55,7 +55,7 @@ void deleteRegle(Regle *regleToDelete);
  * @param regle : pointeur vers la règle ou doit être ajoutée la conclusion 
  * @author Carlo AZANCOTH
  */
-void addConclusion(Proposition conclusionToAdd,Regle *regle);
+void addConclusion(Proposition *conclusionToAdd,Regle *regle);
 
 /**
  * @brief affiche une règle
@@ -81,11 +81,10 @@ bool ReglePremisseIsEmpty(Regle* regleAVerif);
  * 
  * @param regle : règle dans laquele on veut supprimer
  * @param prop : propostion à rechercher et supprimer
- * @return true : si la proposition à été trouvée et supprimer
- * @return false : si la proposition n'as pas été trouvé
+ * @return pointeur sur la règle avec laquel on à travaillé
  * @author Florian CLOAREC
  */
-bool supprimePropositionPremisseRegle(Regle *regle, Proposition prop);
+Regle* supprimePropositionPremisseRegle(Regle *regle, Proposition *prop);
 
 
 /**
@@ -96,7 +95,16 @@ bool supprimePropositionPremisseRegle(Regle *regle, Proposition prop);
  * @author Florian CLOAREC
  */
 
-Proposition	conlusionRegle(Regle *regle);
+Proposition*	conlusionRegle(Regle *regle);
+
+/**
+ * @brief ajoute en tete une proposition à la prémisse d'une règle
+ * 
+ * @param regle : règle à laquel on veut ajouter la propostion
+ * @param prop : propostion à ajouter
+ * @author Florian CLOAREC
+ */
+void instertHeadPremisseRegle(Regle* regle, Proposition *prop);
 
 
 #endif

@@ -20,28 +20,29 @@
  * @struct Proposition
  * 
  */
-//typedef struct Proposition
-//{
-//    long inode; /*! numéro unique à cet Proposition qui permet de l'indentifier */
-//    char description[]; /*! chaine de caracère qui contient la description en laguage naturel de l'Proposition*/ 
-//};
+typedef struct Proposition
+{
+    char *description; /*! chaine de caracère qui contient la description en laguage naturel de la Proposition*/ 
+    bool validite; /*! vaut 1 si la proposition est vraie et 0 si elle est fausse ou indéterminé */
+}Proposition;
 
 /**
  * @brief structure de donnée Proposition qui est une chaine de caractère 
  * 
  * @author Florian CLOAREC
  */
-typedef char* Proposition;
+//typedef char* Proposition;
 
 
 /**
  * @brief crée une variable de type proposiont
  * 
  * @param valuePropositon[] : chaine de caractère qui contient la valuer de la propositon à créer
+ * @param validite : 1 si la propositon est vraie, 0 si elle est fausse
  * @return Proposition : pointeru sur la propositon qui viens d'être crée 
  * @author Florian CLOAREC
  */
-Proposition newProposition(char valueProposition[]);
+Proposition* newProposition(char valueProposition[], bool validite);
 
 /**
  * @brief suprime de la mémoire une variable de type proposition
@@ -50,14 +51,18 @@ Proposition newProposition(char valueProposition[]);
  * @author Florian CLOAREC
  */
 
-void deleteProposition(Proposition propositionToDelete);
+void deleteProposition(Proposition *propositionToDelete);
 
 /**
  * @brief afficher le contenue d'une propositon
  * 
- * @param prposition 
+ * @param prposition : pointeur sur la proposition à afficher
+ * 
  * @author Florian CLOAREC
  */
-void affichePropositon(Proposition prposition);
+void affichePropositon(Proposition *proposition);
+
+
+
 
 #endif

@@ -168,20 +168,19 @@ on crée une liste chainée de proposition de type Premisse qui contiendra toute
 
 ### Fonctions associées
 
-* moteurDInference : recherche à partir de la base de conaissannce et de la liste de règles les proposition qui sont vraie
+* moteurDInference : recherche à partir de la base de véritée et de la base de connaissances les propositions qui sont vraie
 
-    * donnée : base de connaissance (une liste chainée de proposition), liste de règles (liste chainée de règle)
+    * donnée : base de connaissance (une liste chainée règle), base de véritée  (liste chainée de proposition)
     * résultat : renvoie une liste chainée de proposition qui ont été déduite grace à l'éxécution de cette fonction
 
 ```algo
-fonction : moteurDInference(Premisse baseConnaissance, ListeRegle) : Premisse
+fonction : moteurDInference(Premisse baseVerite, BDConnaissances bdc) : Premisse
 
     Soit conclusion une Premisse
-    Pour chaque proposition dans baseConnaissance
-        Pour chaque regle dans ListeRegle
+    Pour chaque proposition dans baseVerite
+        Pour chaque regle dans bdc
 
-            si (propositionDansPremisse(regle, proposition))
-                supprimeUneProposition(regle, proposition)
+            si (supprimePropositionPremisseRegle(regle, proposition))
 
                 si (premisseVide(regle))
                     addTailPremisse(conclusion, regle.conclusion)

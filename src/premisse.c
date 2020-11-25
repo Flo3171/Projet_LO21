@@ -11,155 +11,137 @@
 
 #include "main.h"
 
-Premisse* newPremisse()
-{
-    Premisse* nouvellePremisse = (Premisse*)malloc(sizeof(Premisse));
-    nouvellePremisse->premierElem = NULL;
-    nouvellePremisse->dernierElem = NULL;
-    nouvellePremisse->nbElem = 0;
 
-    return nouvellePremisse;
-}
-
-void deletePremisse(Premisse* premisseToDelete)
+void deletePremisse(Premisse prem)
 {
-    supprimeElemPremisse(premisseToDelete->premierElem);
-    free(premisseToDelete);
-    
-}
-
-void supprimeElemPremisse(PremisseElem *elem)
-{
-    if (elem != NULL){
-        supprimeElemPremisse(elem->elemSuivant);
-        deleteProposition(elem->valeur);
-        free(elem); 
+    if (prem != NULL){
+        deletePremisse(prem->elemSuivant);
+        deleteProposition(prem->valeur);
+        free(prem); 
     }
 }
 
-void addTailPremisse(Premisse *premisse, Proposition proposition)
-{
-    PremisseElem* newElem = (PremisseElem*)malloc(sizeof(PremisseElem));
-    newElem->valeur = proposition;
-    newElem->elemSuivant = NULL; //on ajoute en queue donc il n'y à pas d'élément suivant
 
-    if (premisse->nbElem == 0)
+Premisse addHeadPremisse(Premisse prem, Proposition *prop)
+{
+    PremisseElem* new = (PremisseElem*)malloc(sizeof(PremisseElem));
+    new->elemSuivant = prem;
+    new->valeur = prop;
+
+    return new;
+}
+
+Premisse addTailPremisse(Premisse prem, Proposition *prop)
+{
+    if (prem == NULL)
     {
-        premisse->premierElem = newElem;
+        PremisseElem* newElem = (PremisseElem*)malloc(sizeof(PremisseElem));
+
+        newElem->valeur = prop;
+        newElem->elemSuivant = NULL; //on ajoute en queue donc il n'y à pas d'élément suivant
+
+        return newElem;
     }
+
+    else if (prem->elemSuivant == NULL)
+    {
+        PremisseElem* newElem = (PremisseElem*)malloc(sizeof(PremisseElem));
+
+        newElem->valeur = prop;
+        newElem->elemSuivant = NULL; //on ajoute en queue donc il n'y à pas d'élément suivant
+
+        prem->elemSuivant = newElem;
+        return prem;
+    }
+
     else
     {
-        premisse->dernierElem->elemSuivant = newElem;
+        addTailPremisse(prem->elemSuivant, prop);
+        return prem;
     }
-    premisse->dernierElem = newElem;
-    premisse->nbElem ++;
+    
+    
+    
+   
+
 }
 
-void affichePremisse(PremisseElem *elem)
+void affichePremisse(Premisse prem)
 {
-    if (elem == NULL)
+    if (prem == NULL)
     {
-        printf("premisse vide ");
+        printf("element vide");
     }
-    else if (elem->elemSuivant == NULL)
+    else if (prem->elemSuivant == NULL)
     {
         printf("\"");
-        affichePropositon(elem->valeur);
+        affichePropositon(prem->valeur);
         printf("\" ");
     }
     else
     {
         printf("\"");
-        affichePropositon(elem->valeur);
+        affichePropositon(prem->valeur);
         printf("\" & ");
-        affichePremisse(elem->elemSuivant); 
+        affichePremisse(prem->elemSuivant); 
     }
     
         
 }
 
-bool propositionDansPremisse(PremisseElem* elem, Proposition proposition)
+bool propositionDansPremisse(Premisse prem, Proposition* prop)
 {
-    if (elem == NULL)
+    if (prem == NULL)
     {
         return false;
     }
-    else if(strcmp(proposition, elem->valeur))
+    else if(strcmp(prop->description, prem->valeur->description))
     {
         return 1;
     }
     else
     {
-        return propositionDansPremisse(elem->elemSuivant, proposition);
+        return propositionDansPremisse(prem->elemSuivant, prop);
     }
 }
 
-bool rechercheSupprimePremisse(PremisseElem* elem, Proposition proposition, Premisse* prem)
+Premisse rechercheSupprimePremisse(Premisse prem, Proposition *prop)
 {
-    if (elem == NULL)
+    if (prem == NULL)
     {
         /* Cas d'une prémisse vide */
-        return false;
+        return NULL;
     }
-    else if(prem->nbElem == 1)
+    else if(prem->elemSuivant  == NULL)
     {
         /* Cas d'une prémisse avec un seul élément */
-        if (strcmp(proposition, prem->premierElem->valeur))
+        if (!strcmp(prop->description, prem->valeur->description))
         {
-            deleteProposition(prem->premierElem->valeur);
-            free(prem->premierElem);
-
-            prem->premierElem = NULL;
-            prem->dernierElem = NULL;
-            prem->nbElem = 0;
+            deleteProposition(prem->valeur);
+            free(prem);
+            return NULL;
         }
     }
-    else if (elem->elemSuivant->elemSuivant == NULL)
+    else if (strcmp(prop->description, prem->elemSuivant->valeur->description))
     {
-        /*Cas ou on évalue le dernier élément de la liste*/
-        if (strcmp(proposition, elem->elemSuivant->valeur))
-        {
-            prem->dernierElem = elem;
-            elem->elemSuivant = NULL;
-            prem->nbElem --;
+        Premisse toDelete = prem->elemSuivant;
 
-            deleteProposition(elem->elemSuivant->valeur);
-            free(elem->elemSuivant);
+        prem->elemSuivant = toDelete->elemSuivant;
 
-            return true;
+        deleteProposition(toDelete->valeur);
+        free(toDelete);
 
-
-        }
-        else
-        {
-            return false;
-        }    
-    }
-    
-    else if(strcmp(proposition, elem->elemSuivant->valeur))
-    {
-        elem->elemSuivant = elem->elemSuivant->elemSuivant;
-        if (elem == prem->premierElem)
-        {
-            prem->premierElem = elem->elemSuivant;
-        }
-        deleteProposition(elem->elemSuivant->valeur);
-        free(elem);
-        prem->nbElem --;
-
-        return true;
+        return prem;  
     }
     else
     {
-        return rechercheSupprimePremisse(elem->elemSuivant, proposition, prem);
+        rechercheSupprimePremisse(prem->elemSuivant, prop);
+        return prem;
     }
     
 }
 
-bool premisseIsEmpty(Premisse *PremisseAVerif){
-    if (PremisseAVerif->premierElem == NULL){
-        return true;
-    }else{
-        return false;
-    }
+bool premisseIsEmpty(Premisse prem)
+{
+    return prem == NULL;
 }
