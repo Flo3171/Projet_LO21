@@ -107,4 +107,26 @@ Premisse rechercheSupprimePremisse(Premisse prem, Proposition *prop);
  */
 bool premisseIsEmpty(Premisse prem);
 
+/**
+ * @brief ajoute et crée la proposition dans la prémisse si elle n'y est pas déjà 
+ * 
+ * @param listProp : Premisse dans laquel on veux ajouter
+ * @param desciption : desciption de la proposition à ajouter
+ * @param validite : validite de la proposition à ajouter
+ * @return Premisse : renvoie la Premisse sur laquel on travail
+ * @author Florian CLOAREC
+ */
+Premisse addPropositionUnique(Premisse listProp, char desciption[], bool validite);
+
+
+/**
+ * @brief cherche si il existe une proposition avec la meme desciptio dans une liste de proposition
+ * 
+ * @param listProp : premisse à tester
+ * @param desciption : desciption à rechercher
+ * @return Premisse : renvoie un pointeur sur la proposition si on trouve et sinon renvoie NULL
+ * @author Florian CLOAREC
+ */
+Proposition* rechercheListProposition(Premisse listProp, char desciption[]);
+
 #endif

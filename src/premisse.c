@@ -145,3 +145,51 @@ bool premisseIsEmpty(Premisse prem)
 {
     return prem == NULL;
 }
+
+Premisse addPropositionUnique(Premisse listProp, char desciption[], bool validite)
+{
+    if (listProp == NULL)
+    {
+        PremisseElem* newElem = (PremisseElem*)malloc(sizeof(PremisseElem));
+        newElem->valeur = newProposition(desciption, validite);
+        newElem->elemSuivant = NULL;
+
+        return newElem;
+    }
+    else if (listProp->elemSuivant == NULL && strcmp(listProp->valeur->description, desciption))
+    {
+        PremisseElem* newElem = (PremisseElem*)malloc(sizeof(PremisseElem));
+        newElem->valeur = newProposition(desciption, validite);
+        newElem->elemSuivant = NULL;
+
+        listProp->elemSuivant = newElem;
+
+        return listProp;
+    }
+    else if (strcmp(listProp->valeur->description, desciption))
+    {
+        addPropositionUnique(listProp->elemSuivant, desciption, validite);
+        
+        return listProp;
+    }
+    else
+    {
+        return listProp;
+    }
+}
+
+Proposition* rechercheListProposition(Premisse listProp, char desciption[])
+{
+    if (listProp == NULL)
+    {
+        return NULL;
+    }
+    else if (!strcmp(listProp->valeur->description, desciption))
+    {
+        return listProp->valeur;
+    }
+    else
+    {
+        return rechercheListProposition(listProp->elemSuivant, desciption);
+    }
+}
