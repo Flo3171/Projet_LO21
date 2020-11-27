@@ -36,51 +36,11 @@ int main(int argc, char *argv[])
     prem = addTailPremisse(prem, prop);
     affichePremisse(prem);
     deletePremisse(prem);*/
-    
-
-    /* Regle */
-
-    /*Regle *regle = newRegle();
-    printf("\nPremisse : ");
-    affichePremisse(regle->premisse);
-
-    Proposition     *propV = newProposition("La voiture est verte", false), 
-                    *propR = newProposition("La voiture est rouge", false),
-                    *propB = newProposition("La voiture est bleu", false), 
-                    *propV1 = newProposition("La voiture est verte", false), 
-                    *propR1 = newProposition("La voiture est rouge", false), 
-                    *propB1 = newProposition("La voiture est bleu", false);
-
-    instertHeadPremisseRegle(regle, propV);
-    printf("\nPremisse : ");
-    affichePremisse(regle->premisse);
-
-    instertHeadPremisseRegle(regle, propR);
-    instertHeadPremisseRegle(regle, propB);
-
-    Proposition* conclusion = newProposition("t'es sur l'autoroute bg", false);
-    addConclusion(conclusion, regle);
-    printf("\nRegle : ");
-    afficheRegle(regle);
-
-    supprimePropositionPremisseRegle(regle, propV1);
-    printf("\nRegle : ");
-    afficheRegle(regle);
-
-    supprimePropositionPremisseRegle(regle, propR1);
-    printf("\nRegle : ");
-    afficheRegle(regle);
-
-    supprimePropositionPremisseRegle(regle, propB1);
-    printf("\nRegle : ");
-    afficheRegle(regle);
-
-    deleteRegle(regle);*/
 
     /* liste de Porpriété */
 
     Premisse listeProposition = NULL;
-    listeProposition = addPropositionUnique(listeProposition, "La voiture est verte", false);
+    /*listeProposition = addPropositionUnique(listeProposition, "La voiture est verte", false);
     listeProposition = addPropositionUnique(listeProposition, "La voiture est bleu", false);
     listeProposition = addPropositionUnique(listeProposition, "La voiture est rouge", false);
     listeProposition = addPropositionUnique(listeProposition, "La voiture est verte", false);
@@ -89,32 +49,56 @@ int main(int argc, char *argv[])
     printf("\nLa liste de Proposition contient les proposition suivantes : \n");
     affichePremisse(listeProposition);
 
-    affichePropositon(rechercheListProposition(listeProposition, "T'es sur l'autoroute bg"));
+    affichePropositon(rechercheListProposition(listeProposition, "T'es sur l'autoroute bg"));*/
+    
 
-    deletePremisse(listeProposition);
+    /* Regle */
 
+    /* Méthode pour construire une règle*/
 
+    // Regle *regle = NULL;
+    // char *prem[2] = {"Il y a des nuages", "On est a Belfort"};
+
+    // regle = createRegle(&listeProposition, prem, 2, "Il pleut");
+
+    // printf("\nRegle : ");
+    // afficheRegle(regle);
+
+    // deleteRegle(regle);
 
     /* Bases de connaissaces */
 
-    /*Regle *regle = newRegle();
-    Proposition     *propV = newProposition("La voiture est verte", false), 
-                    *propR = newProposition("La voiture est rouge", false),
+    BDConnaissances bdc = NULL; /* TOUJOURS METTRE A NULL !!!!!!!!!!!!! */
+    // char *prem[2] = {"Il y a des nuages", "On est a Belfort"};
     
+   /* Méthode à appliquer pour ajouter une règle à la bdc */ 
+    long nbProp = 2;
+    char **prem = (char**)malloc(sizeof(char*)*nbProp);
+    for (long i = 0; i < nbProp; i++)
+    {
+        prem[i] = (char*)malloc(sizeof(char)*(TAILLE_MAXI_PROPOSITION + 1));
+        // strcpy(prem[i], **lecture dans le fichier**);
+    }
     
-                    *propB = newProposition("La voiture est bleu", false);
+    strcpy(prem[0], "Il y a des nuages");
+    strcpy(prem[1], "On est a Belfort");
 
-    instertHeadPremisseRegle(regle, propV);
-    instertHeadPremisseRegle(regle, propR);
-    instertHeadPremisseRegle(regle, propB);
 
-    Proposition *conclusion = newProposition("t'es sur l'autoroute bg", false);
-    addConclusion(conclusion, regle);
+    bdc = addRegleBDC(bdc, &listeProposition , prem, 2, "Il pleut");
 
-    BDConnaissances bdc = NULL; *//* TOUJOURS METTRE A NULL *//*
-    bdc = addHeadBDC(bdc, regle);
+    for (long i = 0; i < nbProp; i++)
+    {
+        free(prem[i]);
+    }
+    free(prem);
+
+    char *prem1[2] = {"Il pleut", "J'ai un parapluis"};
+    bdc = addRegleBDC(bdc, &listeProposition , prem1, 2, "Je peux sortir");
+    
+
+    
     printf("\nLa base de connaissances contient les regles suivantes : \n");
-    afficheBDC(bdc);*/
+    afficheBDC(bdc);
 
     /* Base de Véritée *//*
 
@@ -138,7 +122,9 @@ int main(int argc, char *argv[])
 
 
     /* On libère bien la mémoire */
-    /*deleteAllBDC(bdc);
+    deletePremisseProposition(listeProposition);
+    deleteAllBDC(bdc);
+    /*
     deletePremisse(baseVerite);
     deletePremisse(conclusionM);*/
 
@@ -158,6 +144,8 @@ int main(int argc, char *argv[])
 
     /* Affichage des résultat */
 
+    /* Libération de toutes les addresse en mémoire */
+
 
 
 
@@ -167,6 +155,6 @@ int main(int argc, char *argv[])
 
     
 
-    printf("\n************FINISH***************\n");
+    printf("\n\n************FINISH***************\n");
     return EXIT_SUCCESS;
 }

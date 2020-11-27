@@ -129,4 +129,12 @@ Premisse addPropositionUnique(Premisse listProp, char desciption[], bool validit
  */
 Proposition* rechercheListProposition(Premisse listProp, char desciption[]);
 
+/**
+ * @brief supprime une prémisse et libière de la mémoire les propostion qu'elle contient
+ * 
+ * @param prem : premisse à suprimmer
+ * @author Florian CLOAREC
+ */
+void deletePremisseProposition(Premisse prem);
+
 #endif

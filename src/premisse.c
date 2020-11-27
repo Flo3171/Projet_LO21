@@ -16,7 +16,6 @@ void deletePremisse(Premisse prem)
 {
     if (prem != NULL){
         deletePremisse(prem->elemSuivant);
-        deleteProposition(prem->valeur);
         free(prem); 
     }
 }
@@ -117,18 +116,16 @@ Premisse rechercheSupprimePremisse(Premisse prem, Proposition *prop)
         /* Cas d'une prémisse avec un seul élément */
         if (!strcmp(prop->description, prem->valeur->description))
         {
-            deleteProposition(prem->valeur);
             free(prem);
             return NULL;
         }
     }
-    else if (strcmp(prop->description, prem->elemSuivant->valeur->description))
+    else if (!strcmp(prop->description, prem->elemSuivant->valeur->description))
     {
         Premisse toDelete = prem->elemSuivant;
 
         prem->elemSuivant = toDelete->elemSuivant;
 
-        deleteProposition(toDelete->valeur);
         free(toDelete);
 
         return prem;  
@@ -191,5 +188,14 @@ Proposition* rechercheListProposition(Premisse listProp, char desciption[])
     else
     {
         return rechercheListProposition(listProp->elemSuivant, desciption);
+    }
+}
+
+void deletePremisseProposition(Premisse prem)
+{
+    if (prem != NULL){
+        deletePremisse(prem->elemSuivant);
+        deleteProposition(prem->valeur);
+        free(prem); 
     }
 }

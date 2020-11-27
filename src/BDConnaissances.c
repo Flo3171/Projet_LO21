@@ -54,9 +54,15 @@ void deleteAllBDC(BDConnaissances bdc)
 void afficheBDC(BDConnaissances bdc)
 {
     if (!isEmptyBDC(bdc)){
+        printf("\n-->");
         afficheRegle(bdc->valeur);
         afficheBDC(bdc->suivant);
     }
+}
+
+BDConnaissances addRegleBDC(BDConnaissances bdc, Premisse* pListProp, char* descriptionPremisse[], long nbElemPremisse,  char* descriptionConclusion)
+{
+    return addHeadBDC(bdc, createRegle(pListProp, descriptionPremisse, nbElemPremisse, descriptionConclusion));
 }
 
 Premisse moteurDInference(Premisse baseVerite, BDConnaissances bdc)

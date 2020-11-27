@@ -22,21 +22,30 @@ Regle* newRegle()
 void deleteRegle(Regle *regleToDelete)
 {
     deletePremisse(regleToDelete->premisse);
-    deleteProposition(regleToDelete->conclusion);
     free(regleToDelete);
 }
 
-void addConclusion(Proposition *conclusionToAdd,Regle *regle){
-    regle->conclusion = conclusionToAdd;
+Premisse addConclusion(Regle *regle, Premisse listProp, char* description)
+{
+    regle->conclusion = rechercheListProposition(listProp, description);
+    if (regle->conclusion == NULL)
+    {
+        listProp = addPropositionUnique(listProp, description, false);
+        regle->conclusion = rechercheListProposition(listProp, description);
+    }
+    return listProp;
 }
 
 void afficheRegle(Regle *regle)
 {
     affichePremisse(regle->premisse);
     
-    if (regle->conclusion==NULL || regle->conclusion->description == NULL){
+    if (regle->conclusion==NULL || regle->conclusion->description == NULL)
+    {
         printf("pas de conclusion");
-    }else{
+    }
+    else
+    {
         printf("donc : \"");
         affichePropositon(regle->conclusion);
         printf("\"");
@@ -59,7 +68,31 @@ Proposition* conlusionRegle(Regle *regle)
     return regle->conclusion;
 }
 
-void instertHeadPremisseRegle(Regle* regle, Proposition *prop)
+Premisse instertHeadPremisseRegle(Regle* regle, Premisse listProp, char* description)
 {
-    regle->premisse = addHeadPremisse(regle->premisse, prop);
+    Proposition* propAAjouter = rechercheListProposition(listProp, description);
+    if (propAAjouter == NULL)
+    {
+        listProp = addPropositionUnique(listProp, description, false);
+        propAAjouter = rechercheListProposition(listProp, description);
+    }
+    regle->premisse = addHeadPremisse(regle->premisse, propAAjouter);
+
+    return listProp;
+    
+}
+
+Regle* createRegle(Premisse* pListProp, char* descriptionPremisse[], long nbElemPremisse,  char* descriptionConclusion)
+{
+    Regle* regle = newRegle();
+
+    for (long countPrem = 0; countPrem < nbElemPremisse; countPrem++)
+    {
+        *pListProp = instertHeadPremisseRegle(regle, *pListProp, descriptionPremisse[countPrem]);
+    }
+    
+    *pListProp = addConclusion(regle, *pListProp, descriptionConclusion);
+
+    return regle;
+
 }

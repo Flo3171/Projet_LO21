@@ -79,6 +79,19 @@ void deleteAllBDC(BDConnaissances bdc);
  */
 void afficheBDC(BDConnaissances bdc);
 
+/**
+ * @brief ajoute une règle à une BDC à partir de chaine de caractère
+ * 
+ * @param bdc : base de connaissaint à laquel on veut ajouter la règle
+ * @param pListProp : pointeur sur la liste de toute les proposition qui on déjà été ulitilisé
+ * @param descriptionPremisse : tableau de chaine de caracètre contenant toutes les descriptions des prémisses à ajouter à la règle 
+ * @param nbElemPremisse : nombre d'élément que l'on veut mettre dans la prémisse
+ * @param descriptionConclusion : desciption à donner à la conlusion
+ * @return BDConnaissances : renvoie la bdc
+ * @author Florian CLOAREC
+ */
+BDConnaissances addRegleBDC(BDConnaissances bdc, Premisse* pListProp, char* descriptionPremisse[], long nbElemPremisse,  char* descriptionConclusion);
+
 
 /**
  * @brief recherche à partir de la base de véritée et de la base de connaissances les propositions qui sont vraie

@@ -14,6 +14,8 @@
 
 //Déclaration des constante
 
+#define TAILLE_MAXI_PROPOSITION 100
+
 //Inclusion des structures
 
 #include "struct.h"

@@ -49,13 +49,15 @@ Regle* newRegle();
 void deleteRegle(Regle *regleToDelete);
 
 /**
- * @brief ajoute la conclusion d'une règle
+ * @brief défini une popotion comme la conclution d'une règle
  * 
- * @param conclusionToAdd : conclusion à ajouter dans la règle 
- * @param regle : pointeur vers la règle ou doit être ajoutée la conclusion 
- * @author Carlo AZANCOTH
+ * @param regle : regle pour laquel on définit la conclution
+ * @param listProp : liste de toute les proposition
+ * @param description : destription que l'on veut donner à la conclusion
+ * @return revoie listProp au cas ou il ait changé
+ * @author Florian CLOAREC && Carlo AZANCOTH
  */
-void addConclusion(Proposition *conclusionToAdd,Regle *regle);
+Premisse addConclusion(Regle *regle, Premisse listProp, char* description);
 
 /**
  * @brief affiche une règle
@@ -95,16 +97,30 @@ Regle* supprimePropositionPremisseRegle(Regle *regle, Proposition *prop);
  * @author Florian CLOAREC
  */
 
-Proposition*	conlusionRegle(Regle *regle);
+Proposition* conlusionRegle(Regle *regle);
 
 /**
- * @brief ajoute en tete une proposition à la prémisse d'une règle
+ * @brief ajoute en tete une propostion à la prémisse d'une règle
  * 
- * @param regle : règle à laquel on veut ajouter la propostion
- * @param prop : propostion à ajouter
+ * @param regle : règle à laquelle on veux ajouter une proposition
+ * @param listProp : liste de toute les propositions
+ * @param description : description de la proposition à ajouter
+ * @return revoie listProp au cas ou il ait changé
  * @author Florian CLOAREC
  */
-void instertHeadPremisseRegle(Regle* regle, Proposition *prop);
+Premisse instertHeadPremisseRegle(Regle* regle, Premisse listProp, char* description);
+
+/**
+ * @brief crée une règle à partir de chaine de caractère
+ * 
+ * @param pListProp : pointeur sur la liste de toute les proposition qui on déjà été ulitilisé
+ * @param descriptionPremisse : tableau de chaine de caracètre contenant toutes les descriptions des prémisses à ajouter à la règle 
+ * @param nbElemPremisse : nombre d'élément que l'on veut mettre dans la prémisse
+ * @param descriptionConclusion : desciption à donner à la conlusion
+ * @return Regle* : renvoie un pointeur sur la règle qui à été crée
+ * @author Florian CLOAREC
+ */
+Regle* createRegle(Premisse* pListProp, char* descriptionPremisse[], long nbElemPremisse,  char* descriptionConclusion);
 
 
 #endif
