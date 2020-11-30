@@ -63,6 +63,16 @@ void deleteProposition(Proposition *propositionToDelete);
 void affichePropositon(Proposition *proposition);
 
 
+/**
+ * @brief définit la valeur de la sous variable validité d'une proposition
+ * 
+ * @param prop : proposition que l'on veut modifier
+ * @param val : valeur à donner à validite
+ * @author Florian CLOAREC
+ */
+void setValidite(Proposition *prop, bool val);
+
+
 
 
 #endif

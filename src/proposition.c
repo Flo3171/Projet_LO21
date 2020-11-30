@@ -34,3 +34,13 @@ void affichePropositon(Proposition *proposition)
 {
     printf("%s", proposition->description);
 }
+
+void setValidite(Proposition *prop, bool val)
+{
+    if (prop != NULL)
+    {
+        prop->validite = val;
+    }
+    
+    
+}

@@ -94,7 +94,7 @@ bool propositionDansPremisse(Premisse prem, Proposition* prop)
     {
         return false;
     }
-    else if(strcmp(prop->description, prem->valeur->description))
+    else if(prem->valeur == prop)
     {
         return 1;
     }
@@ -198,4 +198,16 @@ void deletePremisseProposition(Premisse prem)
         deleteProposition(prem->valeur);
         free(prem); 
     }
+}
+
+bool isPremisseTrue(Premisse prem)
+{
+    if (prem == NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return prem->valeur->validite && isPremisseTrue(prem->elemSuivant);
+    }    
 }

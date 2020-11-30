@@ -100,33 +100,27 @@ int main(int argc, char *argv[])
     printf("\nLa base de connaissances contient les regles suivantes : \n");
     afficheBDC(bdc);
 
-    /* Base de Véritée *//*
+    /* Base de Véritée */
 
-    Premisse baseVerite = NULL;
+    setValidite(rechercheListProposition(listeProposition, "Il y a des nuages"), true);
+    setValidite(rechercheListProposition(listeProposition, "On est a Belfort"), true);
+    Premisse baseVerite = createBDVerite(listeProposition, NULL);
     
-    Proposition     *propV1 = newProposition("La voiture est verte", true),
-                    *propR1 = newProposition("La voiture est rouge", true),
-                    *propB1 = newProposition("La voiture est bleu", true);
-    baseVerite = addTailPremisse(baseVerite, propV1);
-    baseVerite = addTailPremisse(baseVerite, propR1);
-    baseVerite = addTailPremisse(baseVerite, propB1);
-
-    printf("\nLa base de verite contient les proposition suivantes : \n");
-    affichePremisse(baseVerite);*/
+    printf("\n\nLa base de verite contient les propositions suivantes : \n\n");
+    affichePremisse(baseVerite);
 
     /* Moteur d'inférence */
 
-    /*Premisse conclusionM = moteurDInference(baseVerite, bdc);
-    printf("\nLe moteur d'inference a prouve les propiete suivantes : \n");
-    affichePremisse(conclusionM);*/
+    Premisse conclusionM = moteurDInference(baseVerite, bdc);
+    printf("\n\nLe moteur d'inference a prouve les propositions suivantes : \n");
+    affichePremisse(conclusionM);
 
 
     /* On libère bien la mémoire */
     deletePremisseProposition(listeProposition);
     deleteAllBDC(bdc);
-    /*
     deletePremisse(baseVerite);
-    deletePremisse(conclusionM);*/
+    deletePremisse(conclusionM);
 
 
 

@@ -103,6 +103,16 @@ BDConnaissances addRegleBDC(BDConnaissances bdc, Premisse* pListProp, char* desc
  */
 Premisse moteurDInference(Premisse baseVerite, BDConnaissances bdc);
 
+/**
+ * @brief crée la base de connaissance en y ajoutant toutee les proposition qui sont vraie 
+ * 
+ * @param listProp : liste de toute les proposition
+ * @param BDVerite : base de vérité que l'on veut créée (mettre à NULL)
+ * @return Premisse : renvoie la Premisse qui à été créée
+ * @author Florian CLOAREC
+ */
+Premisse createBDVerite(Premisse listProp, Premisse BDVerite);
+
 
 
 

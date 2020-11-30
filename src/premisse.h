@@ -120,7 +120,7 @@ Premisse addPropositionUnique(Premisse listProp, char desciption[], bool validit
 
 
 /**
- * @brief cherche si il existe une proposition avec la meme desciptio dans une liste de proposition
+ * @brief cherche si il existe une proposition avec la meme desciption dans une liste de proposition
  * 
  * @param listProp : premisse à tester
  * @param desciption : desciption à rechercher
@@ -136,5 +136,16 @@ Proposition* rechercheListProposition(Premisse listProp, char desciption[]);
  * @author Florian CLOAREC
  */
 void deletePremisseProposition(Premisse prem);
+
+
+/**
+ * @brief teste si toute les propositon d'une prémisse sont vraie
+ * 
+ * @param prem : premisse à tester 
+ * @return true : renvoie 1 si toute les proposition de la prémisse sont vrais
+ * @return false : renvoie 0 sinon
+ * @author Florian CLOAREC
+ */
+bool isPremisseTrue(Premisse prem);
 
 #endif

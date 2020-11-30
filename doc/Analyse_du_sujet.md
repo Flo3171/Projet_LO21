@@ -180,9 +180,9 @@ fonction : moteurDInference(Premisse baseVerite, BDConnaissances bdc) : Premisse
     Pour chaque proposition dans baseVerite
         Pour chaque regle dans bdc
 
-            si (supprimePropositionPremisseRegle(regle, proposition))
-
-                si (premisseVide(regle))
+            si (propositionDansPremisse(regle.premisse, proposition))
+                setValidite(proposition, vraie)
+                si (isPremisseTrue(regle.premisse)
                     addTailPremisse(conclusion, regle.conclusion)
                 fin si
             fin si

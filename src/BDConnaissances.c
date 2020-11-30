@@ -75,12 +75,12 @@ Premisse moteurDInference(Premisse baseVerite, BDConnaissances bdc)
     {
         while (regleActuel != NULL)
         {
-            if(supprimePropositionPremisseRegle(regleActuel->valeur, propositionActuel->valeur))
+            if(propositionDansPremisse(regleActuel->valeur->premisse, propositionActuel->valeur))
             {
-                if (ReglePremisseIsEmpty(regleActuel->valeur))
+                setValidite(propositionActuel->valeur, true);
+                if (isPremisseTrue(regleActuel->valeur->premisse))
                 {
-                    Proposition* newConclusion = newProposition(regleActuel->valeur->conclusion->description, true);
-                    addTailPremisse(conclusion, newConclusion);
+                    conclusion = addTailPremisse(conclusion, regleActuel->valeur->conclusion);
                 }
                 
             }
@@ -89,4 +89,18 @@ Premisse moteurDInference(Premisse baseVerite, BDConnaissances bdc)
         propositionActuel = propositionActuel->elemSuivant;    
     }
     return conclusion;    
+}
+
+Premisse createBDVerite(Premisse listProp, Premisse BDVerite)
+{
+    if (listProp != NULL)
+    {
+        if (listProp->valeur->validite == true)
+        {
+            BDVerite = addTailPremisse(BDVerite, listProp->valeur);
+        }
+        createBDVerite(listProp->elemSuivant, BDVerite);
+    }
+    return BDVerite;
+    
 }
