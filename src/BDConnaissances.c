@@ -104,3 +104,61 @@ Premisse createBDVerite(Premisse listProp, Premisse BDVerite)
     return BDVerite;
     
 }
+BDConnaissances ReadBDC(BDConnaissances bdc, Premisse listeProposition)
+{
+    FILE *fichier=NULL;
+    fichier= fopen("BDC.csv","r+");
+    if(fichier == NULL){
+        return NULL;
+    }else{
+        long nbProp ;
+        fscanf(fichier,"%d;",&nbProp);
+
+        while(nbProp!= 0){
+            printf("\n\nnombre de propositions :%d\n",nbProp);
+            char *chaine = malloc(sizeof(char)*(TAILLE_MAXI_PROPOSITION+ 1)*(nbProp+4));
+            fgets(chaine,(TAILLE_MAXI_PROPOSITION+ 1)*(nbProp+1),fichier);
+            printf("%s\n",chaine);
+            char **prem = (char**)malloc(sizeof(char*)*nbProp);
+            char *conclusion = malloc(sizeof(char)*(TAILLE_MAXI_PROPOSITION+ 1));
+            int j = 0 ;
+            for (long i = -1; i < nbProp; i++){
+
+                int position = 0;
+                if(i==-1){
+                    while(chaine[j] != ';'){
+                        conclusion[position]=chaine[j];
+                        position++;
+                        j++;
+                    }
+                    conclusion[position]='\0';
+                        printf("conclusion:\n%s\npropositons:\n",conclusion);
+                }else{
+                    prem[i] = (char*)malloc(sizeof(char)*(TAILLE_MAXI_PROPOSITION + 1));
+                    while(chaine[j] != ';'){
+                        prem[i][position]=chaine[j];
+                        position++;
+                        j++;
+                    }
+                    prem[i][position]='\0';
+                        printf("%s\n",prem[i]);
+                }
+                j++;
+            }
+            
+            bdc = addRegleBDC(bdc,&listeProposition , prem, nbProp, conclusion);
+            printf("ok\n");
+            free(chaine);
+            free(conclusion);
+            for (long i = 0; i < nbProp; i++)
+            {
+                free(prem[i]);
+            }
+            free(prem);
+            nbProp = 0;
+            fscanf(fichier,"%d;",&nbProp);
+        }
+        fclose(fichier);
+        return bdc ;
+    }
+}
