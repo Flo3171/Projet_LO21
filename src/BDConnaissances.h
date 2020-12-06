@@ -113,6 +113,15 @@ Premisse moteurDInference(Premisse baseVerite, BDConnaissances bdc);
  */
 Premisse createBDVerite(Premisse listProp, Premisse BDVerite);
 
+/**
+ * @brief lis le fichier de BDC.csv qui contient toutes les connaissance et l'ajoute à la base de Connaisance
+ * 
+ * @param listeProposition : liste de toute les proposition
+ * @param bdc : base de connaissance, liste chainé des regles qui permetent de déduire des proposition vraie
+ * @return 0 si le fichier ne s'est pas ouvert 
+ * @author Carlo AZANCOTH
+ */
+BDConnaissances ReadBDC(BDConnaissances bdc, Premisse listeProposition);
 
 
 
