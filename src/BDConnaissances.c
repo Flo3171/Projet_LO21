@@ -107,7 +107,7 @@ Premisse createBDVerite(Premisse listProp, Premisse BDVerite)
 BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition)
 {
     FILE *fichier=NULL;
-    fichier= fopen("bdc.csv","r+");
+    fichier= fopen("../../file/bdc.csv","r+");
     if(fichier == NULL){
         return NULL;
     }else{
