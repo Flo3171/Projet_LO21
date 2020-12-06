@@ -104,7 +104,7 @@ Premisse createBDVerite(Premisse listProp, Premisse BDVerite)
     return BDVerite;
     
 }
-BDConnaissances ReadBDC(BDConnaissances bdc, Premisse listeProposition)
+BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition)
 {
     FILE *fichier=NULL;
     fichier= fopen("BDC.csv","r+");
@@ -114,7 +114,7 @@ BDConnaissances ReadBDC(BDConnaissances bdc, Premisse listeProposition)
         long nbProp ;
         fscanf(fichier,"%d;",&nbProp);
 
-        while(nbProp!= 0){
+        while(nbProp != 0){
             printf("\n\nnombre de propositions :%d\n",nbProp);
             char *chaine = malloc(sizeof(char)*(TAILLE_MAXI_PROPOSITION+ 1)*(nbProp+4));
             fgets(chaine,(TAILLE_MAXI_PROPOSITION+ 1)*(nbProp+1),fichier);
@@ -146,7 +146,7 @@ BDConnaissances ReadBDC(BDConnaissances bdc, Premisse listeProposition)
                 j++;
             }
             
-            bdc = addRegleBDC(bdc,&listeProposition , prem, nbProp, conclusion);
+            bdc = addRegleBDC(bdc, listeProposition , prem, nbProp, conclusion);
             printf("ok\n");
             free(chaine);
             free(conclusion);
