@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     BDConnaissances bdc = NULL; /* TOUJOURS METTRE A NULL !!!!!!!!!!!!! */
     // char *prem[2] = {"Il y a des nuages", "On est a Belfort"};
     
-   /* Méthode à appliquer pour ajouter une règle à la bdc */ 
+   /* Méthode à appliquer pour ajouter une règle à la bdc */ /*
     long nbProp = 2;
     char **prem = (char**)malloc(sizeof(char*)*nbProp);
     for (long i = 0; i < nbProp; i++)
@@ -94,13 +94,15 @@ int main(int argc, char *argv[])
 
     char *prem1[2] = {"Il pleut", "J'ai un parapluis"};
     bdc = addRegleBDC(bdc, &listeProposition , prem1, 2, "Je peux sortir");
-    
+    */
 
-    
+    bdc = ReadBDC(bdc, &listeProposition);
     printf("\nLa base de connaissances contient les regles suivantes : \n");
     afficheBDC(bdc);
 
-    /* Base de Véritée */
+   
+
+   /* Base de Véritée */
 
     setValidite(rechercheListProposition(listeProposition, "Il y a des nuages"), true);
     setValidite(rechercheListProposition(listeProposition, "On est a Belfort"), true);

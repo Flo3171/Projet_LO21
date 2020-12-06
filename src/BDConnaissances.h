@@ -121,7 +121,7 @@ Premisse createBDVerite(Premisse listProp, Premisse BDVerite);
  * @return 0 si le fichier ne s'est pas ouvert 
  * @author Carlo AZANCOTH
  */
-BDConnaissances ReadBDC(BDConnaissances bdc, Premisse listeProposition);
+BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition);
 
 
 
