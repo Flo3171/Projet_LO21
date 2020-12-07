@@ -35,6 +35,7 @@
 #include "premisse.h"
 #include "regle.h"
 #include "BDConnaissances.h"
+#include "interface.h"
 
 
 #endif
