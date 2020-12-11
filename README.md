@@ -10,20 +10,31 @@ Entrez ici les instructions pour bien débuter avec votre projet...
 
 Ce qu'il est requis pour commencer avec votre projet...
 
-- Programme 1
-- Programme 2
-- etc...
+- Cmake
+- un compilateur C : gcc
+- git
 
 ### Installation
 
-Les étapes pour installer votre programme....
+Les étapes pour installer et compiler et lancer le programme :
 
-Dites ce qu'il faut faire...
-
-_exemple_: Executez la commande ``telnet mapscii.me`` pour commencer ensuite [...]
+Linux : 
 
 
-Ensuite vous pouvez montrer ce que vous obtenez au final...
+````
+ git clonne https://github.com/Flo3171/Projet_LO21.git
+ cd Projet_LO21/
+ mkdir build
+ cd build
+ cmake ..
+ cmake --build .
+ cd ../bin/
+ ./Projet_LO21
+ ````
+
+Windows :
+
+bonne chance avec votre éditeur
 
 ## Démarrage
 
