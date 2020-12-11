@@ -14,6 +14,12 @@
 Regle* newRegle()
 {
     Regle* nouvelRegle = (Regle*)malloc(sizeof(Regle));
+    if (nouvelRegle == NULL)
+    {
+        printf("ERREUR alocation dynamique");
+        exit(0);
+    }
+
     nouvelRegle->premisse = NULL;
     nouvelRegle->conclusion = NULL;
     return nouvelRegle;

@@ -118,10 +118,11 @@ Premisse createBDVerite(Premisse listProp, Premisse BDVerite);
  * 
  * @param listeProposition : liste de toute les proposition
  * @param bdc : base de connaissance, liste chainé des regles qui permetent de déduire des proposition vraie
+ * @param cheminFichier : chemin vers le ficher qui contient les règle de la bdc
  * @return 0 si le fichier ne s'est pas ouvert 
  * @author Carlo AZANCOTH
  */
-BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition);
+BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition, char cheminFichier[]);
 
 
 

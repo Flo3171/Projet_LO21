@@ -14,8 +14,19 @@
 Proposition* newProposition(char valueProposition[], bool validite)
 {
     Proposition* nouvelleProposition = (Proposition*)malloc(sizeof(Proposition));
+    if (nouvelleProposition == NULL)
+    {
+        printf("ERREUR alocation dynamique");
+        exit(0);
+    }
 
     char *value = (char*)malloc(sizeof(char)*strlen(valueProposition));
+    if (value == NULL)
+    {
+        printf("ERREUR alocation dynamique");
+        exit(0);
+    }
+
     strcpy(value, valueProposition);
     nouvelleProposition->description = value;
 

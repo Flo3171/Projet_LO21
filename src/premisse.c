@@ -24,6 +24,12 @@ void deletePremisse(Premisse prem)
 Premisse addHeadPremisse(Premisse prem, Proposition *prop)
 {
     PremisseElem* new = (PremisseElem*)malloc(sizeof(PremisseElem));
+    if (new == NULL)
+        {
+            printf("ERREUR alocation dynamique");
+            exit(0);
+        }
+
     new->elemSuivant = prem;
     new->valeur = prop;
 
@@ -35,6 +41,11 @@ Premisse addTailPremisse(Premisse prem, Proposition *prop)
     if (prem == NULL)
     {
         PremisseElem* newElem = (PremisseElem*)malloc(sizeof(PremisseElem));
+        if (newElem == NULL)
+        {
+            printf("ERREUR alocation dynamique");
+            exit(0);
+        }
 
         newElem->valeur = prop;
         newElem->elemSuivant = NULL; //on ajoute en queue donc il n'y à pas d'élément suivant
@@ -45,6 +56,11 @@ Premisse addTailPremisse(Premisse prem, Proposition *prop)
     else if (prem->elemSuivant == NULL)
     {
         PremisseElem* newElem = (PremisseElem*)malloc(sizeof(PremisseElem));
+        if (newElem == NULL)
+        {
+            printf("ERREUR alocation dynamique");
+            exit(0);
+        }
 
         newElem->valeur = prop;
         newElem->elemSuivant = NULL; //on ajoute en queue donc il n'y à pas d'élément suivant
@@ -148,6 +164,12 @@ Premisse addPropositionUnique(Premisse listProp, char desciption[], bool validit
     if (listProp == NULL)
     {
         PremisseElem* newElem = (PremisseElem*)malloc(sizeof(PremisseElem));
+        if (newElem == NULL)
+        {
+            printf("ERREUR alocation dynamique");
+            exit(0);
+        }
+
         newElem->valeur = newProposition(desciption, validite);
         newElem->elemSuivant = NULL;
 
@@ -156,6 +178,12 @@ Premisse addPropositionUnique(Premisse listProp, char desciption[], bool validit
     else if (listProp->elemSuivant == NULL && strcmp(listProp->valeur->description, desciption))
     {
         PremisseElem* newElem = (PremisseElem*)malloc(sizeof(PremisseElem));
+        if (newElem == NULL)
+        {
+            printf("ERREUR alocation dynamique");
+            exit(0);
+        }
+
         newElem->valeur = newProposition(desciption, validite);
         newElem->elemSuivant = NULL;
 

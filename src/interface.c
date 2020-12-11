@@ -13,6 +13,7 @@
 
 void menuPrincipal()
 {
+    char cheminFichier[100] = "../../file/bdc.csv";
     bool retour = false;
     int choix;
     while (!retour)
@@ -22,23 +23,23 @@ void menuPrincipal()
         switch (choix)
         {
         case 1:
-            systemExpert("");
+            systemExpert(cheminFichier);
             break;
         case 2:
             {
                 bool retourSousMenu = false;
                 while (!retourSousMenu)
                 {
-                    int choixSousMenu = acquisitionEntierSansMessageAvecConsigne(1, 2, "\nQuel action souhaitez vous realiser:\n1-Afficher la Base de Connaissance\n2-Ajouter une regle a la base de connaissances\n3-Retour\n");
+                    int choixSousMenu = acquisitionEntierSansMessageAvecConsigne(1, 3, "\nQuel action souhaitez vous realiser:\n1-Afficher la Base de Connaissance\n2-Ajouter une regle a la base de connaissances\n3-Retour\n");
                     switch (choixSousMenu)
                     {
                     case 1:
                         {
                             Premisse listProp = NULL;
                             BDConnaissances bdc = NULL;
-                            bdc = ReadBDC(bdc, &listProp);
+                            bdc = ReadBDC(bdc, &listProp, cheminFichier);
 
-                            printf("\nLa base de connaissance contient les règle suivantes :\n");
+                            printf("\nLa base de connaissance contient les regle suivantes :\n");
                             afficheBDC(bdc);
                             printf("\n");
 
@@ -60,7 +61,28 @@ void menuPrincipal()
             }
             break;
         case 3:
-            
+            {
+                bool retourSousMenu = false;
+                while (!retourSousMenu)
+                {
+                    int choixSousMenu = acquisitionEntierSansMessageAvecConsigne(1, 2, "\nQuel action souhaitez vous realiser:\n1-Changer le chemin d'acces du fichier contenant la bdc\n2-Retour\n");
+                    switch (choixSousMenu)
+                    {
+                    case 1:
+                        {
+                            char lecture[100];
+                            printf("Le chemin actuel est %s\nEntrer le nouveau chemin d'acces :", cheminFichier);
+                            fgets(lecture, 100, stdin);
+                            strcpy(cheminFichier, lecture);
+                        }
+                        break;
+                    
+                    default:
+                        retourSousMenu = true;
+                        break;
+                    }
+                }
+            }
             break;
         
         default:
@@ -68,6 +90,7 @@ void menuPrincipal()
             break;
         }
     }
+    exit(0);
     
 }
 
@@ -110,7 +133,7 @@ Premisse genereBDVerite(Premisse listProp, Premisse bdVerite)
     {
         printf("\n");
         affichePropositon(listProp->valeur);
-        int choix = acquisitionEntierSansMessageAvecConsigne(1, 2, "\nQuel est la validite de cette proposition :\n1-Vraie\n2-Faux\n3-Je ne sais pas\n");
+        int choix = acquisitionEntierSansMessageAvecConsigne(1, 3, "\nQuel est la validite de cette proposition :\n1-Vraie\n2-Faux\n3-Je ne sais pas\n");
         if (choix == 1)
         {
             listProp->valeur->validite = true;
@@ -120,9 +143,7 @@ Premisse genereBDVerite(Premisse listProp, Premisse bdVerite)
         {
             listProp->valeur->validite = false;
         }
-        
-
-        return genereBDVerite(listProp->elemSuivant, bdVerite);
+        return genereBDVerite(listProp->elemSuivant, bdVerite); 
     }
 }
 
@@ -133,8 +154,10 @@ void systemExpert(char cheminFicher[])
     BDConnaissances bdc = NULL;
     Premisse conclusion = NULL;
 
-    bdc = ReadBDC(bdc, &listProp);
+    bdc = ReadBDC(bdc, &listProp, cheminFicher);
     bDVerite = genereBDVerite(listProp, bDVerite);
+
+    affichePremisse(bDVerite);
 
     conclusion =  moteurDInference(bDVerite, bdc);
 
@@ -145,4 +168,6 @@ void systemExpert(char cheminFicher[])
     deletePremisse(bDVerite);
     deletePremisse(conclusion);
     deletePremisseProposition(listProp);
+
+    printf("\n\n");
 }
