@@ -17,7 +17,7 @@ Regle* newRegle()
     if (nouvelRegle == NULL)
     {
         printf("ERREUR alocation dynamique");
-        exit(0);
+        exit(EXIT_FAILURE);
     }
 
     nouvelRegle->premisse = NULL;

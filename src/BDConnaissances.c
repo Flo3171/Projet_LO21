@@ -22,7 +22,7 @@ BDConnaissances addHeadBDC(BDConnaissances bdc, Regle *aAjouter)
     if (newElem == NULL)
     {
         printf("ERREUR alocation dynamique");
-        exit(0);
+        exit(EXIT_FAILURE);
     }
     
 
@@ -126,11 +126,11 @@ BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition, char ch
     while(nbProp != 0){
         //printf("\n\nnombre de propositions :%d\n",nbProp);
         
-        char *chaine = malloc(sizeof(char)*(TAILLE_MAXI_PROPOSITION+ 1)*(nbProp+4));
+        char *chaine = (char*)malloc(sizeof(char)*(TAILLE_MAXI_PROPOSITION + 1)*(nbProp +1));
         if (chaine == NULL)
         {
             printf("ERREUR alocation dynamique");
-            exit(0);
+            exit(EXIT_FAILURE);
         }
         fgets(chaine,(TAILLE_MAXI_PROPOSITION+ 1)*(nbProp+1),fichier);
         //printf("%s\n",chaine);
@@ -139,14 +139,14 @@ BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition, char ch
         if (prem == NULL)
         {
             printf("ERREUR alocation dynamique");
-            exit(0);
+            exit(EXIT_FAILURE);
         }
 
-        char *conclusion = malloc(sizeof(char)*(TAILLE_MAXI_PROPOSITION+ 1));
+        char *conclusion = (char*)malloc(sizeof(char)*(TAILLE_MAXI_PROPOSITION + 1));
         if (conclusion == NULL)
         {
             printf("ERREUR alocation dynamique");
-            exit(0);
+            exit(EXIT_FAILURE);
         }
 
         int j = 0 ;
@@ -166,7 +166,7 @@ BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition, char ch
                 if (prem[i] == NULL)
                 {
                     printf("ERREUR alocation dynamique");
-                    exit(0);
+                    exit(EXIT_FAILURE);
                 }
 
                 while(chaine[j] != ';'){
@@ -193,5 +193,5 @@ BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition, char ch
         fscanf(fichier,"%d;",&nbProp);
     }
     fclose(fichier);
-    return bdc ;
+    return bdc;
 }

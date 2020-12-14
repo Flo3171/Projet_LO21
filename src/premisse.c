@@ -25,10 +25,10 @@ Premisse addHeadPremisse(Premisse prem, Proposition *prop)
 {
     PremisseElem* new = (PremisseElem*)malloc(sizeof(PremisseElem));
     if (new == NULL)
-        {
-            printf("ERREUR alocation dynamique");
-            exit(0);
-        }
+    {
+        printf("ERREUR alocation dynamique");
+        exit(EXIT_FAILURE);
+    }
 
     new->elemSuivant = prem;
     new->valeur = prop;
@@ -44,7 +44,7 @@ Premisse addTailPremisse(Premisse prem, Proposition *prop)
         if (newElem == NULL)
         {
             printf("ERREUR alocation dynamique");
-            exit(0);
+            exit(EXIT_FAILURE);
         }
 
         newElem->valeur = prop;
@@ -59,7 +59,7 @@ Premisse addTailPremisse(Premisse prem, Proposition *prop)
         if (newElem == NULL)
         {
             printf("ERREUR alocation dynamique");
-            exit(0);
+            exit(EXIT_FAILURE);
         }
 
         newElem->valeur = prop;
@@ -167,7 +167,7 @@ Premisse addPropositionUnique(Premisse listProp, char desciption[], bool validit
         if (newElem == NULL)
         {
             printf("ERREUR alocation dynamique");
-            exit(0);
+            exit(EXIT_FAILURE);
         }
 
         newElem->valeur = newProposition(desciption, validite);
@@ -181,7 +181,7 @@ Premisse addPropositionUnique(Premisse listProp, char desciption[], bool validit
         if (newElem == NULL)
         {
             printf("ERREUR alocation dynamique");
-            exit(0);
+            exit(EXIT_FAILURE);
         }
 
         newElem->valeur = newProposition(desciption, validite);
@@ -222,7 +222,7 @@ Proposition* rechercheListProposition(Premisse listProp, char desciption[])
 void deletePremisseProposition(Premisse prem)
 {
     if (prem != NULL){
-        deletePremisse(prem->elemSuivant);
+        deletePremisseProposition(prem->elemSuivant);
         deleteProposition(prem->valeur);
         free(prem); 
     }

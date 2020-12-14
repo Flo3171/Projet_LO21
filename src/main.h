@@ -24,7 +24,6 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <malloc.h>
 #include <string.h>
 #include <stdbool.h>
 
@@ -36,6 +35,7 @@
 #include "regle.h"
 #include "BDConnaissances.h"
 #include "interface.h"
+#include "struct.h"
 
 
 #endif
