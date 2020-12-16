@@ -1,53 +1,45 @@
-# Cahier des charges : Projet LO21
+Cahier des charges: Projet LO21
 
-## Contexte et définition du problème 
+Contextes et définition du problème
 
-<p>L'ojectif de ce projet est de parvenir à réaliser une ineligence artificielle capable de gagner un maximum d'argent au jeu du black jack. Le jeu du black jack est un jeu très simple mais les stratégie permetant de gagner sont complexes c'est pourquoi il est compliqué pour un joueur humain de gagner de l'argent lors d'un grand nombre de partie. Cela s'expique par le fait que le joueur ne peut pas mémoriser les meuilleur choix à faire dans chaque situation car les différents cas de figures sont beaucoup trop nombreux. De plus, l'humain aura du mal à ce souvenir de toutes les carte qui sont deja sorties et il ne poura pas exploiter ces informations. Au contraire un programme informatique n'auras aucun mal a faire un très grand nombre de fois et sans faire d'érreur.
-Acuellement grâce à l'augmentation de la puissance de calcul des ordinateurs il est envisagable de conaitre en un temps raisonable les meuilleurs coups à jouer et quelle somme d'argent miser afin de maximiser les profits réalisés</p> 
+Le sujet de ce projet est de réaliser un système expert fonctionnel. D'après la définition donnée par la page Wikipédia sur ce sujet, un système expert est : "un logiciel capable de répondre à des questions, en effectuant un raisonnement à partir de faits et de règles connues."(source : https://fr.wikipedia.org/wiki/Syst%C3%A8me_expert). Pour cela le système expert va se comporter comme un humain expert dans un domaine d'activité comme la médecine ou l'automobile. En effet pour établir un diagnostic ou une analyse l'humain va faire des observation et à partir de ces observation il va appliquer des règles qu'il a apprise lors de sa formation ou par son expérience pour en tirer des déduction, comme par exemple la maladie dont souffre un patient dans le cas d'un médecin ou le problème qu'a la voiture pour un garagiste. Le système expert est donc composé de trois élément principaux, le premier est la base de connaissances. La base de connaissance permet de stocker toutes les règle qui permettront au programme de faire des déductions. Le second élément est la base de fait, elle permet de stocker les propositions qui sont considérée comme vrai au lancement du programme. Le dernier élément est le moteur d'inférence, c'est lui qui est chargé à partir de la base de connaissances et de la base de fait de déduire toute les proposition qui sont vraies.
 
-## Objetifs du projet
+Objectif du projet
 
-### Objectif long terme 
+L'objectif de ce projet est de développer une programme capable de remplir les fonction d'un système expert. Le projet doit pouvoir permettre à l'utilisateur de créer ou importer une base de connaissances, puis après avoir répondu à des questions permettant d'établir la base de fait de connaitre les résultats qui peuvent en être déduit. On souhaiterait permettre à un utilisateur n'ayant pas de connaissances en informatique de pouvoir utiliser notre projet une fois qu'il a été configuré en fonction de la situation.
 
-<p>L'objectif final de ce projet est d'optenir un programme qui nous permetrais d'aller dans un casino, de rentrer des paramètres lié aux règles de ce casinon et à la sommme de base que l'on possède. Une fois ces donnée aqcuises et compilées on attent du programme qu'il sugère à l'utilisateur combien miser et quelles actions faire durant la partie.</p>
+Périmètre du projet
 
-### Objetctifs cour terme 
+Le projet devra être réaliser en langage C et s'exécuter dans la console. Il sera au maximum portable c'est à dire capable de fonctionner sous différent systèmes d'exploitation (linux et Windows au moins). La vitesse d'exécution et la place prise en mémoire sera optimiser afin d'obtenir un programme le plus efficace possible. Nous limiterons les règle contenue dans la base de connaissances à des règle du type "A et B et ... implique C" et nous utiliserons uniquement les implication directe, pas de réciprocité ou de contraposée. 
 
-<p>Réaliser un jeu de black jack dans la console en C et créer une inteligence ariticielle qui permet de jouer à ce jeu. L'ia devra être capable de faire les choix les plus optimaux dans chacunes des situations de jeu. On dévelopera une autre partie du programme peremetant de détermier en jouant un grand nombre de partie et en utilisant des technique lié au machine learning quelle est le choix optitmal dans chaque situation de jeu.</p>
+Description fonctionnelle des besoins
 
-## Périmètre du projet 
+•	Définir des structure de données abstraite pour les objets suivant : Proposition, Prémisse, Règle, Base de connaissance, Base de fait.
 
-<p>Le projet devra tenter dans la meusure du possible de s'adapter aux règles qui peuvent varier d'un casion à l'autre, notament le nombre de paquets de carte dans le sabot ou les mises minimums ou la somme de départ que l'utilisateur possède ou certaines règles qui diffèrent entre les casino européen et nord américain. Le projet devrat s'exécuter en un temps aceptable (5s maximum entre l'acquisition des cartes la réponse de l'action à faire). On peut envisager que une fois que les paramètres du casino ont été sélectioné, le programme nécessite un temps d'exécution plus conséquent (1h) afin de déterminer la manière de jouer</p>
+•	Implémenter les sous programmes permettant de manipuler les structure
 
-## Description fonctionnelle des besoins
+•	Permettre à l'utilisateur de créer et de stocker une base de connaissances
 
-* Fonction principale : avoir une fontion qui détermine la meilleure manière de joueur 
-* Sous fonctions :
-  * Faire un jeu de black jack
-  * Faire en sorte que le jeu se déroule sans aucune interaction humaine 
-  * Déterminer une méthode pour déterminer de manière expérimentale le meuilleur choix à faire selon la situation et les paramètres 
-  * Stocker les données de tel sorte qu'elles soient accèssibles rapidement
-  * Optimiser le programme pour qu'il s'exécute en un temps raisonable
-  * Faire un menu de sélection pour choisir les paramètres rapidement 
-  * Calculer avant le lancement le temps estimé d'exécution pour avoir une idée globale (et faire une barre d'affichement)
-* Produire un rapport détaillant ce qui a été fait dans le projet et la manière de le faire
+•	Permettre à l'utilisateur de répondre au question et de créer la base de fais en fonction des réponses.
 
-## Enveloppe budgétaire
+•	Implémenter le sous-programme qui remplit la fonction du moteur d'inférence
 
-<p>0000,00€€ c'est un projet uniquement logiciel, les ide pour le c sont gratuit. On peut envisager d'optenir de la puissance de calcul alouée si le programme est trop long à l'exécution, en utilisant les autres ordinateurs disponible et en les faisant tourner à distance la nuit.</p>
+•	Afficher à l'utilisateur le contenue de la base de connaissance et les résultat du moteur d'inférence
 
-## Délais
 
-Même si ce projet se déroule au rythme que je choisi et en fonction du temps que j'ai envie d'y passer les dead lines sont les suivantes :
 
-* fin juin : mise en place de l'environement de dévelopement(vs code apérationel) et fin de la phase de documentation active
-* mi juillet : avoir un programme qui penmet de joueur avec un utilisataeur humain au jeu
-* fin juillet : avoir une ébauche d'inteligence artificielle et avoir trouver la méthode lui permétant d'apprendre pour faire les meilleur coup
-* fin aout : sortir une première version complète du programme en faisant en prioritée les règles pour les casino français 
+Contrainte/ Normalisation et documentation du code
 
-## Contrainte / Normalitation et Documentation du code
+•	Le programme doit respecter la norme C99
 
-* Comenter le code au maximum
-* Tout mettre en place pour une future exportation avec doxygen
-* Utiliser la norme Camel Case
-* Produire un code le plus clair et optimisé possible pour réduire le temps d'éxecution et faciliter l'améliration du projet même après plusieurs mois de pause
+•	Chaque fonction ou structure doit être documentée selon la formalisation imposée par doxigène. Ainsi une documentation du code sera générée par doxigène
+
+•	Les fonction seront dans la mesure du possible implémenté de manière récursive
+
+•	Les variable sont en normalisation CamelCase et les nom de structure commences par une majuscule
+
+•	Le projet est versionner avec git et héberger sur git hub
+
+•	La génération des make file et la compilation du programme ce fait avec Cmake
+
+•	Le temps d'exécution et l'espace mémoire utilisé par le programme devront rester acceptable pour que le programme soit utilisable sur le plus grand nombre de machine
