@@ -58,8 +58,9 @@ struct Proposition{
 ```algo
 fonction : newRegle(): *Regle
     Soit nouvelRegle une Regle
-    nouvelRegle.premise <-- newPremise()
+    nouvelRegle.premise <-- NULL
     nouvelRegle.conclusion <-- NULL
+    newRegle <-- nouvelRegle
 fin fonction
 ```
 
@@ -70,42 +71,67 @@ fin fonction
 ```algo
 procédure : deletRegle(Regle *regleToDelete)
     deletePremisse(regleToDelete.premisse)
-    deleteProposition(regleToDelete.conclution)
     libère(regleToDelete)
 fin procédure
 ```
 
 
-* newPremisse : réer une nouvelle prémise vide (fait)
-    * donné : rien
-    * résultat : un pointeur sur la prémisse qui viens d'être créée
-```algo
-trivial
-```
-
-* deletePremisse : supriemer de la mémoire une prémisse et toutes ces variables associée
+* deletePremisse : suprimer de la mémoire une prémisse
     * donné : un pointeur sur la prémisse à supprimer
     * résutat : supprime de la mémoire la prémisse
 ```algo
-trivial
+procédure : deletePremisse(Premisse prem)
+    si (premisseNonVide(prem))
+        deletePremisse(suivant(prem))
+        libère(prem)
+    fin si
+fin procédure
 ```
 
 
 * Ajouter une Proposition à la prémisse d'une règle en queue
-    * donnée : la proposition à ajouter et la Prémisse à laquelle l'ajouter
-    * résutat : ajoute la proposion à la liste chainé en queue en faisant le lien entre les élément
+    * donnée : la proposition à ajouter et la règle à laquelle l'ajouter
+    * résutat : ajoute la proposion à la liste chainé en queue en faisant le lien entre les élément et renvoie la règle qui à été modifié
 ```algo
-procédure : addTailPremisse(Prémisse* premisse, Proposition proposition)
-    Soit newElemPremisse un PremisseElem;
-    newElemPremisse.valeur <-- propositon
-    newElemPremisse.suivant <-- NULL;
-    premisse.dernierElem.suivant <-- newElemPremisse
-    premisse.derinerElem <-- newElemPremisse
-    premisse.nbElem <-- premisse.nbElem + 1
-fin procédure
+fonction :  insertTailPremisseRegle(Regle* regle, Proposition *prop)
+    premisse(regle) <-- inseretTailPremisse(premisse(regle), prop)
+    insertTailPremisseRegle <-- regle
+fin fonction
 ```
 
-* Créer la conclusion d'une règle
+```algo
+fonction : insertTailPremisse(Premisse prem, Proposition* prop)
+    si premisseVide(prem)
+        soit newElem un PremisseElem
+        valeur(newElem) <-- prop
+        elmSuivant(newElem) <-- NULL
+
+        insertTailPremisse <-- newElem
+
+    sinon si premisseVide(elemSuivant(newElem))
+        soit newElem un PremisseElem
+        valeur(newElem) <-- prop
+        elmSuivant(newElem) <-- NULL
+
+        elemSuivant(prem) <-- newElem
+        instertTailPremisse <-- prem
+
+    sinon
+        insertTailPremisse(elemSuivant(prem), prop)
+        insertTailPremisse <-- prem
+    fin si
+fin fonction
+```
+
+* addConclusion : Créer la conclusion d'une règle
+    * donné : la règle que l'on veut modifier et la proposition à donner à la conclusion
+    * résultat modifie ou initialise la conclution de la règle
+
+```algo
+procédure : addConclusion(Regle* regle, Proposition* prop)
+    conclusion(regle) <-- prop
+fin procédure 
+```
 
 * propositionDansPremisse: Tester si une Proposition appartient à la prémisse d'une règle recursivement
     * donnée : un pointeur sur le premier élément de la prémisse dans laquel on veut rechercher, la propositon à rechercher
