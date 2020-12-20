@@ -137,18 +137,74 @@ fin procédure
     * donnée : un pointeur sur le premier élément de la prémisse dans laquel on veut rechercher, la propositon à rechercher
     * résulat : renvoie 1 si la proposion à été trouvée dans la prémisse et 0 sinon
 
+```algo
+fonction : propositionDandPremisse(Premisse prem, Proposition* prop) 
+: booléen
+    si premisseVide(prem)
+        propositionDansPremisse <-- faux
+    sinon si valeur(prem) = prop
+        propositionDansPremisse <-- vrai
+    sinon
+        propostionDansPremisse <-- 
+        propostionDansPremisse(elemSuivant(prem))
+    fin si
+fin fonction
+```
+
 
 * rechercheSupprimePremisse :Supprimer une Proposition de la prémisse d'une règle
-    * donnée : un pointeur sur le premier élément de laprémisse dans laquel on veut suprimmer, la proposition à suprimmer
-    * résultat : suprime la proposion si elle à été trouvée et renvoie 1 si la proposion à été trouvée dans la prémisse et 0 sinon
+    * donnée : la prémisse dans laquel on veut suprimmer, la proposition à suprimmer
+    *résultat : supprime la proposions si elle a été trouvée et renvoie la prémisse sur laquelle on travail
 
-* Tester si la prémisse d'une règle est vide
+```algo
+fonction : rechercheSupprimePremisse(Premisse prem,
+ Propostion* prop) : Premisse
+    si premisseVide(prem)
+        rechercherSupprimePremisse <-- NULL
+    sinon si premisseVide(elemSuivant(prem)) et description(prop) = description(valeur(prem))
+        libère prem
+        rechercherSypprimePremisse <-- NULL
+    sinon si description(prop) = description(valeur(elemSuivant(prem)))
+        Soit toDelete une Premisse
+        toDelete <-- elemSuivant(prem)
+        elemSuivant(prem) <-- elemSuivant(toDelete)
+        libérer toDelete
+        rechercherSupprimePremisse <--  prem
+    sinon
+        rechercheSupprimePremisse(elemSuivant(prem), prop)
+        rechercheSupprimePremisse <-- prem
+    fin si
+fin fonction
+```
 
-* Accéder à la proposition ce trouvante en tête d'une prémisse
+* reglePremisseIsEmpty :Tester si la prémisse d'une règle est vide
+    * Donées : un pointeur sur la règle à tester
+    * Resultat : renvoie vrai si la prémisse est vide et faux sinon
+```algo 
+fonction : reglePremisseIsEmpty(Regle *regle) : booléen
+    reglePremisseIsEmpty <-- premisseIsEmpty(premisse(regle))
+fin fonction
+```
 
-* Accéder à la conclusion d'une règle
+* returnHeadPremisse : Accéder à la proposition ce trouvant en tête d'une prémisse
+    * donnée : la premisse sur laquelle on veut travailler
+    * renvoie : pointeur sur la proposition en tête de la premisse
+
+```algo
+fonction : returnHeadPremisse(Premisse prem) : Proposition *
+    returnHeadPremisse <-- valeur(prem)
+fin fonction
+```
+
+* conclutionRegle : Accéder à la conclusion d'une règle
     * donnée : un pointeur sur la règle dont on veut connaitre la conclusion
-    * résltat : renvoie la une variable de type proposition qui est la conclusion de la règle
+    * résultat : renvoie un pointeur sur la proposition qui est la conclusion de la règle
+
+```algo
+fonction : conclutionRegle(Regle* regle) : Proposition*
+    conclutionRegle <-- conclution(regle)
+fin fonction
+```
 
 ## Basse de connaissances
 ### Definition des structures
@@ -172,11 +228,59 @@ typedef BDConnaissancesElem* BDConnaissances;
 
 ### Fonctions associées
 
-* tester si la base de connaissances est vide
+* isEmptyBDC : tester si la base de connaissances est vide
+    * donnée : la base de connaissances que l'on veut tester
+    * résultat : renvoie vrai si la basse de connaissance est vide et faux sinon
 
-* insérer en tête une nouvelle règle
+```algo 
+fonction : isEmptyBDC(BDConnaisances bdc)
+    si bdc = NULL
+        isEmptyBDC <-- vrai
+    sinon
+        isemptyBDC <-- faux
+fin fonction
+```
 
-* supprimer en tête une règle
+* addHeadBDC : insérer en tête une nouvelle règle
+    * donnée : la base de connaissance avec laquelle on travail et un pointeur sur la règle à ajouter
+    * résultat : ajoute la règle à la base de connaissance et renvoie la base de connaissance
+
+```algo 
+fonction : addHeadBDC(BDConnaissance bdc, Regle regle) : BDConnaissances
+    soit newElem un pointeur sur BDConnaissanceElem
+    valeur(newElem) <-- regle
+    suivant(newElem) <-- bdc
+    addHeadBDC <-- newElem
+fin fonction
+```
+
+
+* deleteHeadBDC : supprimer en tête une règle
+    * donnée : la base de connaisance dont on veut supprimer le premier élément
+    * supprime l'élément en tête de la liste chainée et renvoie la base de connaissance
+
+```algo
+fonction : deleteHeadBDC(BDConnaissances bdc) : BDConnaissances
+    si isEmptyBDC(bdc) = faux
+        soit toDeleteNext un pointeur sur un BDConnaissancesElem
+        toDeleteNext <-- suivant(bdc)
+        deleteRegle(valeur(bdc))
+        libère bdc
+        deleteHeadBDC <-- toDeleteNext
+    sinon
+        deleteHeadBDC <-- NULL
+fin fonction
+```
+
+* returnHeadBDC : Accéder à la règle se trouvant en tête de la base
+    * donné : la base de connaissances dont on veut connaitre la prémière règle
+    * résultal : renvoie un pointeur sur la règle en tête
+
+```algo 
+fonction : returnHeadBDC(BDConnaissances bdc) : Regle*
+    returnHeadBDC <-- valeur(bdc)
+fin fonction
+```
 
 *  supprimer récurivement toute la base de connaissance
 

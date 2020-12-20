@@ -112,7 +112,7 @@ bool propositionDansPremisse(Premisse prem, Proposition* prop)
     }
     else if(prem->valeur == prop)
     {
-        return 1;
+        return true;
     }
     else
     {
