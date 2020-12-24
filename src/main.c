@@ -21,17 +21,23 @@ int main(int argc, char *argv[])
     printf("************START***************\n\n");
    
     /*menuPrincipal();*/
-
+    
     Premisse listProp = NULL;
     BDConnaissances bdc = NULL;
+    
     bdc = ReadBDC(bdc, &listProp, "../../file/bdc.csv");
 
     printf("La bdc contient :\n");
     afficheBDC(bdc);
+    
 
+    WriteBDC(bdc, &listProp, "../../file/bdc.csv");
+    
     deleteAllBDC(bdc);
     deletePremisseProposition(listProp);
-
+    
+    
+    
     printf("\n\n************FINISH***************\n");
     return EXIT_SUCCESS;
 }

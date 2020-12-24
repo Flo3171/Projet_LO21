@@ -29,7 +29,7 @@ void menuPrincipal();
 int acquisitionEntierSecurise();
 
 /**
- * @brief acquièrt un entier saisi par l'utilisateur avec contrôle d'érreur mais sa message en affichant une consigne
+ * @brief acquièrt un entier saisi par l'utilisateur avec contrôle d'érreur mais sans message en affichant une consigne
  * 
  * @param min : valeur minimum que l'utilisateur doit saisir
  * @param max : valeur maximum que l'utilisateur doit saisir
@@ -56,5 +56,13 @@ Premisse genereBDVerite(Premisse listProp, Premisse bdVerite);
  * @author Florian CLOAREC
  */
 void systemExpert(char cheminFicher[]);
+
+/**
+ * @brief verifie si une proposition entrée par l'utilisateur à été correctement ecrite
+ * 
+ * @param proposition : ponteur vers la proposition à vérifier
+ * @author Carlo AZANCOTH
+ */
+int verificationPropositionAvecMessage(char *proposition);
 
 #endif

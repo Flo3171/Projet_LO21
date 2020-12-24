@@ -36,6 +36,7 @@
 #include "BDConnaissances.h"
 #include "interface.h"
 #include "struct.h"
+#include "fichier.h"
 
 
 #endif
