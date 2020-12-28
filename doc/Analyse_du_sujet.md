@@ -310,18 +310,19 @@ fonction : moteurDInference(Premisse baseVerite, BDConnaissances bdc) : Premisse
     Pour chaque proposition dans baseVerite
         Pour chaque regle dans bdc
 
-            si (propositionDansPremisse(regle.premisse, proposition))
+            si (propositionDansPremisse(premisse(regle), proposition))
                 setValidite(proposition, vraie)
-                si (isPremisseTrue(regle.premisse)
-                    addTailPremisse(conclusion, regle.conclusion)
+                si (isPremisseTrue(premisse(regle))
+                    addTailPremisse(conclusion, conclusion(regle))
                 fin si
             fin si
         fin pour
     fin pour            
 
-    affiche(conclusion)
+    moteurDInference <-- conclusion
 
 fin fonction
 
-
 ```
+
+Lexique : setValidite est une fonction qui définit la valeur de la sous variable validité d'une proposition et isPremiisseTrue est une fonction qui teste de manière récursive si toute les proposition d'une prémisse sont vraies
