@@ -76,7 +76,6 @@ BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition, char ch
                     j++;
                 }
                 prem[i][position]='\0';
-                //printf("%s\n",prem[i]);
             }
             j++;
         }
@@ -170,9 +169,9 @@ BDConnaissances WriteBDC(BDConnaissances bdc, Premisse* listeProposition, char c
     afficheBDC(bdc);
     
     if(nbProp == 2 ){
-        fprintf(fichier,"\n%1d;%s;%s;%s;",nbProp,prem[0],prem[1],conclusion);
+        fprintf(fichier,"\n%1d;%s;%s;%s;",nbProp,conclusion,prem[0],prem[1]);
     }else if (nbProp == 3){
-        fprintf(fichier,"\n%1d;%s;%s;%s;%s;",nbProp,prem[0],prem[1],prem[2],conclusion);
+        fprintf(fichier,"\n%1d;%s;%s;%s;%s;",nbProp,conclusion,prem[0],prem[1],prem[2]);
     }
 
 
