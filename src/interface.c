@@ -48,7 +48,19 @@ void menuPrincipal()
                         }
                         break;
                     case 2:
-                        /*  Pour toi Carlo */
+                        {
+                            Premisse listProp = NULL;
+                            BDConnaissances bdc = NULL;
+                            bdc = ReadBDC(bdc, &listProp, cheminFichier);
+                            
+                            WriteBDC(bdc, &listProp, cheminFichier);
+                            printf("\nLa base de connaissance contient les regle suivantes :\n");
+                            afficheBDC(bdc);
+                            printf("\n");
+
+                            deleteAllBDC(bdc);
+                            deletePremisseProposition(listProp);
+                        }
                         break;
                     
                     default:
