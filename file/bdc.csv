@@ -2,8 +2,10 @@
 2;C'est un helicopther;Ca a des pales;Ca volle;
 
 2;C'est une voiture;Ca a quatres roues;Ca a un vollant;
-2;C'est une formule 1;C'est une voiture;Ca develloppe 1000 cheveaux
-3;C'est la ferrari;C'est une formule 1;C'est rouge;Ca va a la vitesse d'un tracteur
+2;C'est une formule 1;C'est une voiture;Ca develloppe 1000 cheveaux;
+3;C'est la ferrari;C'est une formule 1;C'est rouge;Ca va a la vitesse d'un tracteur;
+
+
 2;C'est un camion;Ca a un vollant;Ca pese plus de 3 Tonnes;
 
 2;C'est un voilie;Ca flotte sur l'eau;Ca a des voiles;

@@ -75,24 +75,37 @@ Premisse moteurDInference(Premisse baseVerite, BDConnaissances bdc)
 {
     Premisse conclusion = NULL;
     PremisseElem *propositionActuel = baseVerite;
-    BDConnaissancesElem *regleActuel = bdc;
-
+    
     while (propositionActuel != NULL)
     {
+        BDConnaissancesElem *regleActuel = bdc;
         while (regleActuel != NULL)
         {
             if(propositionDansPremisse(regleActuel->valeur->premisse, propositionActuel->valeur))
             {
                 setValidite(propositionActuel->valeur, true);
-                if (isPremisseTrue(regleActuel->valeur->premisse))
+                if (isPremisseTrue(regleActuel->valeur->premisse));
                 {
-                    conclusion = addTailPremisse(conclusion, regleActuel->valeur->conclusion);
+                    setValidite(regleActuel->valeur->conclusion, true);
+                    if (!propositionDansPremisse(conclusion, regleActuel->valeur->conclusion))
+                    {
+                        conclusion = addTailPremisse(conclusion, regleActuel->valeur->conclusion);
+                    }
+
+                    if (!propositionDansPremisse(baseVerite, regleActuel->valeur->conclusion))
+                    {
+                        baseVerite = addTailPremisse(baseVerite, regleActuel->valeur->conclusion);
+                    }
+                    
+                    
+                    
+                    
                 }
                 
             }
             regleActuel = regleActuel->suivant;
         }
-        propositionActuel = propositionActuel->elemSuivant;    
+        propositionActuel = propositionActuel->elemSuivant;   
     }
     return conclusion;    
 }
@@ -111,3 +124,20 @@ Premisse createBDVerite(Premisse listProp, Premisse BDVerite)
     
 }
 
+bool isPropositionInConclusion(BDConnaissances bdc, Proposition* prop)
+{
+    if (bdc == NULL)
+    {
+        return false;
+    }
+    else if (prop == bdc->valeur->conclusion)
+    {
+        return true;
+    }
+    else
+    {
+        return isPropositionInConclusion(bdc->suivant, prop);
+    }
+    
+    
+}
