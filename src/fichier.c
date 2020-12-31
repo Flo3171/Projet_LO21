@@ -170,11 +170,11 @@ BDConnaissances WriteBDC(BDConnaissances bdc, Premisse* listeProposition, char c
     bdc = addRegleBDC(bdc, listeProposition , prem, nbProp, conclusion);
     afficheBDC(bdc);
     
-        fprintf(fichier,"\n%1d;",nbProp);
-        for (int i = 0; i<nbProp; i++){
-            fprintf(fichier,"\n%1s;",prem[i]);
-        }
-        fprintf(fichier,"%s;",conclusion);
+    fprintf(fichier,"\n%1d;",nbProp);
+    fprintf(fichier,"%s;",conclusion);
+    for (int i = 0; i<nbProp; i++){
+        fprintf(fichier,"%s;",prem[i]);
+    }
 
 
     /* on libère les variables*/

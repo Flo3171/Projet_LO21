@@ -202,7 +202,7 @@ void systemExpert(char cheminFicher[])
  {
     int controle=0;
     for(int i=0; i< strlen(proposition)-1 && i < TAILLE_MAXI_PROPOSITION ;i++){
-        if ((proposition[i]<'0' || proposition[i]>'9') && (proposition[i]<'A' || proposition[i]>'Z') && (proposition[i]<'a' || proposition[i]>'z') && (proposition[i] < ' ' || proposition[i] > ' ') ){
+        if ((proposition[i]<'0' || proposition[i]>'9') && (proposition[i]<'A' || proposition[i]>'Z') && (proposition[i]<'a' || proposition[i]>'z') && (proposition[i] < ' ' || proposition[i] > ' ') && (proposition[i] < '\'' || proposition[i] > '\'') && (proposition[i] < '-' || proposition[i] > '-') ){
             controle=1;
         }
     }
