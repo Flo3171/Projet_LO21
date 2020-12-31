@@ -113,6 +113,17 @@ Premisse moteurDInference(Premisse baseVerite, BDConnaissances bdc);
  */
 Premisse createBDVerite(Premisse listProp, Premisse BDVerite);
 
+/**
+ * @brief test si une proposition est dans la conclution d'une des règle de la bdc
+ * 
+ * @param bdc : base de connassance dans lauqel on veux chercher
+ * @param prop : pointeur sur la proposition que l'on veut  tester
+ * @return true : si la proposition à été trouvé dans la conclution d'une regle
+ * @return false : si elle n'y est pas
+ * @author Florian CLOAREC
+ */
+bool isPropositionInConclusion(BDConnaissances bdc, Proposition* prop);
+
 
 
 #endif

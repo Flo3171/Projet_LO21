@@ -135,7 +135,7 @@ int acquisitionEntierSansMessageAvecConsigne(int min, int max, char consigne[])
     return valeur;
 }
 
-Premisse genereBDVerite(Premisse listProp, Premisse bdVerite)
+Premisse genereBDVerite(Premisse listProp, Premisse bdVerite, BDConnaissances bdc)
 {
     if (listProp == NULL)
     {
@@ -143,19 +143,27 @@ Premisse genereBDVerite(Premisse listProp, Premisse bdVerite)
     }
     else
     {
-        printf("\n");
-        affichePropositon(listProp->valeur);
-        int choix = acquisitionEntierSansMessageAvecConsigne(1, 3, "\nQuel est la validite de cette proposition :\n1-Vraie\n2-Faux\n3-Je ne sais pas\n");
-        if (choix == 1)
-        {
-            listProp->valeur->validite = true;
-            bdVerite = addHeadPremisse(bdVerite, listProp->valeur);
-        }
-        else
+        if (isPropositionInConclusion(bdc, listProp->valeur))
         {
             listProp->valeur->validite = false;
         }
-        return genereBDVerite(listProp->elemSuivant, bdVerite); 
+        else
+        {
+            printf("\n");
+            affichePropositon(listProp->valeur);
+            int choix = acquisitionEntierSansMessageAvecConsigne(1, 3, "\nQuel est la validite de cette proposition :\n1-Vraie\n2-Faux\n3-Je ne sais pas\n");
+            if (choix == 1)
+            {
+                listProp->valeur->validite = true;
+                bdVerite = addHeadPremisse(bdVerite, listProp->valeur);
+            }
+            else
+            {
+                listProp->valeur->validite = false;
+            }
+        }
+        
+        return genereBDVerite(listProp->elemSuivant, bdVerite, bdc); 
     }
 }
 
@@ -167,8 +175,14 @@ void systemExpert(char cheminFicher[])
     Premisse conclusion = NULL;
 
     bdc = ReadBDC(bdc, &listProp, cheminFicher);
-    bDVerite = genereBDVerite(listProp, bDVerite);
 
+    printf("\nVeuillez repondre a ces question afin de generer la base de verite\n");
+    bDVerite = genereBDVerite(listProp, bDVerite, bdc);
+
+    printf("\n\nLa base de verite contient les regle suivantes :\n");
+    afficheBDC(bdc);
+
+    printf("\n\nLa base de verite contient les proposition suivantes:\n");
     affichePremisse(bDVerite);
 
     conclusion =  moteurDInference(bDVerite, bdc);
