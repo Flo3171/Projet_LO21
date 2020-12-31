@@ -25,7 +25,6 @@ BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition, char ch
     fscanf(fichier,"%d;",&nbProp);
 
     while(nbProp != 0){
-        //printf("\n\nnombre de propositions :%d\n",nbProp);
         
         char *chaine = (char*)malloc(sizeof(char)*(TAILLE_MAXI_PROPOSITION + 1)*(nbProp +1));
         if (chaine == NULL)
@@ -34,7 +33,6 @@ BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition, char ch
             exit(EXIT_FAILURE);
         }
         fgets(chaine,(TAILLE_MAXI_PROPOSITION+ 1)*(nbProp+1),fichier);
-        //printf("%s\n",chaine);
         
         char **prem = (char**)malloc(sizeof(char*)*nbProp);
         if (prem == NULL)
@@ -61,7 +59,6 @@ BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition, char ch
                     j++;
                 }
                 conclusion[position]='\0';
-                    //printf("conclusion:\n%s\npropositons:\n",conclusion);
             }else{
                 prem[i] = (char*)malloc(sizeof(char)*(TAILLE_MAXI_PROPOSITION + 1));
                 if (prem[i] == NULL)
@@ -81,7 +78,6 @@ BDConnaissances ReadBDC(BDConnaissances bdc, Premisse* listeProposition, char ch
         }
         
         bdc = addRegleBDC(bdc, listeProposition , prem, nbProp, conclusion);
-        //printf("ok\n");
         free(chaine);
         free(conclusion);
         for (long i = 0; i < nbProp; i++)
@@ -124,7 +120,7 @@ BDConnaissances WriteBDC(BDConnaissances bdc, Premisse* listeProposition, char c
     int correct = 0, clean_stdin, nbProp= 0, sortie = 0;
     char prop[TAILLE_MAXI_PROPOSITION+2];
 
-    sortie=  acquisitionEntierSansMessageAvecConsigne(2,3,"\n\nCombien de propositions voulez vous ajouter ? :\n 2 ou 3 \n--> ");
+    sortie=  acquisitionEntierSansMessageAvecConsigne(2,254,"\n\nCombien de propositions voulez vous ajouter ? :\n entre 2 et 254 \n--> ");
 
     while(nbProp < sortie){
         correct = 0;
@@ -148,6 +144,12 @@ BDConnaissances WriteBDC(BDConnaissances bdc, Premisse* listeProposition, char c
         }
 
         nbProp++;
+
+        if (nbProp == sortie){
+            if (acquisitionEntierSansMessageAvecConsigne(1,2,"voulez vous ajouter une proposition ?\n1-oui\n2-non\n")== 1){
+                sortie++;
+            }
+        }
     }
 
     correct = 0;
@@ -168,16 +170,16 @@ BDConnaissances WriteBDC(BDConnaissances bdc, Premisse* listeProposition, char c
     bdc = addRegleBDC(bdc, listeProposition , prem, nbProp, conclusion);
     afficheBDC(bdc);
     
-    if(nbProp == 2 ){
-        fprintf(fichier,"\n%1d;%s;%s;%s;",nbProp,conclusion,prem[0],prem[1]);
-    }else if (nbProp == 3){
-        fprintf(fichier,"\n%1d;%s;%s;%s;%s;",nbProp,conclusion,prem[0],prem[1],prem[2]);
-    }
+        fprintf(fichier,"\n%1d;",nbProp);
+        for (int i = 0; i<nbProp; i++){
+            fprintf(fichier,"\n%1s;",prem[i]);
+        }
+        fprintf(fichier,"%s;",conclusion);
 
 
     /* on libère les variables*/
     free(conclusion);
-    for (long i = 0; i < 3; i++)
+    for (long i = 0; i < nbProp; i++)
     {
         free(prem[i]);
     }

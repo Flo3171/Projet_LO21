@@ -20,9 +20,9 @@ int main(int argc, char *argv[])
 {
     printf("************START***************\n\n");
    
-    menuPrincipal();
+    /*menuPrincipal();*/
     
-    /*Premisse listProp = NULL;
+    Premisse listProp = NULL;
     BDConnaissances bdc = NULL;
     
     bdc = ReadBDC(bdc, &listProp, "../../file/bdc.csv");
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     WriteBDC(bdc, &listProp, "../../file/bdc.csv");
     
     deleteAllBDC(bdc);
-    deletePremisseProposition(listProp);*/
+    deletePremisseProposition(listProp);
     
     
     
