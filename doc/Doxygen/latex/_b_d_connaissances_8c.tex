@@ -1,0 +1,288 @@
+\doxysection{Référence du fichier src/\+B\+D\+Connaissances.c}
+\label{_b_d_connaissances_8c}\index{src/BDConnaissances.c@{src/BDConnaissances.c}}
+
+
+fichier contenant les implémentations des fonctions lié à la structure de donnée Base de Connaissances  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ is\+Empty\+B\+DC} (\textbf{ B\+D\+Connaissances} bdc)
+\begin{DoxyCompactList}\small\item\em teste si une B\+D\+Connaissances est vide \end{DoxyCompactList}\item 
+\textbf{ B\+D\+Connaissances} \textbf{ add\+Head\+B\+DC} (\textbf{ B\+D\+Connaissances} bdc, \textbf{ Regle} $\ast$a\+Ajouter)
+\begin{DoxyCompactList}\small\item\em ajoute une règle à une base de connaissances en tête \end{DoxyCompactList}\item 
+\textbf{ B\+D\+Connaissances} \textbf{ delete\+Head\+B\+DC} (\textbf{ B\+D\+Connaissances} bdc)
+\begin{DoxyCompactList}\small\item\em supprime l\textquotesingle{}élément en tête de la bdc \end{DoxyCompactList}\item 
+void \textbf{ delete\+All\+B\+DC} (\textbf{ B\+D\+Connaissances} bdc)
+\begin{DoxyCompactList}\small\item\em supprime récursivement la totalitée d\textquotesingle{}une base de connaissance \end{DoxyCompactList}\item 
+void \textbf{ affiche\+B\+DC} (\textbf{ B\+D\+Connaissances} bdc)
+\begin{DoxyCompactList}\small\item\em affiche la totalitée d\textquotesingle{}une base de connaissances \end{DoxyCompactList}\item 
+\textbf{ B\+D\+Connaissances} \textbf{ add\+Regle\+B\+DC} (\textbf{ B\+D\+Connaissances} bdc, \textbf{ Premisse} $\ast$p\+List\+Prop, char $\ast$description\+Premisse[$\,$], long nb\+Elem\+Premisse, char $\ast$description\+Conclusion)
+\begin{DoxyCompactList}\small\item\em ajoute une règle à une B\+DC à partir de chaine de caractère \end{DoxyCompactList}\item 
+\textbf{ Premisse} \textbf{ moteur\+D\+Inference} (\textbf{ Premisse} base\+Verite, \textbf{ B\+D\+Connaissances} bdc)
+\begin{DoxyCompactList}\small\item\em recherche à partir de la base de véritée et de la base de connaissances les propositions qui sont vraie \end{DoxyCompactList}\item 
+\textbf{ Premisse} \textbf{ create\+B\+D\+Verite} (\textbf{ Premisse} list\+Prop, \textbf{ Premisse} B\+D\+Verite)
+\begin{DoxyCompactList}\small\item\em crée la base de connaissance en y ajoutant toutee les proposition qui sont vraie \end{DoxyCompactList}\item 
+bool \textbf{ is\+Proposition\+In\+Conclusion} (\textbf{ B\+D\+Connaissances} bdc, \textbf{ Proposition} $\ast$prop)
+\begin{DoxyCompactList}\small\item\em test si une proposition est dans la conclution d\textquotesingle{}une des règle de la bdc \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+fichier contenant les implémentations des fonctions lié à la structure de donnée Base de Connaissances 
+
+\begin{DoxyAuthor}{Auteur}
+Florian Cloarec 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+21 November 2020
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU G\+E\+N\+E\+R\+AL P\+U\+B\+L\+IC L\+I\+C\+E\+N\+SE 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\label{_b_d_connaissances_8c_a15c993633f0b4aa2067e6b148b74142a}} 
+\index{BDConnaissances.c@{BDConnaissances.c}!addHeadBDC@{addHeadBDC}}
+\index{addHeadBDC@{addHeadBDC}!BDConnaissances.c@{BDConnaissances.c}}
+\doxysubsubsection{addHeadBDC()}
+{\footnotesize\ttfamily \textbf{ B\+D\+Connaissances} add\+Head\+B\+DC (\begin{DoxyParamCaption}\item[{\textbf{ B\+D\+Connaissances}}]{bdc,  }\item[{\textbf{ Regle} $\ast$}]{a\+Ajouter }\end{DoxyParamCaption})}
+
+
+
+ajoute une règle à une base de connaissances en tête 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bdc} & \+: bdc à laquelle on veut ajouter la règle \\
+\hline
+{\em a\+Ajouter} & \+: pointeur sur la règle à ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+B\+D\+Connaissances \+: renvoie la B\+DC 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 19 du fichier B\+D\+Connaissances.\+c.
+
+\mbox{\label{_b_d_connaissances_8c_a579d8ae3db3d24c86fd8370ed2cf07c7}} 
+\index{BDConnaissances.c@{BDConnaissances.c}!addRegleBDC@{addRegleBDC}}
+\index{addRegleBDC@{addRegleBDC}!BDConnaissances.c@{BDConnaissances.c}}
+\doxysubsubsection{addRegleBDC()}
+{\footnotesize\ttfamily \textbf{ B\+D\+Connaissances} add\+Regle\+B\+DC (\begin{DoxyParamCaption}\item[{\textbf{ B\+D\+Connaissances}}]{bdc,  }\item[{\textbf{ Premisse} $\ast$}]{p\+List\+Prop,  }\item[{char $\ast$}]{description\+Premisse[$\,$],  }\item[{long}]{nb\+Elem\+Premisse,  }\item[{char $\ast$}]{description\+Conclusion }\end{DoxyParamCaption})}
+
+
+
+ajoute une règle à une B\+DC à partir de chaine de caractère 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bdc} & \+: base de connaissaint à laquel on veut ajouter la règle \\
+\hline
+{\em p\+List\+Prop} & \+: pointeur sur la liste de toute les proposition qui on déjà été ulitilisé \\
+\hline
+{\em description\+Premisse} & \+: tableau de chaine de caracètre contenant toutes les descriptions des prémisses à ajouter à la règle \\
+\hline
+{\em nb\+Elem\+Premisse} & \+: nombre d\textquotesingle{}élément que l\textquotesingle{}on veut mettre dans la prémisse \\
+\hline
+{\em description\+Conclusion} & \+: desciption à donner à la conlusion \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+B\+D\+Connaissances \+: renvoie la bdc 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 69 du fichier B\+D\+Connaissances.\+c.
+
+\mbox{\label{_b_d_connaissances_8c_a657ee6f3be1b8d8c511e5c9e7767ba60}} 
+\index{BDConnaissances.c@{BDConnaissances.c}!afficheBDC@{afficheBDC}}
+\index{afficheBDC@{afficheBDC}!BDConnaissances.c@{BDConnaissances.c}}
+\doxysubsubsection{afficheBDC()}
+{\footnotesize\ttfamily void affiche\+B\+DC (\begin{DoxyParamCaption}\item[{\textbf{ B\+D\+Connaissances}}]{bdc }\end{DoxyParamCaption})}
+
+
+
+affiche la totalitée d\textquotesingle{}une base de connaissances 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bdc} & \+: bdc à afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 60 du fichier B\+D\+Connaissances.\+c.
+
+\mbox{\label{_b_d_connaissances_8c_abdc23bfafba4ffc24af7a456c36dce4a}} 
+\index{BDConnaissances.c@{BDConnaissances.c}!createBDVerite@{createBDVerite}}
+\index{createBDVerite@{createBDVerite}!BDConnaissances.c@{BDConnaissances.c}}
+\doxysubsubsection{createBDVerite()}
+{\footnotesize\ttfamily \textbf{ Premisse} create\+B\+D\+Verite (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{list\+Prop,  }\item[{\textbf{ Premisse}}]{B\+D\+Verite }\end{DoxyParamCaption})}
+
+
+
+crée la base de connaissance en y ajoutant toutee les proposition qui sont vraie 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em list\+Prop} & \+: liste de toute les proposition \\
+\hline
+{\em B\+D\+Verite} & \+: base de vérité que l\textquotesingle{}on veut créée (mettre à N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\doxyref{Premisse}{p.}{struct_premisse} \+: renvoie la \doxyref{Premisse}{p.}{struct_premisse} qui à été créée 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 113 du fichier B\+D\+Connaissances.\+c.
+
+\mbox{\label{_b_d_connaissances_8c_a4010b48d524af438b6924aac3a6bff27}} 
+\index{BDConnaissances.c@{BDConnaissances.c}!deleteAllBDC@{deleteAllBDC}}
+\index{deleteAllBDC@{deleteAllBDC}!BDConnaissances.c@{BDConnaissances.c}}
+\doxysubsubsection{deleteAllBDC()}
+{\footnotesize\ttfamily void delete\+All\+B\+DC (\begin{DoxyParamCaption}\item[{\textbf{ B\+D\+Connaissances}}]{bdc }\end{DoxyParamCaption})}
+
+
+
+supprime récursivement la totalitée d\textquotesingle{}une base de connaissance 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bdc} & \+: bdc à supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 52 du fichier B\+D\+Connaissances.\+c.
+
+\mbox{\label{_b_d_connaissances_8c_aa16bc92f77190f90ca5bb7e506be9823}} 
+\index{BDConnaissances.c@{BDConnaissances.c}!deleteHeadBDC@{deleteHeadBDC}}
+\index{deleteHeadBDC@{deleteHeadBDC}!BDConnaissances.c@{BDConnaissances.c}}
+\doxysubsubsection{deleteHeadBDC()}
+{\footnotesize\ttfamily \textbf{ B\+D\+Connaissances} delete\+Head\+B\+DC (\begin{DoxyParamCaption}\item[{\textbf{ B\+D\+Connaissances}}]{bdc }\end{DoxyParamCaption})}
+
+
+
+supprime l\textquotesingle{}élément en tête de la bdc 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bdc} & \+: structure dont on veut supprimer l\textquotesingle{}élément \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+B\+D\+Connaissances \+: pointeur sur le premier élément de la base de connaissances 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 36 du fichier B\+D\+Connaissances.\+c.
+
+\mbox{\label{_b_d_connaissances_8c_ada0f951ede8fc9f4b053ca361520612d}} 
+\index{BDConnaissances.c@{BDConnaissances.c}!isEmptyBDC@{isEmptyBDC}}
+\index{isEmptyBDC@{isEmptyBDC}!BDConnaissances.c@{BDConnaissances.c}}
+\doxysubsubsection{isEmptyBDC()}
+{\footnotesize\ttfamily bool is\+Empty\+B\+DC (\begin{DoxyParamCaption}\item[{\textbf{ B\+D\+Connaissances}}]{bdc }\end{DoxyParamCaption})}
+
+
+
+teste si une B\+D\+Connaissances est vide 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bdc} & \+: base de connaissances que l\textquotesingle{}on veut tester \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true \+: si la structure est vide 
+
+false \+: si la structure n\textquotesingle{}est pas vide 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 14 du fichier B\+D\+Connaissances.\+c.
+
+\mbox{\label{_b_d_connaissances_8c_afc81bf8571ccbb6137cd9cc83579b1d8}} 
+\index{BDConnaissances.c@{BDConnaissances.c}!isPropositionInConclusion@{isPropositionInConclusion}}
+\index{isPropositionInConclusion@{isPropositionInConclusion}!BDConnaissances.c@{BDConnaissances.c}}
+\doxysubsubsection{isPropositionInConclusion()}
+{\footnotesize\ttfamily bool is\+Proposition\+In\+Conclusion (\begin{DoxyParamCaption}\item[{\textbf{ B\+D\+Connaissances}}]{bdc,  }\item[{\textbf{ Proposition} $\ast$}]{prop }\end{DoxyParamCaption})}
+
+
+
+test si une proposition est dans la conclution d\textquotesingle{}une des règle de la bdc 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em bdc} & \+: base de connassance dans lauqel on veux chercher \\
+\hline
+{\em prop} & \+: pointeur sur la proposition que l\textquotesingle{}on veut tester \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true \+: si la proposition à été trouvé dans la conclution d\textquotesingle{}une regle 
+
+false \+: si elle n\textquotesingle{}y est pas 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 127 du fichier B\+D\+Connaissances.\+c.
+
+\mbox{\label{_b_d_connaissances_8c_a4b5bafa359b554b5b503eb197da609de}} 
+\index{BDConnaissances.c@{BDConnaissances.c}!moteurDInference@{moteurDInference}}
+\index{moteurDInference@{moteurDInference}!BDConnaissances.c@{BDConnaissances.c}}
+\doxysubsubsection{moteurDInference()}
+{\footnotesize\ttfamily \textbf{ Premisse} moteur\+D\+Inference (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{base\+Verite,  }\item[{\textbf{ B\+D\+Connaissances}}]{bdc }\end{DoxyParamCaption})}
+
+
+
+recherche à partir de la base de véritée et de la base de connaissances les propositions qui sont vraie 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em base\+Verite} & \+: la liste chainé de Porposition qui sont vraie \\
+\hline
+{\em bdc} & \+: base de connaissance, liste chainé des regles qui permetent de déduire des proposition vraie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\doxyref{Premisse}{p.}{struct_premisse} \+: une liste chainée de propositions qui sont les proposition qui on été trvouée par la fonction 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 74 du fichier B\+D\+Connaissances.\+c.
+

@@ -1,0 +1,186 @@
+\doxysection{Référence du fichier src/interface.c}
+\label{interface_8c}\index{src/interface.c@{src/interface.c}}
+
+
+fichier contenant les implémentation des fonction lié à l\textquotesingle{}interface avec l\textquotesingle{}utilisateur  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ menu\+Principal} ()
+\begin{DoxyCompactList}\small\item\em lance le menu principal du prgramme \end{DoxyCompactList}\item 
+int \textbf{ acquisition\+Entier\+Securise} ()
+\begin{DoxyCompactList}\small\item\em acquèrt auprès de l\textquotesingle{}utilisateur un entier de manière sécurisé \end{DoxyCompactList}\item 
+int \textbf{ acquisition\+Entier\+Sans\+Message\+Avec\+Consigne} (int min, int max, char consigne[$\,$])
+\begin{DoxyCompactList}\small\item\em acquièrt un entier saisi par l\textquotesingle{}utilisateur avec contrôle d\textquotesingle{}érreur mais sans message en affichant une consigne \end{DoxyCompactList}\item 
+\textbf{ Premisse} \textbf{ genere\+B\+D\+Verite} (\textbf{ Premisse} list\+Prop, \textbf{ Premisse} bd\+Verite, \textbf{ B\+D\+Connaissances} bdc)
+\begin{DoxyCompactList}\small\item\em genere la base de Verite en posant des question à l\textquotesingle{}utilisateur \end{DoxyCompactList}\item 
+void \textbf{ system\+Expert} (char chemin\+Ficher[$\,$])
+\begin{DoxyCompactList}\small\item\em lance le system expert \end{DoxyCompactList}\item 
+int \textbf{ verification\+Proposition\+Avec\+Message} (char $\ast$proposition)
+\begin{DoxyCompactList}\small\item\em verifie si une proposition entrée par l\textquotesingle{}utilisateur à été correctement ecrite \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+fichier contenant les implémentation des fonction lié à l\textquotesingle{}interface avec l\textquotesingle{}utilisateur 
+
+\begin{DoxyAuthor}{Auteur}
+Florian Cloarec 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07 December 2020
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU G\+E\+N\+E\+R\+AL P\+U\+B\+L\+IC L\+I\+C\+E\+N\+SE 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\label{interface_8c_ac37f94c13b479302eb91f586007056ed}} 
+\index{interface.c@{interface.c}!acquisitionEntierSansMessageAvecConsigne@{acquisitionEntierSansMessageAvecConsigne}}
+\index{acquisitionEntierSansMessageAvecConsigne@{acquisitionEntierSansMessageAvecConsigne}!interface.c@{interface.c}}
+\doxysubsubsection{acquisitionEntierSansMessageAvecConsigne()}
+{\footnotesize\ttfamily int acquisition\+Entier\+Sans\+Message\+Avec\+Consigne (\begin{DoxyParamCaption}\item[{int}]{min,  }\item[{int}]{max,  }\item[{char}]{consigne[$\,$] }\end{DoxyParamCaption})}
+
+
+
+acquièrt un entier saisi par l\textquotesingle{}utilisateur avec contrôle d\textquotesingle{}érreur mais sans message en affichant une consigne 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em min} & \+: valeur minimum que l\textquotesingle{}utilisateur doit saisir \\
+\hline
+{\em max} & \+: valeur maximum que l\textquotesingle{}utilisateur doit saisir \\
+\hline
+{\em consigne} & \+: consigle à afficher à l\textquotesingle{}utilsateur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: revoie la valeur saisi par l\textquotesingle{}utilsateur et contôlée 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC \&\& Carlo A\+Z\+A\+N\+C\+O\+TH 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 128 du fichier interface.\+c.
+
+\mbox{\label{interface_8c_a29f102dc63957f1bd52030075bb9beef}} 
+\index{interface.c@{interface.c}!acquisitionEntierSecurise@{acquisitionEntierSecurise}}
+\index{acquisitionEntierSecurise@{acquisitionEntierSecurise}!interface.c@{interface.c}}
+\doxysubsubsection{acquisitionEntierSecurise()}
+{\footnotesize\ttfamily int acquisition\+Entier\+Securise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+acquèrt auprès de l\textquotesingle{}utilisateur un entier de manière sécurisé 
+
+\begin{DoxyReturn}{Renvoie}
+int \+: entier saisi par l\textquotesingle{}utilisateur 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC \&\& Carlo A\+Z\+A\+N\+C\+O\+TH 
+\end{DoxyAuthor}
+Lecture de l\textquotesingle{}entrée du joueur de type char
+
+Test si le premier caractère est un 0
+
+Conversion du char en int
+
+Définition à la ligne 109 du fichier interface.\+c.
+
+\mbox{\label{interface_8c_a620bf543bec5b5e9ccb6a0c822b6c734}} 
+\index{interface.c@{interface.c}!genereBDVerite@{genereBDVerite}}
+\index{genereBDVerite@{genereBDVerite}!interface.c@{interface.c}}
+\doxysubsubsection{genereBDVerite()}
+{\footnotesize\ttfamily \textbf{ Premisse} genere\+B\+D\+Verite (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{list\+Prop,  }\item[{\textbf{ Premisse}}]{bd\+Verite,  }\item[{\textbf{ B\+D\+Connaissances}}]{bdc }\end{DoxyParamCaption})}
+
+
+
+genere la base de Verite en posant des question à l\textquotesingle{}utilisateur 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em list\+Prop} & \+: liste de toute les proposition qui on été enregistré \\
+\hline
+{\em bd\+Verite} & \+: liste de toute les propostion qui sont vraie \\
+\hline
+{\em bdc} & \+: base ce connaissance avec laquel on travail \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\doxyref{Premisse}{p.}{struct_premisse} \+: renvoie une liste chainée de proposition qui est la liste de toute les proposition qui sont vraie 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 138 du fichier interface.\+c.
+
+\mbox{\label{interface_8c_adfbaa271f44d828c6a42ce7e9affee88}} 
+\index{interface.c@{interface.c}!menuPrincipal@{menuPrincipal}}
+\index{menuPrincipal@{menuPrincipal}!interface.c@{interface.c}}
+\doxysubsubsection{menuPrincipal()}
+{\footnotesize\ttfamily void menu\+Principal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+lance le menu principal du prgramme 
+
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 14 du fichier interface.\+c.
+
+\mbox{\label{interface_8c_a6ef33d6b7cf2ee98d64008214ff3776f}} 
+\index{interface.c@{interface.c}!systemExpert@{systemExpert}}
+\index{systemExpert@{systemExpert}!interface.c@{interface.c}}
+\doxysubsubsection{systemExpert()}
+{\footnotesize\ttfamily void system\+Expert (\begin{DoxyParamCaption}\item[{char}]{chemin\+Ficher[$\,$] }\end{DoxyParamCaption})}
+
+
+
+lance le system expert 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em chemin\+Ficher} & \+: chaine de caracète qui contient le chemin vers le ficher qui permet de générer la bdc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 170 du fichier interface.\+c.
+
+\mbox{\label{interface_8c_afe4ce45ab4d492b0f59b364c925f70e1}} 
+\index{interface.c@{interface.c}!verificationPropositionAvecMessage@{verificationPropositionAvecMessage}}
+\index{verificationPropositionAvecMessage@{verificationPropositionAvecMessage}!interface.c@{interface.c}}
+\doxysubsubsection{verificationPropositionAvecMessage()}
+{\footnotesize\ttfamily int verification\+Proposition\+Avec\+Message (\begin{DoxyParamCaption}\item[{char $\ast$}]{proposition }\end{DoxyParamCaption})}
+
+
+
+verifie si une proposition entrée par l\textquotesingle{}utilisateur à été correctement ecrite 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em proposition} & \+: ponteur vers la proposition à vérifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Auteur}
+Carlo A\+Z\+A\+N\+C\+O\+TH 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 201 du fichier interface.\+c.
+

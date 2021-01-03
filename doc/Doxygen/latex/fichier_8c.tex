@@ -1,0 +1,93 @@
+\doxysection{Référence du fichier src/fichier.c}
+\label{fichier_8c}\index{src/fichier.c@{src/fichier.c}}
+
+
+fichier contenant les implémentations des fonctions liée à lacréation de la base de connaissances via la lectures de fichier  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ B\+D\+Connaissances} \textbf{ Read\+B\+DC} (\textbf{ B\+D\+Connaissances} bdc, \textbf{ Premisse} $\ast$liste\+Proposition, char chemin\+Fichier[$\,$])
+\begin{DoxyCompactList}\small\item\em lis le fichier de B\+D\+C.\+csv qui contient toutes les connaissance et l\textquotesingle{}ajoute à la base de Connaisance \end{DoxyCompactList}\item 
+\textbf{ B\+D\+Connaissances} \textbf{ Write\+B\+DC} (\textbf{ B\+D\+Connaissances} bdc, \textbf{ Premisse} $\ast$liste\+Proposition, char chemin\+Fichier[$\,$])
+\begin{DoxyCompactList}\small\item\em écris de nouvelles règles entrées par l\textquotesingle{}utilisateur dans le fichier de B\+D\+C.\+csv qui contient toutes les connaissance et l\textquotesingle{}ajoute à la base de Connaisance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+fichier contenant les implémentations des fonctions liée à lacréation de la base de connaissances via la lectures de fichier 
+
+\begin{DoxyAuthor}{Auteur}
+Carlo A\+Z\+A\+N\+C\+O\+TH 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+18 décembre 2020
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU G\+E\+N\+E\+R\+AL P\+U\+B\+L\+IC L\+I\+C\+E\+N\+SE 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\label{fichier_8c_a7cd19846d187e0fb64d07156b30f6cd4}} 
+\index{fichier.c@{fichier.c}!ReadBDC@{ReadBDC}}
+\index{ReadBDC@{ReadBDC}!fichier.c@{fichier.c}}
+\doxysubsubsection{ReadBDC()}
+{\footnotesize\ttfamily \textbf{ B\+D\+Connaissances} Read\+B\+DC (\begin{DoxyParamCaption}\item[{\textbf{ B\+D\+Connaissances}}]{bdc,  }\item[{\textbf{ Premisse} $\ast$}]{liste\+Proposition,  }\item[{char}]{chemin\+Fichier[$\,$] }\end{DoxyParamCaption})}
+
+
+
+lis le fichier de B\+D\+C.\+csv qui contient toutes les connaissance et l\textquotesingle{}ajoute à la base de Connaisance 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste\+Proposition} & \+: liste de toute les proposition \\
+\hline
+{\em bdc} & \+: base de connaissance, liste chainé des regles qui permetent de déduire des proposition vraie \\
+\hline
+{\em chemin\+Fichier} & \+: chemin vers le ficher qui contient les règle de la bdc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si le fichier ne s\textquotesingle{}est pas ouvert 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Carlo A\+Z\+A\+N\+C\+O\+TH 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 14 du fichier fichier.\+c.
+
+\mbox{\label{fichier_8c_a3b39187da34299aa8f214408dcbddf72}} 
+\index{fichier.c@{fichier.c}!WriteBDC@{WriteBDC}}
+\index{WriteBDC@{WriteBDC}!fichier.c@{fichier.c}}
+\doxysubsubsection{WriteBDC()}
+{\footnotesize\ttfamily \textbf{ B\+D\+Connaissances} Write\+B\+DC (\begin{DoxyParamCaption}\item[{\textbf{ B\+D\+Connaissances}}]{bdc,  }\item[{\textbf{ Premisse} $\ast$}]{liste\+Proposition,  }\item[{char}]{chemin\+Fichier[$\,$] }\end{DoxyParamCaption})}
+
+
+
+écris de nouvelles règles entrées par l\textquotesingle{}utilisateur dans le fichier de B\+D\+C.\+csv qui contient toutes les connaissance et l\textquotesingle{}ajoute à la base de Connaisance. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste\+Proposition} & \+: liste de toute les proposition \\
+\hline
+{\em bdc} & \+: base de connaissance, liste chainé des regles qui permetent de déduire des proposition vraie \\
+\hline
+{\em chemin\+Fichier} & \+: chemin vers le ficher qui contient les règle de la bdc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si le fichier ne s\textquotesingle{}est pas ouvert 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Carlo A\+Z\+A\+N\+C\+O\+TH 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 121 du fichier fichier.\+c.
+

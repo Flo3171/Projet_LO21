@@ -1,0 +1,339 @@
+\doxysection{Référence du fichier src/premisse.c}
+\label{premisse_8c}\index{src/premisse.c@{src/premisse.c}}
+
+
+fichier contenant les implémentation des fonction associé à la structure de donnée \doxyref{Premisse}{p.}{struct_premisse}  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ delete\+Premisse} (\textbf{ Premisse} prem)
+\begin{DoxyCompactList}\small\item\em supprime de la mémoire une prémisse \end{DoxyCompactList}\item 
+\textbf{ Premisse} \textbf{ add\+Head\+Premisse} (\textbf{ Premisse} prem, \textbf{ Proposition} $\ast$prop)
+\begin{DoxyCompactList}\small\item\em ajouter une proposition en tête d\textquotesingle{}une prémisse \end{DoxyCompactList}\item 
+\textbf{ Premisse} \textbf{ add\+Tail\+Premisse} (\textbf{ Premisse} prem, \textbf{ Proposition} $\ast$prop)
+\begin{DoxyCompactList}\small\item\em ajoute une proposition en queue à la liste chianée de proposition qu\textquotesingle{}est la prémisse \end{DoxyCompactList}\item 
+void \textbf{ affiche\+Premisse} (\textbf{ Premisse} prem)
+\begin{DoxyCompactList}\small\item\em affiche une Prémisse de manière récursive \end{DoxyCompactList}\item 
+bool \textbf{ proposition\+Dans\+Premisse} (\textbf{ Premisse} prem, \textbf{ Proposition} $\ast$prop)
+\begin{DoxyCompactList}\small\item\em teste si une Poposition appartient à une prémisse \end{DoxyCompactList}\item 
+\textbf{ Premisse} \textbf{ recherche\+Supprime\+Premisse} (\textbf{ Premisse} prem, \textbf{ Proposition} $\ast$prop)
+\begin{DoxyCompactList}\small\item\em supprime une proposition dans la prémisse d\textquotesingle{}une règle \end{DoxyCompactList}\item 
+bool \textbf{ premisse\+Is\+Empty} (\textbf{ Premisse} prem)
+\begin{DoxyCompactList}\small\item\em vérifie si une premisse est vide ou ne l\textquotesingle{}est pas \end{DoxyCompactList}\item 
+\textbf{ Premisse} \textbf{ add\+Proposition\+Unique} (\textbf{ Premisse} list\+Prop, char desciption[$\,$], bool validite)
+\begin{DoxyCompactList}\small\item\em ajoute et crée la proposition dans la prémisse si elle n\textquotesingle{}y est pas déjà \end{DoxyCompactList}\item 
+\textbf{ Proposition} $\ast$ \textbf{ recherche\+List\+Proposition} (\textbf{ Premisse} list\+Prop, char desciption[$\,$])
+\begin{DoxyCompactList}\small\item\em cherche si il existe une proposition avec la meme desciption dans une liste de proposition \end{DoxyCompactList}\item 
+void \textbf{ delete\+Premisse\+Proposition} (\textbf{ Premisse} prem)
+\begin{DoxyCompactList}\small\item\em supprime une prémisse et libière de la mémoire les propostion qu\textquotesingle{}elle contient \end{DoxyCompactList}\item 
+bool \textbf{ is\+Premisse\+True} (\textbf{ Premisse} prem)
+\begin{DoxyCompactList}\small\item\em teste si toute les propositon d\textquotesingle{}une prémisse sont vraie \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+fichier contenant les implémentation des fonction associé à la structure de donnée \doxyref{Premisse}{p.}{struct_premisse} 
+
+\begin{DoxyAuthor}{Auteur}
+Florian Cloarec 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+16 November 2020
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU G\+E\+N\+E\+R\+AL P\+U\+B\+L\+IC L\+I\+C\+E\+N\+SE 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\label{premisse_8c_a456ab6b58d1f6ec2228bcc99ee8f7510}} 
+\index{premisse.c@{premisse.c}!addHeadPremisse@{addHeadPremisse}}
+\index{addHeadPremisse@{addHeadPremisse}!premisse.c@{premisse.c}}
+\doxysubsubsection{addHeadPremisse()}
+{\footnotesize\ttfamily \textbf{ Premisse} add\+Head\+Premisse (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{prem,  }\item[{\textbf{ Proposition} $\ast$}]{prop }\end{DoxyParamCaption})}
+
+
+
+ajouter une proposition en tête d\textquotesingle{}une prémisse 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em prem} & \+: prémisse dans laquel on veut ajouter \\
+\hline
+{\em prop} & \+: pointeur sur la proposition à ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\doxyref{Premisse}{p.}{struct_premisse} \+: renvoit la pemisse 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 24 du fichier premisse.\+c.
+
+\mbox{\label{premisse_8c_a32cb99caa802ea7ff96cf25b71d24559}} 
+\index{premisse.c@{premisse.c}!addPropositionUnique@{addPropositionUnique}}
+\index{addPropositionUnique@{addPropositionUnique}!premisse.c@{premisse.c}}
+\doxysubsubsection{addPropositionUnique()}
+{\footnotesize\ttfamily \textbf{ Premisse} add\+Proposition\+Unique (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{list\+Prop,  }\item[{char}]{desciption[$\,$],  }\item[{bool}]{validite }\end{DoxyParamCaption})}
+
+
+
+ajoute et crée la proposition dans la prémisse si elle n\textquotesingle{}y est pas déjà 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em list\+Prop} & \+: \doxyref{Premisse}{p.}{struct_premisse} dans laquel on veux ajouter \\
+\hline
+{\em desciption} & \+: desciption de la proposition à ajouter \\
+\hline
+{\em validite} & \+: validite de la proposition à ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\doxyref{Premisse}{p.}{struct_premisse} \+: renvoie la \doxyref{Premisse}{p.}{struct_premisse} sur laquel on travail 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 162 du fichier premisse.\+c.
+
+\mbox{\label{premisse_8c_af4c37aca1cefdcd884600f8e1a29a539}} 
+\index{premisse.c@{premisse.c}!addTailPremisse@{addTailPremisse}}
+\index{addTailPremisse@{addTailPremisse}!premisse.c@{premisse.c}}
+\doxysubsubsection{addTailPremisse()}
+{\footnotesize\ttfamily \textbf{ Premisse} add\+Tail\+Premisse (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{prem,  }\item[{\textbf{ Proposition} $\ast$}]{prop }\end{DoxyParamCaption})}
+
+
+
+ajoute une proposition en queue à la liste chianée de proposition qu\textquotesingle{}est la prémisse 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em prem} & \+: prémisse à qui on veut ajouter une proposition \\
+\hline
+{\em prop} & \+: proposotion à ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\doxyref{Premisse}{p.}{struct_premisse} \+: renvoit la pemisse 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 39 du fichier premisse.\+c.
+
+\mbox{\label{premisse_8c_a44c4cf0f56ba8e6e06f46fe510289f0e}} 
+\index{premisse.c@{premisse.c}!affichePremisse@{affichePremisse}}
+\index{affichePremisse@{affichePremisse}!premisse.c@{premisse.c}}
+\doxysubsubsection{affichePremisse()}
+{\footnotesize\ttfamily void affiche\+Premisse (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{prem }\end{DoxyParamCaption})}
+
+
+
+affiche une Prémisse de manière récursive 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em prem} & \+: prémisse que l\textquotesingle{}on veut afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 84 du fichier premisse.\+c.
+
+\mbox{\label{premisse_8c_a7a4d8c620bc5d8d5520ca8b9628202db}} 
+\index{premisse.c@{premisse.c}!deletePremisse@{deletePremisse}}
+\index{deletePremisse@{deletePremisse}!premisse.c@{premisse.c}}
+\doxysubsubsection{deletePremisse()}
+{\footnotesize\ttfamily void delete\+Premisse (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{prem }\end{DoxyParamCaption})}
+
+
+
+supprime de la mémoire une prémisse 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em prem} & \+: premisse que l\textquotesingle{}on veut supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 15 du fichier premisse.\+c.
+
+\mbox{\label{premisse_8c_a066301d23917d37cc57d620407168df2}} 
+\index{premisse.c@{premisse.c}!deletePremisseProposition@{deletePremisseProposition}}
+\index{deletePremisseProposition@{deletePremisseProposition}!premisse.c@{premisse.c}}
+\doxysubsubsection{deletePremisseProposition()}
+{\footnotesize\ttfamily void delete\+Premisse\+Proposition (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{prem }\end{DoxyParamCaption})}
+
+
+
+supprime une prémisse et libière de la mémoire les propostion qu\textquotesingle{}elle contient 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em prem} & \+: premisse à suprimmer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 222 du fichier premisse.\+c.
+
+\mbox{\label{premisse_8c_a029149aff726e6da167349c433419424}} 
+\index{premisse.c@{premisse.c}!isPremisseTrue@{isPremisseTrue}}
+\index{isPremisseTrue@{isPremisseTrue}!premisse.c@{premisse.c}}
+\doxysubsubsection{isPremisseTrue()}
+{\footnotesize\ttfamily bool is\+Premisse\+True (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{prem }\end{DoxyParamCaption})}
+
+
+
+teste si toute les propositon d\textquotesingle{}une prémisse sont vraie 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em prem} & \+: premisse à tester \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true \+: renvoie 1 si toute les proposition de la prémisse sont vrais 
+
+false \+: renvoie 0 sinon 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 231 du fichier premisse.\+c.
+
+\mbox{\label{premisse_8c_ae20aaf45d9015a6ab8cff44301e0e81c}} 
+\index{premisse.c@{premisse.c}!premisseIsEmpty@{premisseIsEmpty}}
+\index{premisseIsEmpty@{premisseIsEmpty}!premisse.c@{premisse.c}}
+\doxysubsubsection{premisseIsEmpty()}
+{\footnotesize\ttfamily bool premisse\+Is\+Empty (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{prem }\end{DoxyParamCaption})}
+
+
+
+vérifie si une premisse est vide ou ne l\textquotesingle{}est pas 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Prem} & \+: premisse à vérifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 \+: si la premisse est vide 
+
+0 \+: si la premisse n\textquotesingle{}est pas vide 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Carlo A\+Z\+A\+N\+C\+O\+TH 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 157 du fichier premisse.\+c.
+
+\mbox{\label{premisse_8c_a6815b6d94da9b8f976264289ac7d7b9a}} 
+\index{premisse.c@{premisse.c}!propositionDansPremisse@{propositionDansPremisse}}
+\index{propositionDansPremisse@{propositionDansPremisse}!premisse.c@{premisse.c}}
+\doxysubsubsection{propositionDansPremisse()}
+{\footnotesize\ttfamily bool proposition\+Dans\+Premisse (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{prem,  }\item[{\textbf{ Proposition} $\ast$}]{prop }\end{DoxyParamCaption})}
+
+
+
+teste si une Poposition appartient à une prémisse 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em prem} & \+: prémisse à tester \\
+\hline
+{\em prop} & \+: propostion à rechercher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true \+: si la propostion à été trouvée dans la premisse 
+
+false \+: si la propostion n\textquotesingle{}à pas été trouvée dans la premisse 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 107 du fichier premisse.\+c.
+
+\mbox{\label{premisse_8c_ae43035fc3efa6c156ae343c36d4a2b04}} 
+\index{premisse.c@{premisse.c}!rechercheListProposition@{rechercheListProposition}}
+\index{rechercheListProposition@{rechercheListProposition}!premisse.c@{premisse.c}}
+\doxysubsubsection{rechercheListProposition()}
+{\footnotesize\ttfamily \textbf{ Proposition}$\ast$ recherche\+List\+Proposition (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{list\+Prop,  }\item[{char}]{desciption[$\,$] }\end{DoxyParamCaption})}
+
+
+
+cherche si il existe une proposition avec la meme desciption dans une liste de proposition 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em list\+Prop} & \+: premisse à tester \\
+\hline
+{\em desciption} & \+: desciption à rechercher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\doxyref{Premisse}{p.}{struct_premisse} \+: renvoie un pointeur sur la proposition si on trouve et sinon renvoie N\+U\+LL 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 206 du fichier premisse.\+c.
+
+\mbox{\label{premisse_8c_ace3539170b6f3f6f779c2f71d50ee4da}} 
+\index{premisse.c@{premisse.c}!rechercheSupprimePremisse@{rechercheSupprimePremisse}}
+\index{rechercheSupprimePremisse@{rechercheSupprimePremisse}!premisse.c@{premisse.c}}
+\doxysubsubsection{rechercheSupprimePremisse()}
+{\footnotesize\ttfamily \textbf{ Premisse} recherche\+Supprime\+Premisse (\begin{DoxyParamCaption}\item[{\textbf{ Premisse}}]{prem,  }\item[{\textbf{ Proposition} $\ast$}]{prop }\end{DoxyParamCaption})}
+
+
+
+supprime une proposition dans la prémisse d\textquotesingle{}une règle 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em prem} & \+: prémisse dont on veut suprimer une proposition \\
+\hline
+{\em prop} & \+: proposition à supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+renvoie la prémisse 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 123 du fichier premisse.\+c.
+

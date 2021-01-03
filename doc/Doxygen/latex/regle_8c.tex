@@ -1,0 +1,281 @@
+\doxysection{Référence du fichier src/regle.c}
+\label{regle_8c}\index{src/regle.c@{src/regle.c}}
+
+
+fichier contenant les implémentation des fonctions relative à la structure de donnée \doxyref{Regle}{p.}{struct_regle}  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Regle} $\ast$ \textbf{ new\+Regle} ()
+\begin{DoxyCompactList}\small\item\em crée une règle vide \end{DoxyCompactList}\item 
+void \textbf{ delete\+Regle} (\textbf{ Regle} $\ast$regle\+To\+Delete)
+\begin{DoxyCompactList}\small\item\em suprime une règle ainsi que tout ces composant \end{DoxyCompactList}\item 
+\textbf{ Premisse} \textbf{ add\+Conclusion} (\textbf{ Regle} $\ast$regle, \textbf{ Premisse} list\+Prop, char $\ast$description)
+\begin{DoxyCompactList}\small\item\em défini une popotion comme la conclution d\textquotesingle{}une règle \end{DoxyCompactList}\item 
+void \textbf{ affiche\+Regle} (\textbf{ Regle} $\ast$regle)
+\begin{DoxyCompactList}\small\item\em affiche une règle \end{DoxyCompactList}\item 
+bool \textbf{ Regle\+Premisse\+Is\+Empty} (\textbf{ Regle} $\ast$regle\+A\+Verif)
+\begin{DoxyCompactList}\small\item\em vérifie si la premisse d\textquotesingle{}une règle est vide ou ne l\textquotesingle{}est pas \end{DoxyCompactList}\item 
+\textbf{ Regle} $\ast$ \textbf{ supprime\+Proposition\+Premisse\+Regle} (\textbf{ Regle} $\ast$regle, \textbf{ Proposition} $\ast$prop)
+\begin{DoxyCompactList}\small\item\em supprime la proposition de la prémisse d\textquotesingle{}une règle \end{DoxyCompactList}\item 
+\textbf{ Proposition} $\ast$ \textbf{ conlusion\+Regle} (\textbf{ Regle} $\ast$regle)
+\begin{DoxyCompactList}\small\item\em revoie la conclution d\textquotesingle{}une règle \end{DoxyCompactList}\item 
+\textbf{ Premisse} \textbf{ instert\+Head\+Premisse\+Regle} (\textbf{ Regle} $\ast$regle, \textbf{ Premisse} list\+Prop, char $\ast$description)
+\begin{DoxyCompactList}\small\item\em ajoute en tete une propostion à la prémisse d\textquotesingle{}une règle \end{DoxyCompactList}\item 
+\textbf{ Regle} $\ast$ \textbf{ create\+Regle} (\textbf{ Premisse} $\ast$p\+List\+Prop, char $\ast$description\+Premisse[$\,$], long nb\+Elem\+Premisse, char $\ast$description\+Conclusion)
+\begin{DoxyCompactList}\small\item\em crée une règle à partir de chaine de caractère \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+fichier contenant les implémentation des fonctions relative à la structure de donnée \doxyref{Regle}{p.}{struct_regle} 
+
+\begin{DoxyAuthor}{Auteur}
+Florian Cloarec 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14 November 2020
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU G\+E\+N\+E\+R\+AL P\+U\+B\+L\+IC L\+I\+C\+E\+N\+SE 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\label{regle_8c_ab3577b89e3076a872bbaa9e6532f04fd}} 
+\index{regle.c@{regle.c}!addConclusion@{addConclusion}}
+\index{addConclusion@{addConclusion}!regle.c@{regle.c}}
+\doxysubsubsection{addConclusion()}
+{\footnotesize\ttfamily \textbf{ Premisse} add\+Conclusion (\begin{DoxyParamCaption}\item[{\textbf{ Regle} $\ast$}]{regle,  }\item[{\textbf{ Premisse}}]{list\+Prop,  }\item[{char $\ast$}]{description }\end{DoxyParamCaption})}
+
+
+
+défini une popotion comme la conclution d\textquotesingle{}une règle 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em regle} & \+: regle pour laquel on définit la conclution \\
+\hline
+{\em list\+Prop} & \+: liste de toute les proposition \\
+\hline
+{\em description} & \+: destription que l\textquotesingle{}on veut donner à la conclusion \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+revoie list\+Prop au cas ou il ait changé 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC \&\& Carlo A\+Z\+A\+N\+C\+O\+TH 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 34 du fichier regle.\+c.
+
+\mbox{\label{regle_8c_a901643ae912769b0c8d562ebc193e95f}} 
+\index{regle.c@{regle.c}!afficheRegle@{afficheRegle}}
+\index{afficheRegle@{afficheRegle}!regle.c@{regle.c}}
+\doxysubsubsection{afficheRegle()}
+{\footnotesize\ttfamily void affiche\+Regle (\begin{DoxyParamCaption}\item[{\textbf{ Regle} $\ast$}]{regle }\end{DoxyParamCaption})}
+
+
+
+affiche une règle 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em regle} & \+: pointeur vers la régle à afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Auteur}
+Carlo A\+Z\+A\+N\+C\+O\+TH 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 45 du fichier regle.\+c.
+
+\mbox{\label{regle_8c_aced5693412755b9bf021d113d53a6f6f}} 
+\index{regle.c@{regle.c}!conlusionRegle@{conlusionRegle}}
+\index{conlusionRegle@{conlusionRegle}!regle.c@{regle.c}}
+\doxysubsubsection{conlusionRegle()}
+{\footnotesize\ttfamily \textbf{ Proposition}$\ast$ conlusion\+Regle (\begin{DoxyParamCaption}\item[{\textbf{ Regle} $\ast$}]{regle }\end{DoxyParamCaption})}
+
+
+
+revoie la conclution d\textquotesingle{}une règle 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em regle} & \+: règle dont on veut obtenir la conclusion \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\doxyref{Proposition}{p.}{struct_proposition} 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 72 du fichier regle.\+c.
+
+\mbox{\label{regle_8c_a4d510c355e5cf6b02af19d88b5e88df0}} 
+\index{regle.c@{regle.c}!createRegle@{createRegle}}
+\index{createRegle@{createRegle}!regle.c@{regle.c}}
+\doxysubsubsection{createRegle()}
+{\footnotesize\ttfamily \textbf{ Regle}$\ast$ create\+Regle (\begin{DoxyParamCaption}\item[{\textbf{ Premisse} $\ast$}]{p\+List\+Prop,  }\item[{char $\ast$}]{description\+Premisse[$\,$],  }\item[{long}]{nb\+Elem\+Premisse,  }\item[{char $\ast$}]{description\+Conclusion }\end{DoxyParamCaption})}
+
+
+
+crée une règle à partir de chaine de caractère 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p\+List\+Prop} & \+: pointeur sur la liste de toute les proposition qui on déjà été ulitilisé \\
+\hline
+{\em description\+Premisse} & \+: tableau de chaine de caracètre contenant toutes les descriptions des prémisses à ajouter à la règle \\
+\hline
+{\em nb\+Elem\+Premisse} & \+: nombre d\textquotesingle{}élément que l\textquotesingle{}on veut mettre dans la prémisse \\
+\hline
+{\em description\+Conclusion} & \+: desciption à donner à la conlusion \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Regle$\ast$ \+: renvoie un pointeur sur la règle qui à été crée 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 91 du fichier regle.\+c.
+
+\mbox{\label{regle_8c_a5e5e4e3a21b771ebda97d7e30bad3142}} 
+\index{regle.c@{regle.c}!deleteRegle@{deleteRegle}}
+\index{deleteRegle@{deleteRegle}!regle.c@{regle.c}}
+\doxysubsubsection{deleteRegle()}
+{\footnotesize\ttfamily void delete\+Regle (\begin{DoxyParamCaption}\item[{\textbf{ Regle} $\ast$}]{regle\+To\+Delete }\end{DoxyParamCaption})}
+
+
+
+suprime une règle ainsi que tout ces composant 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em regle\+To\+Delete} & \+: regle que l\textquotesingle{}on veut suprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 28 du fichier regle.\+c.
+
+\mbox{\label{regle_8c_a4187a8d7bb615ab8a33784ec763873be}} 
+\index{regle.c@{regle.c}!instertHeadPremisseRegle@{instertHeadPremisseRegle}}
+\index{instertHeadPremisseRegle@{instertHeadPremisseRegle}!regle.c@{regle.c}}
+\doxysubsubsection{instertHeadPremisseRegle()}
+{\footnotesize\ttfamily \textbf{ Premisse} instert\+Head\+Premisse\+Regle (\begin{DoxyParamCaption}\item[{\textbf{ Regle} $\ast$}]{regle,  }\item[{\textbf{ Premisse}}]{list\+Prop,  }\item[{char $\ast$}]{description }\end{DoxyParamCaption})}
+
+
+
+ajoute en tete une propostion à la prémisse d\textquotesingle{}une règle 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em regle} & \+: règle à laquelle on veux ajouter une proposition \\
+\hline
+{\em list\+Prop} & \+: liste de toute les propositions \\
+\hline
+{\em description} & \+: description de la proposition à ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+revoie list\+Prop au cas ou il ait changé 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 77 du fichier regle.\+c.
+
+\mbox{\label{regle_8c_a07c7cb395cab825caec5502c20ae6385}} 
+\index{regle.c@{regle.c}!newRegle@{newRegle}}
+\index{newRegle@{newRegle}!regle.c@{regle.c}}
+\doxysubsubsection{newRegle()}
+{\footnotesize\ttfamily \textbf{ Regle}$\ast$ new\+Regle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+crée une règle vide 
+
+Définition des prototypes des fonctions lié à une Règle \begin{DoxyReturn}{Renvoie}
+Regle$\ast$ 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 14 du fichier regle.\+c.
+
+\mbox{\label{regle_8c_a6ce1a8a62cf42d080271c2352ae3af18}} 
+\index{regle.c@{regle.c}!ReglePremisseIsEmpty@{ReglePremisseIsEmpty}}
+\index{ReglePremisseIsEmpty@{ReglePremisseIsEmpty}!regle.c@{regle.c}}
+\doxysubsubsection{ReglePremisseIsEmpty()}
+{\footnotesize\ttfamily bool Regle\+Premisse\+Is\+Empty (\begin{DoxyParamCaption}\item[{\textbf{ Regle} $\ast$}]{regle\+A\+Verif }\end{DoxyParamCaption})}
+
+
+
+vérifie si la premisse d\textquotesingle{}une règle est vide ou ne l\textquotesingle{}est pas 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em regle\+A\+Verif} & \+: regle ou se trouve la premisse à vérifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 \+: si la premisse est vide 
+
+0 \+: si la premisse n\textquotesingle{}est pas vide 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Carlo A\+Z\+A\+N\+C\+O\+TH 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 61 du fichier regle.\+c.
+
+\mbox{\label{regle_8c_a2f71083aea50ed3ca1a00e9e9d7ce044}} 
+\index{regle.c@{regle.c}!supprimePropositionPremisseRegle@{supprimePropositionPremisseRegle}}
+\index{supprimePropositionPremisseRegle@{supprimePropositionPremisseRegle}!regle.c@{regle.c}}
+\doxysubsubsection{supprimePropositionPremisseRegle()}
+{\footnotesize\ttfamily \textbf{ Regle}$\ast$ supprime\+Proposition\+Premisse\+Regle (\begin{DoxyParamCaption}\item[{\textbf{ Regle} $\ast$}]{regle,  }\item[{\textbf{ Proposition} $\ast$}]{prop }\end{DoxyParamCaption})}
+
+
+
+supprime la proposition de la prémisse d\textquotesingle{}une règle 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em regle} & \+: règle dans laquele on veut supprimer \\
+\hline
+{\em prop} & \+: propostion à rechercher et supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+pointeur sur la règle avec laquel on à travaillé 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 65 du fichier regle.\+c.
+

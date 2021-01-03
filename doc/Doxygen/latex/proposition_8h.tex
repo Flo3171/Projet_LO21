@@ -1,0 +1,157 @@
+\doxysection{Référence du fichier src/proposition.h}
+\label{proposition_8h}\index{src/proposition.h@{src/proposition.h}}
+
+
+fichier header contenant les prototypes des fonctions associer à la structure de donnée proposition ainsi que la déclarion de la structure de donnée proposition elle même  
+
+
+\doxysubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ Proposition}
+\begin{DoxyCompactList}\small\item\em structure de donnée permetant de stocker ou une Propositon \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \textbf{ Proposition} \textbf{ Proposition}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Proposition} $\ast$ \textbf{ new\+Proposition} (char value\+Proposition[$\,$], bool validite)
+\begin{DoxyCompactList}\small\item\em structure de donnée \doxyref{Proposition}{p.}{struct_proposition} qui est une chaine de caractère \end{DoxyCompactList}\item 
+void \textbf{ delete\+Proposition} (\textbf{ Proposition} $\ast$proposition\+To\+Delete)
+\begin{DoxyCompactList}\small\item\em suprime de la mémoire une variable de type proposition \end{DoxyCompactList}\item 
+void \textbf{ affiche\+Propositon} (\textbf{ Proposition} $\ast$proposition)
+\begin{DoxyCompactList}\small\item\em afficher le contenue d\textquotesingle{}une propositon \end{DoxyCompactList}\item 
+void \textbf{ set\+Validite} (\textbf{ Proposition} $\ast$prop, bool val)
+\begin{DoxyCompactList}\small\item\em définit la valeur de la sous variable validité d\textquotesingle{}une proposition \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+fichier header contenant les prototypes des fonctions associer à la structure de donnée proposition ainsi que la déclarion de la structure de donnée proposition elle même 
+
+\begin{DoxyAuthor}{Auteur}
+Florian Cloarec 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+16 November 2020
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU G\+E\+N\+E\+R\+AL P\+U\+B\+L\+IC L\+I\+C\+E\+N\+SE 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\label{proposition_8h_a5f64cf5ed5d2d8507073a088f72c91dc}} 
+\index{proposition.h@{proposition.h}!Proposition@{Proposition}}
+\index{Proposition@{Proposition}!proposition.h@{proposition.h}}
+\doxysubsubsection{Proposition}
+{\footnotesize\ttfamily typedef struct \textbf{ Proposition} \textbf{ Proposition}}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\label{proposition_8h_acbafef21c64aaf70b33cae5ee05a00c3}} 
+\index{proposition.h@{proposition.h}!affichePropositon@{affichePropositon}}
+\index{affichePropositon@{affichePropositon}!proposition.h@{proposition.h}}
+\doxysubsubsection{affichePropositon()}
+{\footnotesize\ttfamily void affiche\+Propositon (\begin{DoxyParamCaption}\item[{\textbf{ Proposition} $\ast$}]{proposition }\end{DoxyParamCaption})}
+
+
+
+afficher le contenue d\textquotesingle{}une propositon 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em prposition} & \+: pointeur sur la proposition à afficher\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 44 du fichier proposition.\+c.
+
+\mbox{\label{proposition_8h_a9d68df9f347650c869fbfbea7f3167d5}} 
+\index{proposition.h@{proposition.h}!deleteProposition@{deleteProposition}}
+\index{deleteProposition@{deleteProposition}!proposition.h@{proposition.h}}
+\doxysubsubsection{deleteProposition()}
+{\footnotesize\ttfamily void delete\+Proposition (\begin{DoxyParamCaption}\item[{\textbf{ Proposition} $\ast$}]{proposition\+To\+Delete }\end{DoxyParamCaption})}
+
+
+
+suprime de la mémoire une variable de type proposition 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em proposition\+To\+Delete} & \+: pointeur sur la proposition à supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 38 du fichier proposition.\+c.
+
+\mbox{\label{proposition_8h_ae0938fe914b5d3a4ebc25f3ca9bb90e5}} 
+\index{proposition.h@{proposition.h}!newProposition@{newProposition}}
+\index{newProposition@{newProposition}!proposition.h@{proposition.h}}
+\doxysubsubsection{newProposition()}
+{\footnotesize\ttfamily \textbf{ Proposition}$\ast$ new\+Proposition (\begin{DoxyParamCaption}\item[{char}]{value\+Proposition[$\,$],  }\item[{bool}]{validite }\end{DoxyParamCaption})}
+
+
+
+structure de donnée \doxyref{Proposition}{p.}{struct_proposition} qui est une chaine de caractère 
+
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC
+\end{DoxyAuthor}
+crée une variable de type proposiont
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value\+Propositon\mbox{[}$\,$\mbox{]}} & \+: chaine de caractère qui contient la valuer de la propositon à créer \\
+\hline
+{\em validite} & \+: 1 si la propositon est vraie, 0 si elle est fausse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\doxyref{Proposition}{p.}{struct_proposition} \+: pointeru sur la propositon qui viens d\textquotesingle{}être crée 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 14 du fichier proposition.\+c.
+
+\mbox{\label{proposition_8h_a3af49c6141035d151a49f56f53a186e6}} 
+\index{proposition.h@{proposition.h}!setValidite@{setValidite}}
+\index{setValidite@{setValidite}!proposition.h@{proposition.h}}
+\doxysubsubsection{setValidite()}
+{\footnotesize\ttfamily void set\+Validite (\begin{DoxyParamCaption}\item[{\textbf{ Proposition} $\ast$}]{prop,  }\item[{bool}]{val }\end{DoxyParamCaption})}
+
+
+
+définit la valeur de la sous variable validité d\textquotesingle{}une proposition 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em prop} & \+: proposition que l\textquotesingle{}on veut modifier \\
+\hline
+{\em val} & \+: valeur à donner à validite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Auteur}
+Florian C\+L\+O\+A\+R\+EC 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 49 du fichier proposition.\+c.
+

@@ -1,0 +1,331 @@
+\begin{theindex}
+
+  \item {acquisitionEntierSansMessageAvecConsigne}
+    \subitem {interface.c}, 26
+    \subitem {interface.h}, 29
+  \item {acquisitionEntierSecurise}
+    \subitem {interface.c}, 27
+    \subitem {interface.h}, 30
+  \item {addConclusion}
+    \subitem {regle.c}, 53
+    \subitem {regle.h}, 58
+  \item {addHeadBDC}
+    \subitem {BDConnaissances.c}, 12
+    \subitem {BDConnaissances.h}, 18
+  \item {addHeadPremisse}
+    \subitem {premisse.c}, 35
+    \subitem {premisse.h}, 41
+  \item {addPropositionUnique}
+    \subitem {premisse.c}, 35
+    \subitem {premisse.h}, 42
+  \item {addRegleBDC}
+    \subitem {BDConnaissances.c}, 12
+    \subitem {BDConnaissances.h}, 18
+  \item {addTailPremisse}
+    \subitem {premisse.c}, 36
+    \subitem {premisse.h}, 42
+  \item {afficheBDC}
+    \subitem {BDConnaissances.c}, 13
+    \subitem {BDConnaissances.h}, 19
+  \item {affichePremisse}
+    \subitem {premisse.c}, 36
+    \subitem {premisse.h}, 43
+  \item {affichePropositon}
+    \subitem {proposition.c}, 47
+    \subitem {proposition.h}, 50
+  \item {afficheRegle}
+    \subitem {regle.c}, 53
+    \subitem {regle.h}, 60
+
+  \indexspace
+
+  \item {BDConnaissances}
+    \subitem {BDConnaissances.h}, 17
+  \item {BDConnaissances.c}
+    \subitem {addHeadBDC}, 12
+    \subitem {addRegleBDC}, 12
+    \subitem {afficheBDC}, 13
+    \subitem {createBDVerite}, 13
+    \subitem {deleteAllBDC}, 14
+    \subitem {deleteHeadBDC}, 14
+    \subitem {isEmptyBDC}, 14
+    \subitem {isPropositionInConclusion}, 15
+    \subitem {moteurDInference}, 15
+  \item {BDConnaissances.h}
+    \subitem {addHeadBDC}, 18
+    \subitem {addRegleBDC}, 18
+    \subitem {afficheBDC}, 19
+    \subitem {BDConnaissances}, 17
+    \subitem {BDConnaissancesElem}, 17
+    \subitem {createBDVerite}, 19
+    \subitem {deleteAllBDC}, 19
+    \subitem {deleteHeadBDC}, 20
+    \subitem {isEmptyBDC}, 20
+    \subitem {isPropositionInConclusion}, 21
+    \subitem {moteurDInference}, 21
+  \item {BDConnaissancesElem}, 5
+    \subitem {BDConnaissances.h}, 17
+    \subitem {suivant}, 5
+    \subitem {valeur}, 5
+  \item {BDConnaissanceselem}, 6
+
+  \indexspace
+
+  \item {conclusion}
+    \subitem {Regle}, 9
+  \item {conlusionRegle}
+    \subitem {regle.c}, 54
+    \subitem {regle.h}, 60
+  \item {createBDVerite}
+    \subitem {BDConnaissances.c}, 13
+    \subitem {BDConnaissances.h}, 19
+  \item {createRegle}
+    \subitem {regle.c}, 54
+    \subitem {regle.h}, 61
+
+  \indexspace
+
+  \item {deleteAllBDC}
+    \subitem {BDConnaissances.c}, 14
+    \subitem {BDConnaissances.h}, 19
+  \item {deleteHeadBDC}
+    \subitem {BDConnaissances.c}, 14
+    \subitem {BDConnaissances.h}, 20
+  \item {deletePremisse}
+    \subitem {premisse.c}, 36
+    \subitem {premisse.h}, 43
+  \item {deletePremisseProposition}
+    \subitem {premisse.c}, 37
+    \subitem {premisse.h}, 44
+  \item {deleteProposition}
+    \subitem {proposition.c}, 47
+    \subitem {proposition.h}, 51
+  \item {deleteRegle}
+    \subitem {regle.c}, 55
+    \subitem {regle.h}, 61
+  \item {description}
+    \subitem {Proposition}, 8
+
+  \indexspace
+
+  \item {elemSuivant}
+    \subitem {PremisseElem}, 7
+
+  \indexspace
+
+  \item {fichier.c}
+    \subitem {ReadBDC}, 23
+    \subitem {WriteBDC}, 23
+  \item {fichier.h}
+    \subitem {ReadBDC}, 24
+    \subitem {WriteBDC}, 25
+
+  \indexspace
+
+  \item {genereBDVerite}
+    \subitem {interface.c}, 27
+    \subitem {interface.h}, 30
+
+  \indexspace
+
+  \item {instertHeadPremisseRegle}
+    \subitem {regle.c}, 55
+    \subitem {regle.h}, 62
+  \item {interface.c}
+    \subitem {acquisitionEntierSansMessageAvecConsigne}, 26
+    \subitem {acquisitionEntierSecurise}, 27
+    \subitem {genereBDVerite}, 27
+    \subitem {menuPrincipal}, 28
+    \subitem {systemExpert}, 28
+    \subitem {verificationPropositionAvecMessage}, 28
+  \item {interface.h}
+    \subitem {acquisitionEntierSansMessageAvecConsigne}, 29
+    \subitem {acquisitionEntierSecurise}, 30
+    \subitem {genereBDVerite}, 30
+    \subitem {menuPrincipal}, 31
+    \subitem {systemExpert}, 31
+    \subitem {verificationPropositionAvecMessage}, 31
+  \item {isEmptyBDC}
+    \subitem {BDConnaissances.c}, 14
+    \subitem {BDConnaissances.h}, 20
+  \item {isPremisseTrue}
+    \subitem {premisse.c}, 37
+    \subitem {premisse.h}, 44
+  \item {isPropositionInConclusion}
+    \subitem {BDConnaissances.c}, 15
+    \subitem {BDConnaissances.h}, 21
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.c}, 32
+  \item {main.c}
+    \subitem {main}, 32
+  \item {main.h}
+    \subitem {TAILLE\_MAXI\_PROPOSITION}, 34
+  \item {menuPrincipal}
+    \subitem {interface.c}, 28
+    \subitem {interface.h}, 31
+  \item {moteurDInference}
+    \subitem {BDConnaissances.c}, 15
+    \subitem {BDConnaissances.h}, 21
+
+  \indexspace
+
+  \item {newProposition}
+    \subitem {proposition.c}, 48
+    \subitem {proposition.h}, 51
+  \item {newRegle}
+    \subitem {regle.c}, 56
+    \subitem {regle.h}, 62
+
+  \indexspace
+
+  \item {Premisse}, 6
+    \subitem {premisse.h}, 41
+  \item {premisse}
+    \subitem {Regle}, 9
+  \item {premisse.c}
+    \subitem {addHeadPremisse}, 35
+    \subitem {addPropositionUnique}, 35
+    \subitem {addTailPremisse}, 36
+    \subitem {affichePremisse}, 36
+    \subitem {deletePremisse}, 36
+    \subitem {deletePremisseProposition}, 37
+    \subitem {isPremisseTrue}, 37
+    \subitem {premisseIsEmpty}, 38
+    \subitem {propositionDansPremisse}, 38
+    \subitem {rechercheListProposition}, 39
+    \subitem {rechercheSupprimePremisse}, 39
+  \item {premisse.h}
+    \subitem {addHeadPremisse}, 41
+    \subitem {addPropositionUnique}, 42
+    \subitem {addTailPremisse}, 42
+    \subitem {affichePremisse}, 43
+    \subitem {deletePremisse}, 43
+    \subitem {deletePremisseProposition}, 44
+    \subitem {isPremisseTrue}, 44
+    \subitem {Premisse}, 41
+    \subitem {PremisseElem}, 41
+    \subitem {premisseIsEmpty}, 44
+    \subitem {propositionDansPremisse}, 45
+    \subitem {rechercheListProposition}, 45
+    \subitem {rechercheSupprimePremisse}, 46
+  \item {PremisseElem}, 6
+    \subitem {elemSuivant}, 7
+    \subitem {premisse.h}, 41
+    \subitem {valeur}, 7
+  \item {premisseIsEmpty}
+    \subitem {premisse.c}, 38
+    \subitem {premisse.h}, 44
+  \item {Proposition}, 7
+    \subitem {description}, 8
+    \subitem {proposition.h}, 50
+    \subitem {validite}, 8
+  \item {proposition.c}
+    \subitem {affichePropositon}, 47
+    \subitem {deleteProposition}, 47
+    \subitem {newProposition}, 48
+    \subitem {setValidite}, 48
+  \item {proposition.h}
+    \subitem {affichePropositon}, 50
+    \subitem {deleteProposition}, 51
+    \subitem {newProposition}, 51
+    \subitem {Proposition}, 50
+    \subitem {setValidite}, 51
+  \item {propositionDansPremisse}
+    \subitem {premisse.c}, 38
+    \subitem {premisse.h}, 45
+
+  \indexspace
+
+  \item {ReadBDC}
+    \subitem {fichier.c}, 23
+    \subitem {fichier.h}, 24
+  \item {rechercheListProposition}
+    \subitem {premisse.c}, 39
+    \subitem {premisse.h}, 45
+  \item {rechercheSupprimePremisse}
+    \subitem {premisse.c}, 39
+    \subitem {premisse.h}, 46
+  \item {Regle}, 8
+    \subitem {conclusion}, 9
+    \subitem {premisse}, 9
+    \subitem {regle.h}, 58
+  \item {regle.c}
+    \subitem {addConclusion}, 53
+    \subitem {afficheRegle}, 53
+    \subitem {conlusionRegle}, 54
+    \subitem {createRegle}, 54
+    \subitem {deleteRegle}, 55
+    \subitem {instertHeadPremisseRegle}, 55
+    \subitem {newRegle}, 56
+    \subitem {ReglePremisseIsEmpty}, 56
+    \subitem {supprimePropositionPremisseRegle}, 56
+  \item {regle.h}
+    \subitem {addConclusion}, 58
+    \subitem {afficheRegle}, 60
+    \subitem {conlusionRegle}, 60
+    \subitem {createRegle}, 61
+    \subitem {deleteRegle}, 61
+    \subitem {instertHeadPremisseRegle}, 62
+    \subitem {newRegle}, 62
+    \subitem {Regle}, 58
+    \subitem {ReglePremisseIsEmpty}, 62
+    \subitem {supprimePropositionPremisseRegle}, 63
+  \item {ReglePremisseIsEmpty}
+    \subitem {regle.c}, 56
+    \subitem {regle.h}, 62
+
+  \indexspace
+
+  \item {setValidite}
+    \subitem {proposition.c}, 48
+    \subitem {proposition.h}, 51
+  \item {src/BDConnaissances.c}, 11
+  \item {src/BDConnaissances.h}, 16
+  \item {src/fichier.c}, 22
+  \item {src/fichier.h}, 24
+  \item {src/interface.c}, 25
+  \item {src/interface.h}, 29
+  \item {src/main.c}, 32
+  \item {src/main.h}, 33
+  \item {src/premisse.c}, 34
+  \item {src/premisse.h}, 40
+  \item {src/proposition.c}, 46
+  \item {src/proposition.h}, 49
+  \item {src/regle.c}, 52
+  \item {src/regle.h}, 57
+  \item {src/struct.h}, 63
+  \item {suivant}
+    \subitem {BDConnaissancesElem}, 5
+  \item {supprimePropositionPremisseRegle}
+    \subitem {regle.c}, 56
+    \subitem {regle.h}, 63
+  \item {systemExpert}
+    \subitem {interface.c}, 28
+    \subitem {interface.h}, 31
+
+  \indexspace
+
+  \item {TAILLE\_MAXI\_PROPOSITION}
+    \subitem {main.h}, 34
+
+  \indexspace
+
+  \item {valeur}
+    \subitem {BDConnaissancesElem}, 5
+    \subitem {PremisseElem}, 7
+  \item {validite}
+    \subitem {Proposition}, 8
+  \item {verificationPropositionAvecMessage}
+    \subitem {interface.c}, 28
+    \subitem {interface.h}, 31
+
+  \indexspace
+
+  \item {WriteBDC}
+    \subitem {fichier.c}, 23
+    \subitem {fichier.h}, 25
+
+\end{theindex}

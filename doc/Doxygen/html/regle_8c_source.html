@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet_LO21:  Fichier source de src/regle.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Utbm.svg.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet_LO21
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Système expert</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.18 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Recherche');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('regle_8c_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">regle.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="regle_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="main_8h.html">main.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="regle_8h.html#a07c7cb395cab825caec5502c20ae6385">   14</a></span>&#160;<a class="code" href="struct_regle.html">Regle</a>* <a class="code" href="regle_8c.html#a07c7cb395cab825caec5502c20ae6385">newRegle</a>()</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="struct_regle.html">Regle</a>* nouvelRegle = (<a class="code" href="struct_regle.html">Regle</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code" href="struct_regle.html">Regle</a>));</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (nouvelRegle == NULL)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        printf(<span class="stringliteral">&quot;ERREUR alocation dynamique&quot;</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    nouvelRegle-&gt;<a class="code" href="struct_regle.html#a7f01278cc6d973b9acc1bb1a25a31a4a">premisse</a> = NULL;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    nouvelRegle-&gt;<a class="code" href="struct_regle.html#a933a105bc9e64516539ddd23e4aff9df">conclusion</a> = NULL;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> nouvelRegle;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="regle_8h.html#a5e5e4e3a21b771ebda97d7e30bad3142">   28</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="regle_8c.html#a5e5e4e3a21b771ebda97d7e30bad3142">deleteRegle</a>(<a class="code" href="struct_regle.html">Regle</a> *regleToDelete)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="premisse_8c.html#a7a4d8c620bc5d8d5520ca8b9628202db">deletePremisse</a>(regleToDelete-&gt;<a class="code" href="struct_regle.html#a7f01278cc6d973b9acc1bb1a25a31a4a">premisse</a>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    free(regleToDelete);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="regle_8h.html#ab3577b89e3076a872bbaa9e6532f04fd">   34</a></span>&#160;<a class="code" href="struct_premisse.html">Premisse</a> <a class="code" href="regle_8c.html#ab3577b89e3076a872bbaa9e6532f04fd">addConclusion</a>(<a class="code" href="struct_regle.html">Regle</a> *regle, <a class="code" href="struct_premisse.html">Premisse</a> listProp, <span class="keywordtype">char</span>* description)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    regle-&gt;<a class="code" href="struct_regle.html#a933a105bc9e64516539ddd23e4aff9df">conclusion</a> = <a class="code" href="premisse_8c.html#ae43035fc3efa6c156ae343c36d4a2b04">rechercheListProposition</a>(listProp, description);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span> (regle-&gt;<a class="code" href="struct_regle.html#a933a105bc9e64516539ddd23e4aff9df">conclusion</a> == NULL)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        listProp = <a class="code" href="premisse_8c.html#a32cb99caa802ea7ff96cf25b71d24559">addPropositionUnique</a>(listProp, description, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        regle-&gt;<a class="code" href="struct_regle.html#a933a105bc9e64516539ddd23e4aff9df">conclusion</a> = <a class="code" href="premisse_8c.html#ae43035fc3efa6c156ae343c36d4a2b04">rechercheListProposition</a>(listProp, description);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span> listProp;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="regle_8h.html#a901643ae912769b0c8d562ebc193e95f">   45</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="regle_8c.html#a901643ae912769b0c8d562ebc193e95f">afficheRegle</a>(<a class="code" href="struct_regle.html">Regle</a> *regle)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="premisse_8c.html#a44c4cf0f56ba8e6e06f46fe510289f0e">affichePremisse</a>(regle-&gt;<a class="code" href="struct_regle.html#a7f01278cc6d973b9acc1bb1a25a31a4a">premisse</a>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span> (regle-&gt;<a class="code" href="struct_regle.html#a933a105bc9e64516539ddd23e4aff9df">conclusion</a>==NULL || regle-&gt;<a class="code" href="struct_regle.html#a933a105bc9e64516539ddd23e4aff9df">conclusion</a>-&gt;<a class="code" href="struct_proposition.html#a8444d6e0dfe2bbab0b5e7b24308f1559">description</a> == NULL)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        printf(<span class="stringliteral">&quot;pas de conclusion&quot;</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        printf(<span class="stringliteral">&quot;donc : \&quot;&quot;</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="proposition_8c.html#acbafef21c64aaf70b33cae5ee05a00c3">affichePropositon</a>(regle-&gt;<a class="code" href="struct_regle.html#a933a105bc9e64516539ddd23e4aff9df">conclusion</a>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        printf(<span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="regle_8h.html#a6ce1a8a62cf42d080271c2352ae3af18">   61</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="regle_8c.html#a6ce1a8a62cf42d080271c2352ae3af18">ReglePremisseIsEmpty</a>(<a class="code" href="struct_regle.html">Regle</a>* regleAVerif){</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="premisse_8c.html#ae20aaf45d9015a6ab8cff44301e0e81c">premisseIsEmpty</a>(regleAVerif-&gt;<a class="code" href="struct_regle.html#a7f01278cc6d973b9acc1bb1a25a31a4a">premisse</a>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="regle_8h.html#a2f71083aea50ed3ca1a00e9e9d7ce044">   65</a></span>&#160;<a class="code" href="struct_regle.html">Regle</a>* <a class="code" href="regle_8c.html#a2f71083aea50ed3ca1a00e9e9d7ce044">supprimePropositionPremisseRegle</a>(<a class="code" href="struct_regle.html">Regle</a> *regle, <a class="code" href="struct_proposition.html">Proposition</a> *prop)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    regle-&gt;<a class="code" href="struct_regle.html#a7f01278cc6d973b9acc1bb1a25a31a4a">premisse</a> = <a class="code" href="premisse_8c.html#ace3539170b6f3f6f779c2f71d50ee4da">rechercheSupprimePremisse</a>(regle-&gt;<a class="code" href="struct_regle.html#a7f01278cc6d973b9acc1bb1a25a31a4a">premisse</a>, prop);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> regle;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="regle_8h.html#aced5693412755b9bf021d113d53a6f6f">   72</a></span>&#160;<a class="code" href="struct_proposition.html">Proposition</a>* <a class="code" href="regle_8c.html#aced5693412755b9bf021d113d53a6f6f">conlusionRegle</a>(<a class="code" href="struct_regle.html">Regle</a> *regle)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> regle-&gt;<a class="code" href="struct_regle.html#a933a105bc9e64516539ddd23e4aff9df">conclusion</a>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="regle_8h.html#a4187a8d7bb615ab8a33784ec763873be">   77</a></span>&#160;<a class="code" href="struct_premisse.html">Premisse</a> <a class="code" href="regle_8c.html#a4187a8d7bb615ab8a33784ec763873be">instertHeadPremisseRegle</a>(<a class="code" href="struct_regle.html">Regle</a>* regle, <a class="code" href="struct_premisse.html">Premisse</a> listProp, <span class="keywordtype">char</span>* description)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="struct_proposition.html">Proposition</a>* propAAjouter = <a class="code" href="premisse_8c.html#ae43035fc3efa6c156ae343c36d4a2b04">rechercheListProposition</a>(listProp, description);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (propAAjouter == NULL)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        listProp = <a class="code" href="premisse_8c.html#a32cb99caa802ea7ff96cf25b71d24559">addPropositionUnique</a>(listProp, description, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        propAAjouter = <a class="code" href="premisse_8c.html#ae43035fc3efa6c156ae343c36d4a2b04">rechercheListProposition</a>(listProp, description);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    regle-&gt;<a class="code" href="struct_regle.html#a7f01278cc6d973b9acc1bb1a25a31a4a">premisse</a> = <a class="code" href="premisse_8c.html#a456ab6b58d1f6ec2228bcc99ee8f7510">addHeadPremisse</a>(regle-&gt;<a class="code" href="struct_regle.html#a7f01278cc6d973b9acc1bb1a25a31a4a">premisse</a>, propAAjouter);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span> listProp;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="regle_8h.html#a4d510c355e5cf6b02af19d88b5e88df0">   91</a></span>&#160;<a class="code" href="struct_regle.html">Regle</a>* <a class="code" href="regle_8c.html#a4d510c355e5cf6b02af19d88b5e88df0">createRegle</a>(<a class="code" href="struct_premisse.html">Premisse</a>* pListProp, <span class="keywordtype">char</span>* descriptionPremisse[], <span class="keywordtype">long</span> nbElemPremisse,  <span class="keywordtype">char</span>* descriptionConclusion)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="struct_regle.html">Regle</a>* regle = <a class="code" href="regle_8c.html#a07c7cb395cab825caec5502c20ae6385">newRegle</a>();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">long</span> countPrem = 0; countPrem &lt; nbElemPremisse; countPrem++)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        *pListProp = <a class="code" href="regle_8c.html#a4187a8d7bb615ab8a33784ec763873be">instertHeadPremisseRegle</a>(regle, *pListProp, descriptionPremisse[countPrem]);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    *pListProp = <a class="code" href="regle_8c.html#ab3577b89e3076a872bbaa9e6532f04fd">addConclusion</a>(regle, *pListProp, descriptionConclusion);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span> regle;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="apremisse_8c_html_a32cb99caa802ea7ff96cf25b71d24559"><div class="ttname"><a href="premisse_8c.html#a32cb99caa802ea7ff96cf25b71d24559">addPropositionUnique</a></div><div class="ttdeci">Premisse addPropositionUnique(Premisse listProp, char desciption[], bool validite)</div><div class="ttdoc">ajoute et crée la proposition dans la prémisse si elle n'y est pas déjà</div><div class="ttdef"><b>Definition:</b> <a href="premisse_8c_source.html#l00162">premisse.c:162</a></div></div>
+<div class="ttc" id="aregle_8c_html_a6ce1a8a62cf42d080271c2352ae3af18"><div class="ttname"><a href="regle_8c.html#a6ce1a8a62cf42d080271c2352ae3af18">ReglePremisseIsEmpty</a></div><div class="ttdeci">bool ReglePremisseIsEmpty(Regle *regleAVerif)</div><div class="ttdoc">vérifie si la premisse d'une règle est vide ou ne l'est pas</div><div class="ttdef"><b>Definition:</b> <a href="regle_8c_source.html#l00061">regle.c:61</a></div></div>
+<div class="ttc" id="apremisse_8c_html_a7a4d8c620bc5d8d5520ca8b9628202db"><div class="ttname"><a href="premisse_8c.html#a7a4d8c620bc5d8d5520ca8b9628202db">deletePremisse</a></div><div class="ttdeci">void deletePremisse(Premisse prem)</div><div class="ttdoc">supprime de la mémoire une prémisse</div><div class="ttdef"><b>Definition:</b> <a href="premisse_8c_source.html#l00015">premisse.c:15</a></div></div>
+<div class="ttc" id="astruct_proposition_html_a8444d6e0dfe2bbab0b5e7b24308f1559"><div class="ttname"><a href="struct_proposition.html#a8444d6e0dfe2bbab0b5e7b24308f1559">Proposition::description</a></div><div class="ttdeci">char * description</div><div class="ttdef"><b>Definition:</b> <a href="proposition_8h_source.html#l00025">proposition.h:25</a></div></div>
+<div class="ttc" id="apremisse_8c_html_ae20aaf45d9015a6ab8cff44301e0e81c"><div class="ttname"><a href="premisse_8c.html#ae20aaf45d9015a6ab8cff44301e0e81c">premisseIsEmpty</a></div><div class="ttdeci">bool premisseIsEmpty(Premisse prem)</div><div class="ttdoc">vérifie si une premisse est vide ou ne l'est pas</div><div class="ttdef"><b>Definition:</b> <a href="premisse_8c_source.html#l00157">premisse.c:157</a></div></div>
+<div class="ttc" id="aregle_8c_html_a5e5e4e3a21b771ebda97d7e30bad3142"><div class="ttname"><a href="regle_8c.html#a5e5e4e3a21b771ebda97d7e30bad3142">deleteRegle</a></div><div class="ttdeci">void deleteRegle(Regle *regleToDelete)</div><div class="ttdoc">suprime une règle ainsi que tout ces composant</div><div class="ttdef"><b>Definition:</b> <a href="regle_8c_source.html#l00028">regle.c:28</a></div></div>
+<div class="ttc" id="aregle_8c_html_a901643ae912769b0c8d562ebc193e95f"><div class="ttname"><a href="regle_8c.html#a901643ae912769b0c8d562ebc193e95f">afficheRegle</a></div><div class="ttdeci">void afficheRegle(Regle *regle)</div><div class="ttdoc">affiche une règle</div><div class="ttdef"><b>Definition:</b> <a href="regle_8c_source.html#l00045">regle.c:45</a></div></div>
+<div class="ttc" id="aregle_8c_html_a4d510c355e5cf6b02af19d88b5e88df0"><div class="ttname"><a href="regle_8c.html#a4d510c355e5cf6b02af19d88b5e88df0">createRegle</a></div><div class="ttdeci">Regle * createRegle(Premisse *pListProp, char *descriptionPremisse[], long nbElemPremisse, char *descriptionConclusion)</div><div class="ttdoc">crée une règle à partir de chaine de caractère</div><div class="ttdef"><b>Definition:</b> <a href="regle_8c_source.html#l00091">regle.c:91</a></div></div>
+<div class="ttc" id="astruct_regle_html_a7f01278cc6d973b9acc1bb1a25a31a4a"><div class="ttname"><a href="struct_regle.html#a7f01278cc6d973b9acc1bb1a25a31a4a">Regle::premisse</a></div><div class="ttdeci">Premisse premisse</div><div class="ttdef"><b>Definition:</b> <a href="regle_8h_source.html#l00027">regle.h:27</a></div></div>
+<div class="ttc" id="astruct_premisse_html"><div class="ttname"><a href="struct_premisse.html">Premisse</a></div><div class="ttdoc">strucutre de donné permetant de représenter une prémisse par une liste chainé de propositon</div></div>
+<div class="ttc" id="astruct_proposition_html"><div class="ttname"><a href="struct_proposition.html">Proposition</a></div><div class="ttdoc">structure de donnée permetant de stocker ou une Propositon</div><div class="ttdef"><b>Definition:</b> <a href="proposition_8h_source.html#l00023">proposition.h:24</a></div></div>
+<div class="ttc" id="apremisse_8c_html_ace3539170b6f3f6f779c2f71d50ee4da"><div class="ttname"><a href="premisse_8c.html#ace3539170b6f3f6f779c2f71d50ee4da">rechercheSupprimePremisse</a></div><div class="ttdeci">Premisse rechercheSupprimePremisse(Premisse prem, Proposition *prop)</div><div class="ttdoc">supprime une proposition dans la prémisse d'une règle</div><div class="ttdef"><b>Definition:</b> <a href="premisse_8c_source.html#l00123">premisse.c:123</a></div></div>
+<div class="ttc" id="apremisse_8c_html_ae43035fc3efa6c156ae343c36d4a2b04"><div class="ttname"><a href="premisse_8c.html#ae43035fc3efa6c156ae343c36d4a2b04">rechercheListProposition</a></div><div class="ttdeci">Proposition * rechercheListProposition(Premisse listProp, char desciption[])</div><div class="ttdoc">cherche si il existe une proposition avec la meme desciption dans une liste de proposition</div><div class="ttdef"><b>Definition:</b> <a href="premisse_8c_source.html#l00206">premisse.c:206</a></div></div>
+<div class="ttc" id="aregle_8c_html_aced5693412755b9bf021d113d53a6f6f"><div class="ttname"><a href="regle_8c.html#aced5693412755b9bf021d113d53a6f6f">conlusionRegle</a></div><div class="ttdeci">Proposition * conlusionRegle(Regle *regle)</div><div class="ttdoc">revoie la conclution d'une règle</div><div class="ttdef"><b>Definition:</b> <a href="regle_8c_source.html#l00072">regle.c:72</a></div></div>
+<div class="ttc" id="apremisse_8c_html_a44c4cf0f56ba8e6e06f46fe510289f0e"><div class="ttname"><a href="premisse_8c.html#a44c4cf0f56ba8e6e06f46fe510289f0e">affichePremisse</a></div><div class="ttdeci">void affichePremisse(Premisse prem)</div><div class="ttdoc">affiche une Prémisse de manière récursive</div><div class="ttdef"><b>Definition:</b> <a href="premisse_8c_source.html#l00084">premisse.c:84</a></div></div>
+<div class="ttc" id="apremisse_8c_html_a456ab6b58d1f6ec2228bcc99ee8f7510"><div class="ttname"><a href="premisse_8c.html#a456ab6b58d1f6ec2228bcc99ee8f7510">addHeadPremisse</a></div><div class="ttdeci">Premisse addHeadPremisse(Premisse prem, Proposition *prop)</div><div class="ttdoc">ajouter une proposition en tête d'une prémisse</div><div class="ttdef"><b>Definition:</b> <a href="premisse_8c_source.html#l00024">premisse.c:24</a></div></div>
+<div class="ttc" id="aproposition_8c_html_acbafef21c64aaf70b33cae5ee05a00c3"><div class="ttname"><a href="proposition_8c.html#acbafef21c64aaf70b33cae5ee05a00c3">affichePropositon</a></div><div class="ttdeci">void affichePropositon(Proposition *proposition)</div><div class="ttdoc">afficher le contenue d'une propositon</div><div class="ttdef"><b>Definition:</b> <a href="proposition_8c_source.html#l00044">proposition.c:44</a></div></div>
+<div class="ttc" id="amain_8h_html"><div class="ttname"><a href="main_8h.html">main.h</a></div><div class="ttdoc">fichier contenant les inclusion de tout les fichier header du projet, à inclure au début de chaque fi...</div></div>
+<div class="ttc" id="aregle_8c_html_a4187a8d7bb615ab8a33784ec763873be"><div class="ttname"><a href="regle_8c.html#a4187a8d7bb615ab8a33784ec763873be">instertHeadPremisseRegle</a></div><div class="ttdeci">Premisse instertHeadPremisseRegle(Regle *regle, Premisse listProp, char *description)</div><div class="ttdoc">ajoute en tete une propostion à la prémisse d'une règle</div><div class="ttdef"><b>Definition:</b> <a href="regle_8c_source.html#l00077">regle.c:77</a></div></div>
+<div class="ttc" id="astruct_regle_html"><div class="ttname"><a href="struct_regle.html">Regle</a></div><div class="ttdoc">structure de donnée qui représente une règle</div><div class="ttdef"><b>Definition:</b> <a href="regle_8h_source.html#l00025">regle.h:26</a></div></div>
+<div class="ttc" id="aregle_8c_html_a2f71083aea50ed3ca1a00e9e9d7ce044"><div class="ttname"><a href="regle_8c.html#a2f71083aea50ed3ca1a00e9e9d7ce044">supprimePropositionPremisseRegle</a></div><div class="ttdeci">Regle * supprimePropositionPremisseRegle(Regle *regle, Proposition *prop)</div><div class="ttdoc">supprime la proposition de la prémisse d'une règle</div><div class="ttdef"><b>Definition:</b> <a href="regle_8c_source.html#l00065">regle.c:65</a></div></div>
+<div class="ttc" id="aregle_8c_html_ab3577b89e3076a872bbaa9e6532f04fd"><div class="ttname"><a href="regle_8c.html#ab3577b89e3076a872bbaa9e6532f04fd">addConclusion</a></div><div class="ttdeci">Premisse addConclusion(Regle *regle, Premisse listProp, char *description)</div><div class="ttdoc">défini une popotion comme la conclution d'une règle</div><div class="ttdef"><b>Definition:</b> <a href="regle_8c_source.html#l00034">regle.c:34</a></div></div>
+<div class="ttc" id="aregle_8c_html_a07c7cb395cab825caec5502c20ae6385"><div class="ttname"><a href="regle_8c.html#a07c7cb395cab825caec5502c20ae6385">newRegle</a></div><div class="ttdeci">Regle * newRegle()</div><div class="ttdoc">crée une règle vide</div><div class="ttdef"><b>Definition:</b> <a href="regle_8c_source.html#l00014">regle.c:14</a></div></div>
+<div class="ttc" id="astruct_regle_html_a933a105bc9e64516539ddd23e4aff9df"><div class="ttname"><a href="struct_regle.html#a933a105bc9e64516539ddd23e4aff9df">Regle::conclusion</a></div><div class="ttdeci">Proposition * conclusion</div><div class="ttdef"><b>Definition:</b> <a href="regle_8h_source.html#l00028">regle.h:28</a></div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="regle_8c.html">regle.c</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
+  </ul>
+</div>
+</body>
+</html>

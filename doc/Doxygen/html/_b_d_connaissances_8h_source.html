@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet_LO21:  Fichier source de src/BDConnaissances.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Utbm.svg.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet_LO21
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Système expert</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.18 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Recherche');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_b_d_connaissances_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">BDConnaissances.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_b_d_connaissances_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef B_D_CONNAISSANCES_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define B_D_CONNAISSANCES_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="regle_8h.html">regle.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="struct_b_d_connaissances_elem.html">   23</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissancesElem</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="struct_b_d_connaissances_elem.html#a15d3875dba8b6909f0d45688111fb18d">   25</a></span>&#160;    <a class="code" href="struct_regle.html">Regle</a>* <a class="code" href="struct_b_d_connaissances_elem.html#a15d3875dba8b6909f0d45688111fb18d">valeur</a>; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="struct_b_d_connaissances_elem.html#ad12f0054b52a505fc35123c255848290">   26</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissancesElem</a>* <a class="code" href="struct_b_d_connaissances_elem.html#ad12f0054b52a505fc35123c255848290">suivant</a>; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="_b_d_connaissances_8h.html#ad926e422b1520af705895574a455c459">   27</a></span>&#160;}<a class="code" href="_b_d_connaissances_8h.html#ad926e422b1520af705895574a455c459">BDConnaissancesElem</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="_b_d_connaissances_8h.html#a1ea9d1ed0e8d7204b7bc706f935defc5">   34</a></span>&#160;<span class="keyword">typedef</span> <a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissancesElem</a>* <a class="code" href="_b_d_connaissances_8h.html#a1ea9d1ed0e8d7204b7bc706f935defc5">BDConnaissances</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="_b_d_connaissances_8h.html#ada0f951ede8fc9f4b053ca361520612d">isEmptyBDC</a>(<a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissances</a> bdc);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissances</a> <a class="code" href="_b_d_connaissances_8h.html#a15c993633f0b4aa2067e6b148b74142a">addHeadBDC</a>(<a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissances</a> bdc, <a class="code" href="struct_regle.html">Regle</a> *aAjouter);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissances</a> <a class="code" href="_b_d_connaissances_8h.html#aa16bc92f77190f90ca5bb7e506be9823">deleteHeadBDC</a>(<a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissances</a> bdc);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_b_d_connaissances_8h.html#a4010b48d524af438b6924aac3a6bff27">deleteAllBDC</a>(<a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissances</a> bdc);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_b_d_connaissances_8h.html#a657ee6f3be1b8d8c511e5c9e7767ba60">afficheBDC</a>(<a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissances</a> bdc);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissances</a> <a class="code" href="_b_d_connaissances_8h.html#a579d8ae3db3d24c86fd8370ed2cf07c7">addRegleBDC</a>(<a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissances</a> bdc, <a class="code" href="struct_premisse.html">Premisse</a>* pListProp, <span class="keywordtype">char</span>* descriptionPremisse[], <span class="keywordtype">long</span> nbElemPremisse,  <span class="keywordtype">char</span>* descriptionConclusion);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<a class="code" href="struct_premisse.html">Premisse</a> <a class="code" href="_b_d_connaissances_8h.html#a4b5bafa359b554b5b503eb197da609de">moteurDInference</a>(<a class="code" href="struct_premisse.html">Premisse</a> baseVerite, <a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissances</a> bdc);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<a class="code" href="struct_premisse.html">Premisse</a> <a class="code" href="_b_d_connaissances_8h.html#abdc23bfafba4ffc24af7a456c36dce4a">createBDVerite</a>(<a class="code" href="struct_premisse.html">Premisse</a> listProp, <a class="code" href="struct_premisse.html">Premisse</a> BDVerite);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="_b_d_connaissances_8h.html#afc81bf8571ccbb6137cd9cc83579b1d8">isPropositionInConclusion</a>(<a class="code" href="struct_b_d_connaissances_elem.html">BDConnaissances</a> bdc, <a class="code" href="struct_proposition.html">Proposition</a>* prop);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="a_b_d_connaissances_8h_html_a657ee6f3be1b8d8c511e5c9e7767ba60"><div class="ttname"><a href="_b_d_connaissances_8h.html#a657ee6f3be1b8d8c511e5c9e7767ba60">afficheBDC</a></div><div class="ttdeci">void afficheBDC(BDConnaissances bdc)</div><div class="ttdoc">affiche la totalitée d'une base de connaissances</div><div class="ttdef"><b>Definition:</b> <a href="_b_d_connaissances_8c_source.html#l00060">BDConnaissances.c:60</a></div></div>
+<div class="ttc" id="a_b_d_connaissances_8h_html_a1ea9d1ed0e8d7204b7bc706f935defc5"><div class="ttname"><a href="_b_d_connaissances_8h.html#a1ea9d1ed0e8d7204b7bc706f935defc5">BDConnaissances</a></div><div class="ttdeci">BDConnaissancesElem * BDConnaissances</div><div class="ttdoc">pointeur sur le premier élément de la liste chainée</div><div class="ttdef"><b>Definition:</b> <a href="_b_d_connaissances_8h_source.html#l00034">BDConnaissances.h:34</a></div></div>
+<div class="ttc" id="a_b_d_connaissances_8h_html_afc81bf8571ccbb6137cd9cc83579b1d8"><div class="ttname"><a href="_b_d_connaissances_8h.html#afc81bf8571ccbb6137cd9cc83579b1d8">isPropositionInConclusion</a></div><div class="ttdeci">bool isPropositionInConclusion(BDConnaissances bdc, Proposition *prop)</div><div class="ttdoc">test si une proposition est dans la conclution d'une des règle de la bdc</div><div class="ttdef"><b>Definition:</b> <a href="_b_d_connaissances_8c_source.html#l00127">BDConnaissances.c:127</a></div></div>
+<div class="ttc" id="astruct_b_d_connaissances_elem_html_a15d3875dba8b6909f0d45688111fb18d"><div class="ttname"><a href="struct_b_d_connaissances_elem.html#a15d3875dba8b6909f0d45688111fb18d">BDConnaissancesElem::valeur</a></div><div class="ttdeci">Regle * valeur</div><div class="ttdef"><b>Definition:</b> <a href="_b_d_connaissances_8h_source.html#l00025">BDConnaissances.h:25</a></div></div>
+<div class="ttc" id="a_b_d_connaissances_8h_html_a579d8ae3db3d24c86fd8370ed2cf07c7"><div class="ttname"><a href="_b_d_connaissances_8h.html#a579d8ae3db3d24c86fd8370ed2cf07c7">addRegleBDC</a></div><div class="ttdeci">BDConnaissances addRegleBDC(BDConnaissances bdc, Premisse *pListProp, char *descriptionPremisse[], long nbElemPremisse, char *descriptionConclusion)</div><div class="ttdoc">ajoute une règle à une BDC à partir de chaine de caractère</div><div class="ttdef"><b>Definition:</b> <a href="_b_d_connaissances_8c_source.html#l00069">BDConnaissances.c:69</a></div></div>
+<div class="ttc" id="aregle_8h_html"><div class="ttname"><a href="regle_8h.html">regle.h</a></div><div class="ttdoc">fichier contenant les protoype lier à la structure de donnée Regle ainsi que les déclaration des stru...</div></div>
+<div class="ttc" id="astruct_premisse_html"><div class="ttname"><a href="struct_premisse.html">Premisse</a></div><div class="ttdoc">strucutre de donné permetant de représenter une prémisse par une liste chainé de propositon</div></div>
+<div class="ttc" id="a_b_d_connaissances_8h_html_abdc23bfafba4ffc24af7a456c36dce4a"><div class="ttname"><a href="_b_d_connaissances_8h.html#abdc23bfafba4ffc24af7a456c36dce4a">createBDVerite</a></div><div class="ttdeci">Premisse createBDVerite(Premisse listProp, Premisse BDVerite)</div><div class="ttdoc">crée la base de connaissance en y ajoutant toutee les proposition qui sont vraie</div><div class="ttdef"><b>Definition:</b> <a href="_b_d_connaissances_8c_source.html#l00113">BDConnaissances.c:113</a></div></div>
+<div class="ttc" id="a_b_d_connaissances_8h_html_aa16bc92f77190f90ca5bb7e506be9823"><div class="ttname"><a href="_b_d_connaissances_8h.html#aa16bc92f77190f90ca5bb7e506be9823">deleteHeadBDC</a></div><div class="ttdeci">BDConnaissances deleteHeadBDC(BDConnaissances bdc)</div><div class="ttdoc">supprime l'élément en tête de la bdc</div><div class="ttdef"><b>Definition:</b> <a href="_b_d_connaissances_8c_source.html#l00036">BDConnaissances.c:36</a></div></div>
+<div class="ttc" id="astruct_proposition_html"><div class="ttname"><a href="struct_proposition.html">Proposition</a></div><div class="ttdoc">structure de donnée permetant de stocker ou une Propositon</div><div class="ttdef"><b>Definition:</b> <a href="proposition_8h_source.html#l00023">proposition.h:24</a></div></div>
+<div class="ttc" id="a_b_d_connaissances_8h_html_a4b5bafa359b554b5b503eb197da609de"><div class="ttname"><a href="_b_d_connaissances_8h.html#a4b5bafa359b554b5b503eb197da609de">moteurDInference</a></div><div class="ttdeci">Premisse moteurDInference(Premisse baseVerite, BDConnaissances bdc)</div><div class="ttdoc">recherche à partir de la base de véritée et de la base de connaissances les propositions qui sont vra...</div><div class="ttdef"><b>Definition:</b> <a href="_b_d_connaissances_8c_source.html#l00074">BDConnaissances.c:74</a></div></div>
+<div class="ttc" id="a_b_d_connaissances_8h_html_ada0f951ede8fc9f4b053ca361520612d"><div class="ttname"><a href="_b_d_connaissances_8h.html#ada0f951ede8fc9f4b053ca361520612d">isEmptyBDC</a></div><div class="ttdeci">bool isEmptyBDC(BDConnaissances bdc)</div><div class="ttdoc">teste si une BDConnaissances est vide</div><div class="ttdef"><b>Definition:</b> <a href="_b_d_connaissances_8c_source.html#l00014">BDConnaissances.c:14</a></div></div>
+<div class="ttc" id="a_b_d_connaissances_8h_html_a4010b48d524af438b6924aac3a6bff27"><div class="ttname"><a href="_b_d_connaissances_8h.html#a4010b48d524af438b6924aac3a6bff27">deleteAllBDC</a></div><div class="ttdeci">void deleteAllBDC(BDConnaissances bdc)</div><div class="ttdoc">supprime récursivement la totalitée d'une base de connaissance</div><div class="ttdef"><b>Definition:</b> <a href="_b_d_connaissances_8c_source.html#l00052">BDConnaissances.c:52</a></div></div>
+<div class="ttc" id="astruct_b_d_connaissances_elem_html"><div class="ttname"><a href="struct_b_d_connaissances_elem.html">BDConnaissancesElem</a></div><div class="ttdef"><b>Definition:</b> <a href="_b_d_connaissances_8h_source.html#l00023">BDConnaissances.h:24</a></div></div>
+<div class="ttc" id="a_b_d_connaissances_8h_html_a15c993633f0b4aa2067e6b148b74142a"><div class="ttname"><a href="_b_d_connaissances_8h.html#a15c993633f0b4aa2067e6b148b74142a">addHeadBDC</a></div><div class="ttdeci">BDConnaissances addHeadBDC(BDConnaissances bdc, Regle *aAjouter)</div><div class="ttdoc">ajoute une règle à une base de connaissances en tête</div><div class="ttdef"><b>Definition:</b> <a href="_b_d_connaissances_8c_source.html#l00019">BDConnaissances.c:19</a></div></div>
+<div class="ttc" id="astruct_regle_html"><div class="ttname"><a href="struct_regle.html">Regle</a></div><div class="ttdoc">structure de donnée qui représente une règle</div><div class="ttdef"><b>Definition:</b> <a href="regle_8h_source.html#l00025">regle.h:26</a></div></div>
+<div class="ttc" id="astruct_b_d_connaissances_elem_html_ad12f0054b52a505fc35123c255848290"><div class="ttname"><a href="struct_b_d_connaissances_elem.html#ad12f0054b52a505fc35123c255848290">BDConnaissancesElem::suivant</a></div><div class="ttdeci">struct BDConnaissancesElem * suivant</div><div class="ttdef"><b>Definition:</b> <a href="_b_d_connaissances_8h_source.html#l00026">BDConnaissances.h:26</a></div></div>
+<div class="ttc" id="a_b_d_connaissances_8h_html_ad926e422b1520af705895574a455c459"><div class="ttname"><a href="_b_d_connaissances_8h.html#ad926e422b1520af705895574a455c459">BDConnaissancesElem</a></div><div class="ttdeci">struct BDConnaissancesElem BDConnaissancesElem</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_b_d_connaissances_8h.html">BDConnaissances.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
+  </ul>
+</div>
+</body>
+</html>
