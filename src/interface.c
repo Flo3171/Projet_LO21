@@ -200,15 +200,22 @@ void systemExpert(char cheminFicher[])
 
  int verificationPropositionAvecMessage(char *proposition)
  {
+    /*initialisation de la variable de contrôle*/
     int controle=0;
+
+    /*on verifie que tout les carractères saisis sont autorisés */
     for(int i=0; i< strlen(proposition)-1 && i < TAILLE_MAXI_PROPOSITION ;i++){
         if ((proposition[i]<'0' || proposition[i]>'9') && (proposition[i]<'A' || proposition[i]>'Z') && (proposition[i]<'a' || proposition[i]>'z') && (proposition[i] < ' ' || proposition[i] > ' ') && (proposition[i] < '\'' || proposition[i] > '\'') && (proposition[i] < '-' || proposition[i] > '-') ){
             controle=1;
         }
     }
+
+    /*on vérifie que le texte fait la bonne  longueur*/
     if (strlen(proposition)> TAILLE_MAXI_PROPOSITION || strlen(proposition)< 2){
         controle = controle +2;
     }
+
+    /*on passe à la phase de contrôle, en fonction du score obtenu on determine si un message d'erreur doit être envoyé*/
     switch (controle)
     {
         case 1 : printf("Votre proposition possede un/des carracteres interdis. Entrez votre proposition:\n\t");
@@ -217,6 +224,8 @@ void systemExpert(char cheminFicher[])
             break;
         case 3 : printf("Votre proposition ne respecte pas les criteres d'entree. Entrez votre proposition:\n\t");
     }
+    
+    /*on retourne la valeur correspondante à l'etat corect ou incorect de la saisie*/
     if(controle == 0){
         return 2;
     }else if (controle == 1){
