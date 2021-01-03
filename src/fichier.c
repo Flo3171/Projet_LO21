@@ -152,7 +152,7 @@ BDConnaissances WriteBDC(BDConnaissances bdc, Premisse* listeProposition, char c
     char prop[TAILLE_MAXI_PROPOSITION+2];
 
     /*on demande à l'utilisateur d'indiquer le nombre de proposition qu'il veut entrer*/
-    sortie=  acquisitionEntierSansMessageAvecConsigne(1,254,"\n\nCombien de propositions voulez vous ajouter ? :\n entre 2 et 254 \n--> ");
+    sortie=  acquisitionEntierSansMessageAvecConsigne(1,254,"\n\nCombien de propositions voulez vous ajouter ? :\n entre 1 et 254 \n--> ");
 
     /*demande l'aquisition d'une proposition tant que le nombre de prpoposition indiqué n'est pas atteint*/
     while(nbProp < sortie){
