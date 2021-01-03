@@ -73,7 +73,7 @@ BDConnaissances addRegleBDC(BDConnaissances bdc, Premisse* pListProp, char* desc
 
 Premisse moteurDInference(Premisse baseVerite, BDConnaissances bdc)
 {
-    Premisse conclusion = NULL;
+    /*Premisse conclusion = NULL;
     PremisseElem *propositionActuel = baseVerite;
     
     while (propositionActuel != NULL)
@@ -96,18 +96,40 @@ Premisse moteurDInference(Premisse baseVerite, BDConnaissances bdc)
                     {
                         baseVerite = addTailPremisse(baseVerite, regleActuel->valeur->conclusion);
                     }
-                    
-                    
-                    
-                    
                 }
-                
             }
             regleActuel = regleActuel->suivant;
         }
         propositionActuel = propositionActuel->elemSuivant;   
     }
-    return conclusion;    
+    return conclusion; */
+
+    Premisse conclusion = NULL;
+    BDConnaissancesElem *regle = bdc;
+    bool poursuit = true;
+
+    while (poursuit)
+    {
+        poursuit = false;
+        while (regle != NULL)
+        {
+            if (isPremisseTrue(regle->valeur->premisse))    
+            {
+                setValidite(regle->valeur->conclusion, true);
+                poursuit = true;
+
+                if (!propositionDansPremisse(conclusion, regle->valeur->conclusion))
+                    {
+                        conclusion = addTailPremisse(conclusion, regle->valeur->conclusion);
+                    }
+            }
+            
+            regle = regle->suivant;
+        }
+    }
+    return conclusion;
+    
+       
 }
 
 Premisse createBDVerite(Premisse listProp, Premisse BDVerite)
