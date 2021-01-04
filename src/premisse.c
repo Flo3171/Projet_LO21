@@ -263,7 +263,8 @@ void affichePremisseTrue(Premisse prem)
             printf("\"");
             affichePropositon(prem->valeur);
             printf("\" & ");
-            affichePremisseTrue(prem->elemSuivant); 
+            
         }
+        affichePremisseTrue(prem->elemSuivant); 
     }
 }
