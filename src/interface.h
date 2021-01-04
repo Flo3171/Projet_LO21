@@ -43,12 +43,10 @@ int acquisitionEntierSansMessageAvecConsigne(int min, int max, char consigne[]);
  * @brief genere la base de Verite en posant des question à l'utilisateur
  * 
  * @param listProp : liste de toute les proposition qui on été enregistré
- * @param bdVerite : liste de toute les propostion qui sont vraie
  * @param bdc : base ce connaissance avec laquel on travail
- * @return Premisse : renvoie une liste chainée de proposition qui est la liste de toute les proposition qui sont vraie
  * @author Florian CLOAREC
  */
-Premisse genereBDVerite(Premisse listProp, Premisse bdVerite, BDConnaissances bdc);
+void genereBDVerite(Premisse listProp, BDConnaissances bdc);
 
 /**
  * @brief lance le system expert

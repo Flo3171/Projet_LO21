@@ -135,13 +135,9 @@ int acquisitionEntierSansMessageAvecConsigne(int min, int max, char consigne[])
     return valeur;
 }
 
-Premisse genereBDVerite(Premisse listProp, Premisse bdVerite, BDConnaissances bdc)
+void genereBDVerite(Premisse listProp, BDConnaissances bdc)
 {
-    if (listProp == NULL)
-    {
-        return bdVerite;
-    }
-    else
+    if (listProp != NULL)
     {
         if (isPropositionInConclusion(bdc, listProp->valeur))
         {
@@ -155,7 +151,6 @@ Premisse genereBDVerite(Premisse listProp, Premisse bdVerite, BDConnaissances bd
             if (choix == 1)
             {
                 listProp->valeur->validite = true;
-                bdVerite = addHeadPremisse(bdVerite, listProp->valeur);
             }
             else
             {
@@ -163,35 +158,33 @@ Premisse genereBDVerite(Premisse listProp, Premisse bdVerite, BDConnaissances bd
             }
         }
         
-        return genereBDVerite(listProp->elemSuivant, bdVerite, bdc); 
+        genereBDVerite(listProp->elemSuivant, bdc); 
     }
 }
 
 void systemExpert(char cheminFicher[])
 {
     Premisse listProp = NULL;
-    Premisse bDVerite = NULL;
     BDConnaissances bdc = NULL;
     Premisse conclusion = NULL;
 
     bdc = ReadBDC(bdc, &listProp, cheminFicher);
 
     printf("\nVeuillez repondre a ces question afin de generer la base de verite\n");
-    bDVerite = genereBDVerite(listProp, bDVerite, bdc);
+    genereBDVerite(listProp, bdc);
 
     printf("\n\nLa base de verite contient les regle suivantes :\n");
     afficheBDC(bdc);
 
     printf("\n\nLa base de verite contient les proposition suivantes:\n");
-    affichePremisse(bDVerite);
+    affichePremisseTrue(listProp);
 
-    conclusion =  moteurDInference(bDVerite, bdc);
+    conclusion =  moteurDInference(bdc);
 
     printf("\n\nLe moteur d'inference a prouve les propositions suivantes : \n");
     affichePremisse(conclusion);
 
     deleteAllBDC(bdc);
-    deletePremisse(bDVerite);
     deletePremisse(conclusion);
     deletePremisseProposition(listProp);
 

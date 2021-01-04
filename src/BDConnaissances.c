@@ -71,26 +71,21 @@ BDConnaissances addRegleBDC(BDConnaissances bdc, Premisse* pListProp, char* desc
     return addHeadBDC(bdc, createRegle(pListProp, descriptionPremisse, nbElemPremisse, descriptionConclusion));
 }
 
-Premisse moteurDInference(Premisse baseVerite, BDConnaissances bdc)
+Premisse moteurDInference(BDConnaissances bdc)
 {
     Premisse conclusion = NULL;
-    bool poursuit = true;
-    while (poursuit)
+    bool arret = false;
+    while (!arret)
     {
         BDConnaissancesElem *regle = bdc;
-        poursuit = false;
+        arret = true;
         while (regle != NULL)
         {
-            if (isPremisseTrue(regle->valeur->premisse))    
+            if (isPremisseTrue(regle->valeur->premisse) && regle->valeur->conclusion->validite == false)    
             {
                 setValidite(regle->valeur->conclusion, true);
-                
-
-                if (!propositionDansPremisse(conclusion, regle->valeur->conclusion))
-                    {
-                        poursuit = true;
-                        conclusion = addTailPremisse(conclusion, regle->valeur->conclusion);
-                    }
+                arret = false;
+                conclusion = addTailPremisse(conclusion, regle->valeur->conclusion);
             }
             
             regle = regle->suivant;

@@ -298,31 +298,33 @@ on crée une liste chainée de proposition de type Premisse qui contiendra toute
 
 ### Fonctions associées
 
-* moteurDInference : recherche à partir de la base de véritée et de la base de connaissances les propositions qui sont vraie
+* moteurDInference : recherche à partir des proposition qui sont vraie et de la base de connaissances les propositions qui peuvent être déduite comme vraie
 
-    * donnée : base de connaissance (une liste chainée règle), base de véritée  (liste chainée de proposition)
+    * donnée : base de connaissance (une liste chainée règle)
     * résultat : renvoie une liste chainée de proposition qui ont été déduite grace à l'éxécution de cette fonction
 
 ```algo
-fonction : moteurDInference(Premisse baseVerite, BDConnaissances bdc) : Premisse
+fonction : moteurDInference(BDConnaissances bdc) : Premisse
 
     Soit conclusion une Premisse
-    Pour chaque proposition dans baseVerite
-        Pour chaque regle dans bdc
-
-            si (propositionDansPremisse(premisse(regle), proposition))
-                setValidite(proposition, vraie)
-                si (isPremisseTrue(premisse(regle))
-                    addTailPremisse(conclusion, conclusion(regle))
-                fin si
-            fin si
-        fin pour
-    fin pour            
-
+    Soit arret un booléen
+    arret <-- faux
+    tant que arret = faux
+        arret <-- vrai
+        soit regle un pointeur sur BDConnaissancesElem
+        regle <-- bdc
+        tant que nonVide(regle)
+            Si isPremiseTrue(premissse(valeur(regle))) = vrai et validite(conclusion(valeur(regle))) = faux
+                setValidité(conclusion(valeur(regle)), vrai)
+                conclusion <-- addTailPremisse(conclusion, conclusion(valeur(regle)))
+                arret <-- faux
+            fin Si
+            regle = suivant(regle)
+        fin tant que
+    fin tant que
     moteurDInference <-- conclusion
-
 fin fonction
 
 ```
 
-Lexique : setValidite est une fonction qui définit la valeur de la sous variable validité d'une proposition et isPremiisseTrue est une fonction qui teste de manière récursive si toute les proposition d'une prémisse sont vraies
+Lexique : setValidite est une fonction qui définit la valeur de la sous variable validité d'une proposition et isPremiisseTrue est une fonction qui teste de manière récursive si toute les propositions d'une prémisse sont vraies

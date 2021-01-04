@@ -239,3 +239,31 @@ bool isPremisseTrue(Premisse prem)
         return prem->valeur->validite && isPremisseTrue(prem->elemSuivant);
     }    
 }
+
+
+void affichePremisseTrue(Premisse prem)
+{
+    if (prem == NULL)
+    {
+        printf("element vide");
+    }
+    else if (prem->elemSuivant == NULL)
+    {
+        if (prem->valeur->validite)
+        {
+            printf("\"");
+            affichePropositon(prem->valeur);
+            printf("\" ");
+        } 
+    }
+    else
+    {
+        if (prem->valeur->validite)
+        {
+            printf("\"");
+            affichePropositon(prem->valeur);
+            printf("\" & ");
+            affichePremisseTrue(prem->elemSuivant); 
+        }
+    }
+}

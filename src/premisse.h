@@ -148,4 +148,13 @@ void deletePremisseProposition(Premisse prem);
  */
 bool isPremisseTrue(Premisse prem);
 
+
+/**
+ * @brief affiche les proposition d'une Prémisse si elles sont vraie de manière récursive
+ * 
+ * @param prem : prémisse que l'on veut afficher
+ * @author Florian CLOAREC
+ */
+void affichePremisseTrue(Premisse prem);
+
 #endif

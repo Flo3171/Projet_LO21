@@ -96,12 +96,11 @@ BDConnaissances addRegleBDC(BDConnaissances bdc, Premisse* pListProp, char* desc
 /**
  * @brief recherche à partir de la base de véritée et de la base de connaissances les propositions qui sont vraie
  * 
- * @param baseVerite : la liste chainé de Porposition qui sont vraie
  * @param bdc : base de connaissance, liste chainé des regles qui permetent de déduire des proposition vraie
  * @return Premisse : une liste chainée de propositions qui sont les proposition qui on été trvouée par la fonction
  * @author Florian CLOAREC
  */
-Premisse moteurDInference(Premisse baseVerite, BDConnaissances bdc);
+Premisse moteurDInference( BDConnaissances bdc);
 
 /**
  * @brief crée la base de connaissance en y ajoutant toutee les proposition qui sont vraie 
