@@ -1,7 +1,7 @@
 /**
  * @file interface.c
  * @author Florian Cloarec
- * @brief fichier contenant les implémentation des fonction lié à l'interface avec l'utilisateur
+ * @brief fichier contenant les implémentation des fonctions lié à l'interface avec l'utilisateur
  * @version 0.1
  * @date 07 December 2020
  * 
@@ -18,7 +18,7 @@ void menuPrincipal()
     int choix;
     while (!retour)
     {
-        choix = acquisitionEntierSansMessageAvecConsigne(1,4, "Quel action souhaitez vous realiser :\n1-Lancer le systeme expert\n2-Gerer la base de connaissance\n3-Parametre\n4-Quiter\n");
+        choix = acquisitionEntierSansMessageAvecConsigne(1,4, "Quel action souhaitez vous realiser :\n1-Lancer le systeme expert\n2-Gerer la base de connaissance\n3-Parametre\n4-Quitter\n");
 
         switch (choix)
         {
@@ -102,7 +102,6 @@ void menuPrincipal()
             break;
         }
     }
-    exit(0);
     
 }
 
