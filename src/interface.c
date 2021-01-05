@@ -18,7 +18,7 @@ void menuPrincipal()
     int choix;
     while (!retour)
     {
-        choix = acquisitionEntierSansMessageAvecConsigne(1,4, "Quel action souhaitez vous realiser :\n1-Lancer le systeme expert\n2-Gerer la base de connaissance\n3-Parametre\n4-Quitter\n");
+        choix = acquisitionEntierSansMessageAvecConsigne(1,3, "Quel action souhaitez vous realiser :\n1-Lancer le systeme expert\n2-Gerer la base de connaissance\n3-Quitter\n");
 
         switch (choix)
         {
@@ -30,7 +30,7 @@ void menuPrincipal()
                 bool retourSousMenu = false;
                 while (!retourSousMenu)
                 {
-                    int choixSousMenu = acquisitionEntierSansMessageAvecConsigne(1, 3, "\nQuel action souhaitez vous realiser:\n1-Afficher la Base de Connaissance\n2-Ajouter une regle a la base de connaissances\n3-Retour\n");
+                    int choixSousMenu = acquisitionEntierSansMessageAvecConsigne(1, 4, "\nQuel action souhaitez vous realiser:\n1-Afficher la Base de Connaissance\n2-Ajouter une regle a la base de connaissances\n3-Changer le chemin d'acces du fichier contenant la bdc\n4-Retour\n");
                     switch (choixSousMenu)
                     {
                     case 1:
@@ -62,25 +62,7 @@ void menuPrincipal()
                             deletePremisseProposition(listProp);
                         }
                         break;
-                    
-                    default:
-                        retourSousMenu = true;
-                        break;
-                    }
-                }
-                
-                
-            }
-            break;
-        case 3:
-            {
-                bool retourSousMenu = false;
-                while (!retourSousMenu)
-                {
-                    int choixSousMenu = acquisitionEntierSansMessageAvecConsigne(1, 2, "\nQuel action souhaitez vous realiser:\n1-Changer le chemin d'acces du fichier contenant la bdc\n2-Retour\n");
-                    switch (choixSousMenu)
-                    {
-                    case 1:
+                    case 3:
                         {
                             char lecture[100];
                             printf("Le chemin actuel est %s\nEntrer le nouveau chemin d'acces :", cheminFichier);
@@ -94,9 +76,10 @@ void menuPrincipal()
                         break;
                     }
                 }
+                
+                
             }
             break;
-        
         default:
             retour =  true;
             break;
