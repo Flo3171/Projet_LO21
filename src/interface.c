@@ -67,6 +67,7 @@ void menuPrincipal()
                             char lecture[100];
                             printf("Le chemin actuel est %s\nEntrer le nouveau chemin d'acces :", cheminFichier);
                             fgets(lecture, 100, stdin);
+                            lecture[strlen(lecture)-1]='\0';
                             strcpy(cheminFichier, lecture);
                         }
                         break;
