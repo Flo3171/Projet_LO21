@@ -22,7 +22,7 @@ Linux :
 
 
 ````
- git clonne https://github.com/Flo3171/Projet_LO21.git
+ git clone https://github.com/Flo3171/Projet_LO21.git
  cd Projet_LO21/
  mkdir build
  cd build
