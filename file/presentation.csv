@@ -1,0 +1,15 @@
+2;C'est une categorie AM;Ca se conduit a partir de 14 ans;C'est a 2 roue;
+4;C'est une categorie A1;Ca se conduit a partir de 16 ans;C'est a 2 roue;Ca a une puissance max de 1kW;ca a un cylindree de 125cm cube;
+4;C'est une categorie A2;Ca se conduit a partir de 18 ans;C'est a 2 roue;Ca a une puissance max de 35kW;ca a un cylindree de 125cm cube;
+4;C'est une categorie A;Ca se conduit a partir de 24 ans;C'est a 2 roue;Ca a une puissance max de 73,6kW;ca a un cylindree de 125cm cube;
+4;C'est une categorie B1;Ca se conduit a partir de 18 ans;C'est a 4 roue;sont PTAC est de max 550kg;Ca a une puissance max de 15kW (20,4ch);
+4;C'est une categorie B;Ca se conduit a partir de 18 ans;C'est a 4 roue;sont PTAC est de max 3,5 tonnes;On peut y accrocher une remorque de max 750kg;
+6;C'est une categorie C1;Ca se conduit a partir de 21 ans;C'est a 4 roue ou plus;sont PTAC est de compris entre 3,5 et 5,5 tonnes;il peut transporter jusqu'a 9 personnes;il faut un permis B;On peut y accrocher une remorque de max 750kg;
+4;C'est une categorie C;Ca se conduit a partir de 21 ans;C'est a 4 roue ou plus;sont PTAC est de min 3,5 tonnes;il faut un permis B;
+5;C'est une categorie D1;Ca se conduit a partir de 21 ans;C'est a 4 roue ou plus;il faut un permis B;On peut y accrocher une remorque de max 750kg;il peut transporter jusqu'a 17 personnes;
+5;C'est une categorie D;Ca se conduit a partir de 24 ans;C'est a 4 roue ou plus;il faut un permis B;On peut y accrocher une remorque de max 750kg;il peut transporter plus 9 personnes;
+4;C'est une categorie BE;Ca se conduit a partir de 18 ans;C'est a 4 roue;sont PTAC est de max 3,5 tonnes;On peut y accrocher une remorque de plus de 750kg;
+6;C'est une categorie C1E;Ca se conduit a partir de 21 ans;C'est a 4 roue ou plus;sont PTAC est de min 3,5 tonnes;il faut un permis B;il faut un permis C1;On peut y accrocher 2 remorque de plus de 750kg;
+5;C'est une categorie CE;Ca se conduit a partir de 21 ans;C'est a 4 roue ou plus;sont PTAC est de min 3,5 tonnes;il faut un permis B;On peut y accrocher une remorque de plus de 750kg;
+5;C'est une categorie D1E;Ca se conduit a partir de 21 ans;C'est a 4 roue ou plus;il faut un permis B;On peut y accrocher une remorque de plus de 750kg;il peut transporter jusqu'à 17 personnes;
+5;C'est une categorie DE;Ca se conduit a partir de 24 ans;C'est a 4 roue ou plus;il faut un permis B;On peut y accrocher une remorque de plus de 750kg;il peut transporter plus 9 personnes;
