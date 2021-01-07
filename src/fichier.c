@@ -225,7 +225,7 @@ BDConnaissances WriteBDC(BDConnaissances bdc, Premisse* listeProposition, char c
     bdc = addRegleBDC(bdc, listeProposition , prem, nbProp, conclusion);
     
     /*ecriture de la nouvelle règle dans le fichier*/
-    fprintf(fichier,"\n%1d;",nbProp);
+    fprintf(fichier,"\n%d;",nbProp);
     fprintf(fichier,"%s;",conclusion);
     for (int i = 0; i<nbProp; i++){
         fprintf(fichier,"%s;",prem[i]);
