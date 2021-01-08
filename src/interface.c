@@ -13,7 +13,7 @@
 
 void menuPrincipal()
 {
-    char cheminFichier[100] = "../../file/bdc.csv";
+    char cheminFichier[100] = "../../file/presentation.csv";
     bool retour = false;
     int choix;
     while (!retour)
@@ -53,7 +53,7 @@ void menuPrincipal()
                             BDConnaissances bdc = NULL;
                             bdc = ReadBDC(bdc, &listProp, cheminFichier);
                             
-                            WriteBDC(bdc, &listProp, cheminFichier);
+                            bdc = WriteBDC(bdc, &listProp, cheminFichier);
                             printf("\nLa base de connaissance contient les regle suivantes :\n");
                             afficheBDC(bdc);
                             printf("\n");
